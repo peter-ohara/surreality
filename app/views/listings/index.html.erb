@@ -53,7 +53,7 @@
 
   <div class="col-md-8"><!--Column right-->
 
-    <ul class="thumbnails">
+    <div class="thumbnails">
 
       <% @listings.each do |listing| %>
         <div class = "col-sm-6 col-md-6">
@@ -64,13 +64,13 @@
             <% end %>
 
             <div class="caption">
-              <p><%= "GHC #{listing.price}, #{listing.listing_name}" %></p>
+              <p><%= "GHC #{listing.price}, #{listing.address}" %></p>
             </div>
           </li>
         </div>
       <% end %>
 
-    </ul>
+    </div>
 
   </div>
 </div>
