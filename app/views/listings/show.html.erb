@@ -1,44 +1,125 @@
-<p id="notice"><%= notice %></p>
+    <div class="row">
+     <div class="col-md-4">
+      <!--Column left Search group-->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">More Details</h3>
+        </div>
+        <div class="panel-body">
 
-<p>
-  <strong>Listing name:</strong>
-  <%= @listing.listing_name %>
-</p>
 
-<p>
-  <strong>Summary:</strong>
-  <%= @listing.summary %>
-</p>
+          <!--List view of Home details-->  
+          <div class="list-group">
+            <a href="#" class="list-group-item active">
+              <span class="glyphicon glyphicon-home"></span> Home Details <span class="badge"></span>
+            </a>
+            <a href="#" class="list-group-item">
+              <span class=""></span> Price<span class="badge"> GHC <%= @listing.price %></span>
+            </a>
+            <a href="#" class="list-group-item">
+              <span class=""></span> Bedrooms<span class="badge">4</span>
+            </a>
+            <a href="#" class="list-group-item">
+              <span class="g"></span> Bathrooms <span class="badge">3</span>
+            </a>
+            <a href="#" class="list-group-item">
+              <span class="g"></span> Property type<span class="badge">Residential</span>
+            </a>
+          </div> <br>
+          <div class="list-group">
+            <a href="#" class="list-group-item active">
+              <span class="glyphicon glyphicon-info-sign"></span> Features <span class="badge"></span>
+            </a>
+            <a href="#" class="list-group-item">
+              <span class="g"></span> Colonial Architecture <span class="badge"></span>
+            </a>
+            <a href="#" class="list-group-item">
+              <span class="g"></span> Age<span class="badge">20 Yrs</span>
+            </a>
+            <a href="#" class="list-group-item">
+              <span class=""></span> Parking space<span class="badge"></span>
+            </a>
+            <a href="#" class="list-group-item">
+              <span class=""></span> Basement<span class="badge"></span>
+            </a>
+            <a href="#" class="list-group-item">
+              <span class=""></span> Security<span class="badge">CCTV<br></span>
+            </a>
+          </div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @listing.address %>
-</p>
+          <br> <br><button type="submit" class="btn btn-primary">Request More Information</button>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @listing.latitude %>
-</p>
+          <H4>Popular Homes</H4><br>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @listing.longitude %>
-</p>
+          <ul class="thumbnails">
+            <div class = "col-sm-12 col-md-12">
+              <li class="span2 thumbnail">
 
-<p>
-  <strong>Price:</strong>
-  <%= @listing.price %>
-</p>
+                <%= link_to @listings.first do %>
+                  <%= image_tag @listings.first.photo_attachments.first.photo.url if !@listings.first.photo_attachments.empty? %>
+                <% end %>
 
-<p>
-  <strong>Accomodates:</strong>
-  <%= @listing.accomodates %>
-</p>
+                <div class="caption">
+                  <p><%= "GHC #{@listings.first.price}, #{@listings.first.listing_name}" %></p>
+                </div>
+              </li>
+            </div>
+          </ul>
+          
+        </div>
+      </div><br>
+      <!--Map View-->
+      <div class="col-md-4">
+       <!--Insert Map here-->
+     </div>
 
-<p>
-  <strong>Active:</strong>
-  <%= @listing.active %>
-</p>
+   </div>
+   
 
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
-<%= link_to 'Back', listings_path %>
+
+   <!--Column right Model/video/photo view-->       
+   <div class="col-md-8">
+
+    <div class="panel panel-default">
+
+      <%= raw @listing.three_sixty_videos.first.embed_link if !@listing.three_sixty_videos.empty? %>
+
+      <div class="panel-body"></div> 
+      <div class="panel-footer clearfix">
+       <ul class="list-inline">
+        <li>20 Aluguntugui, Accra</li>
+        <li><span>3</span>bedrooms</li>
+        <li>Single-Family Home</li>
+        <li>Built in <span>1984</span></li>
+        <li>Compound size:<span>19089</span>sqft</li>
+        
+      </ul>
+
+    </div>
+  </div><br>
+
+
+
+  <ul class="thumbnails">
+
+    <% @listings.each do |listing| %>
+      <div class = "col-sm-4 col-md-4">
+        <li class="span2 thumbnail">
+
+          <%= link_to listing do %>
+            <%= image_tag listing.photo_attachments.first.photo.url if !listing.photo_attachments.empty? %>
+          <% end %>
+
+          <div class="caption">
+            <p><%= "GHC #{listing.price}, #{listing.listing_name}" %></p>
+          </div>
+        </li>
+      </div>
+    <% end %>
+
+  </ul>
+
+</div>
+
+
+</div>
