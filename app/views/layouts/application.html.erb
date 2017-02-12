@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Surreality</title>
-    <%= csrf_meta_tags %>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Surreality</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= render 'layouts/shim' %>
-  </head>
+  <%= csrf_meta_tags %>
 
-  <body>
-    <%= render 'layouts/header' %>
-    <div class="container">
-    	<%= yield %>
-    </div>
-  </body>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <%= render 'layouts/shim' %>
+</head>
+
+<body>
+  <%= render 'layouts/header' %>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+</body>
 </html>
