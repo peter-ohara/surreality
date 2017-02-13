@@ -1,6 +1,7 @@
 <!--Row with three equal columns-->
 <div class="row">
-  <div class="col-md-4"><!--Column left-->
+  <div class="col-md-4">
+    <!--Column left-->
     <!--Column left Search group-->
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -11,16 +12,16 @@
         <form class="form-inline">
           <label class="">Location</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="" name=""><br>
-          <label class="" >Property type</label>&nbsp;
-          <select class="" >
+          <label class="">Property type</label>&nbsp;
+          <select class="">
             <option selected>Any</option>
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
           </select>
           <br>
-          <label class="" >Bedrooms</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <select class="" >
+          <label class="">Bedrooms</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <select class="">
             <option selected>Any</option>
             <option value="1">One</option>
             <option value="2">Two</option>
@@ -28,13 +29,13 @@
           </select>
           <br>
           <label class="">Cost</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <select class="" >
+          <select class="">
             <option selected>Min</option>
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
           </select>
-          <select class="" >
+          <select class="">
             <option selected>Max</option>
             <option value="1">One</option>
             <option value="2">Two</option>
@@ -46,31 +47,43 @@
       </div>
     </div><br>
     <!--Map View-->
-    <div class="col-md-4">
-     <!--Insert Map here-->MAp Here
-    </div>
+    <div id="search-map"></div>
   </div>
 
-  <div class="col-md-8"><!--Column right-->
+  <div class="col-md-8">
+    <!--Column right-->
 
     <div class="thumbnails">
 
       <% @listings.each do |listing| %>
-        <div class = "col-sm-6 col-md-6">
+        <div class="col-sm-6 col-md-6">
           <li class="span2 thumbnail">
 
             <%= link_to listing do %>
               <%= image_tag listing.photo_attachments.first.photo.url if !listing.photo_attachments.empty? %>
-            <% end %>
+                <% end %>
 
-            <div class="caption">
-              <p><%= "GHC #{listing.price}, #{listing.address}" %></p>
-            </div>
+                  <div class="caption">
+                    <p>
+                      <%= "GHC #{listing.price}, #{listing.address}" %>
+                    </p>
+                  </div>
           </li>
         </div>
-      <% end %>
+        <% end %>
 
     </div>
 
   </div>
 </div>
+
+<script>
+$(document).ready(function (){
+    var searchMap = L.map('search-map').setView([5.6422718, -0.155063], 13);
+
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(searchMap);
+    
+});
+</script>

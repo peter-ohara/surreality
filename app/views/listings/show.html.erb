@@ -88,15 +88,26 @@
 
       <!-- Nav tabs -->
       <ul class="nav nav-tabs nav-justified" role="tablist">
-        <li role="presentation" class="active"><a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D Models</a></li>
+        <li role="presentation" class="active"><a href="#maps" aria-controls="maps" role="tab" data-toggle="tab">Map</a></li>
+        <% if !@listing.three_d_models.empty? %>
+        <li role="presentation"><a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D Models</a></li>
+        <% end %>
+        <% if !@listing.three_sixty_videos.empty? %>
         <li role="presentation"><a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab" data-toggle="tab">360 Videos</a></li>
+        <% end %>
+        <% if !@listing.three_sixty_photos.empty? %>
         <li role="presentation"><a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab" data-toggle="tab">360 Photos</a></li>
-        <li role="presentation"><a href="#maps" aria-controls="maps" role="tab" data-toggle="tab">Map</a></li>
+        <% end %>
       </ul>
 
       <!-- Tab panes -->
       <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="three_d_models">
+        <div role="tabpanel" class="tab-pane active" id="maps">
+          <div class="thumbnail">
+            <div id="detail-map"></div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="three_d_models">
           <% if !@listing.three_d_models.empty? %>
             <div class="panel panel-default">
               <div class="panel-body">
@@ -132,13 +143,6 @@
             </div>
             <% end %>
         </div>
-        <div role="tabpanel" class="tab-pane" id="maps">
-          <% if !@listing.three_sixty_photos.empty? %>
-            <div class="thumbnail">
-              <%= raw @listing.three_sixty_photos.first.embed_link %>
-            </div>
-            <% end %>
-        </div>
       </div>
 
     </div>
@@ -167,3 +171,28 @@
   </div>
 
 </div>
+
+<script>
+$(document).ready(function (){
+    var detailMap = L.map('detail-map').setView([<%= @listing.latitude %>, <%= @listing.longitude %>], 12);
+
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(detailMap);
+
+    L.marker([<%= @listing.latitude %>, <%= @listing.longitude %>]).addTo(detailMap)
+        .bindPopup(`
+        <div class="thumbnail">
+
+            <%= link_to @listing do %>
+              <%= image_tag @listing.photo_attachments.first.photo.url if !@listing.photo_attachments.empty? %>
+                <% end %>
+
+                  <div class="caption">
+                     <%= "GHC #{@listing.price}, #{@listing.listing_name}" %>
+                  </div>
+          </div>
+        `)
+        .openPopup();
+});
+</script>

@@ -2,13 +2,23 @@
  	background: #FFFFFF;
  }
 
- .tab-pane {
-	 .thumbnail, .panel {
+.tab-pane {
+	.thumbnail, .panel {
 		border-top: 10px;
-	 }
+	}
+
+	#detail-map {
+  		width: 100%;
+  		height: 480px;
+	}
+
+	iframe {
+  		width: 100%;
+  		height: 480px;
+	}
  }
 
- iframe {
-  width: 100%;
-  height: 480px;
+#search-map {
+	height: 240px;
+	width: 100%;
 }
