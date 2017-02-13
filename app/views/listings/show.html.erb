@@ -1,176 +1,165 @@
-<div class="row">
-  <div class="col-md-4">
-    <!--Column left Search group-->
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          <%= @listing.listing_name %>
-        </h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <!--Column left Search group-->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <%= @listing.listing_name %>
+          </h3>
+        </div>
+        <div class="panel-body">
+
+
+          <!--List view of Home details-->
+          <div class="list-group">
+            <a href="#" class="list-group-item active">
+              <span class="glyphicon glyphicon-home"></span> Home Details <span class="badge"></span>
+            </a>
+            <a href="#" class="list-group-item">
+              <span class=""></span> Price<span class="badge"> GHC <%= @listing.price %></span>
+            </a>
+            <a href="#" class="list-group-item">
+              <span class=""></span> Bedrooms<span class="badge">4</span>
+            </a>
+            <a href="#" class="list-group-item">
+              <span class="g"></span> Bathrooms <span class="badge">3</span>
+            </a>
+            <a href="#" class="list-group-item">
+              <span class="g"></span> Property type<span class="badge">Residential</span>
+            </a>
+          </div> <br>
+          <div class="list-group">
+            <a href="#" class="list-group-item active">
+              <span class="glyphicon glyphicon-info-sign"></span> Features <span class="badge"></span>
+            </a>
+            <a href="#" class="list-group-item">
+              <span class="g"></span> Colonial Architecture <span class="badge"></span>
+            </a>
+            <a href="#" class="list-group-item">
+              <span class="g"></span> Age<span class="badge">20 Yrs</span>
+            </a>
+            <a href="#" class="list-group-item">
+              <span class=""></span> Parking space<span class="badge"></span>
+            </a>
+            <a href="#" class="list-group-item">
+              <span class=""></span> Basement<span class="badge"></span>
+            </a>
+            <a href="#" class="list-group-item">
+              <span class=""></span> Security<span class="badge">CCTV<br></span>
+            </a>
+          </div>
+
+          <br> <br><button type="submit" class="btn btn-primary">Request More Information</button>
+
+        </div>
+      </div><br>
+      <!--Map View-->
+      <div class="col-md-4">
+        <!--Insert Map here-->
       </div>
-      <div class="panel-body">
+
+    </div>
 
 
-        <!--List view of Home details-->
-        <div class="list-group">
-          <a href="#" class="list-group-item active">
-            <span class="glyphicon glyphicon-home"></span> Home Details <span class="badge"></span>
-          </a>
-          <a href="#" class="list-group-item">
-            <span class=""></span> Price<span class="badge"> GHC <%= @listing.price %></span>
-          </a>
-          <a href="#" class="list-group-item">
-            <span class=""></span> Bedrooms<span class="badge">4</span>
-          </a>
-          <a href="#" class="list-group-item">
-            <span class="g"></span> Bathrooms <span class="badge">3</span>
-          </a>
-          <a href="#" class="list-group-item">
-            <span class="g"></span> Property type<span class="badge">Residential</span>
-          </a>
-        </div> <br>
-        <div class="list-group">
-          <a href="#" class="list-group-item active">
-            <span class="glyphicon glyphicon-info-sign"></span> Features <span class="badge"></span>
-          </a>
-          <a href="#" class="list-group-item">
-            <span class="g"></span> Colonial Architecture <span class="badge"></span>
-          </a>
-          <a href="#" class="list-group-item">
-            <span class="g"></span> Age<span class="badge">20 Yrs</span>
-          </a>
-          <a href="#" class="list-group-item">
-            <span class=""></span> Parking space<span class="badge"></span>
-          </a>
-          <a href="#" class="list-group-item">
-            <span class=""></span> Basement<span class="badge"></span>
-          </a>
-          <a href="#" class="list-group-item">
-            <span class=""></span> Security<span class="badge">CCTV<br></span>
-          </a>
+
+    <!--Column right Model/video/photo view-->
+    <div class="col-md-8">
+
+      <div>
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs nav-justified" role="tablist">
+          <li role="presentation" class="active"><a href="#maps" aria-controls="maps" role="tab" data-toggle="tab">Map</a></li>
+          <% if !@listing.three_d_models.empty? %>
+          <li role="presentation"><a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D Models</a></li>
+          <% end %>
+          <% if !@listing.three_sixty_videos.empty? %>
+          <li role="presentation"><a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab" data-toggle="tab">360 Videos</a></li>
+          <% end %>
+          <% if !@listing.three_sixty_photos.empty? %>
+          <li role="presentation"><a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab" data-toggle="tab">360 Photos</a></li>
+          <% end %>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="maps">
+            <div class="thumbnail">
+              <div id="detail-map"></div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="three_d_models">
+            <% if !@listing.three_d_models.empty? %>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <%= raw @listing.three_d_models.first.embed_link %>
+                </div>
+              </div>
+              <% end %>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="three_sixty_videos">
+            <% if !@listing.three_sixty_videos.empty? %>
+              <div class="thumbnail">
+                <%= raw @listing.three_sixty_videos.first.embed_link %>
+                  <div class="caption">
+                    <p>
+                      <ul class="list-inline">
+                        <li>
+                          <%= @listing.address %>
+                        </li>
+                        <li><span>3</span>bedrooms</li>
+                        <li>Single-Family Home</li>
+                        <li>Built in <span>1984</span></li>
+                        <li>Compound size:<span>19089</span>sqft</li>
+                      </ul>
+                    </p>
+                  </div>
+              </div>
+              <% end %>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="three_sixty_photos">
+            <% if !@listing.three_sixty_photos.empty? %>
+              <div class="thumbnail">
+                <%= raw @listing.three_sixty_photos.first.embed_link %>
+              </div>
+              <% end %>
+          </div>
         </div>
 
-        <br> <br><button type="submit" class="btn btn-primary">Request More Information</button>
+      </div>
 
-        <H4>Popular Homes</H4><br>
 
-        <div class="thumbnails">
-          <div class="">
-            <li class="span2 thumbnail">
+      <br>
 
-              <%= link_to @listings.first do %>
-                <%= image_tag @listings.first.photo_attachments.first.photo.url if !@listings.first.photo_attachments.empty? %>
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Other listings in this area</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <% @listings.reverse.take(6).each do |listing| %>
+          <div class="col-sm-4 col-md-4">
+            <li class="thumbnail">
+
+              <%= link_to listing do %>
+                <%= image_tag listing.photo_attachments.first.photo.url if !listing.photo_attachments.empty? %>
                   <% end %>
 
                     <div class="caption">
                       <p>
-                        <%= "GHC #{@listings.first.price}, #{@listings.first.address}" %>
+                        <%= "GHC #{listing.price}, #{listing.address}" %>
                       </p>
                     </div>
             </li>
           </div>
-        </div>
-
+          <% end %>
       </div>
-    </div><br>
-    <!--Map View-->
-    <div class="col-md-4">
-      <!--Insert Map here-->
-    </div>
-
-  </div>
-
-
-
-  <!--Column right Model/video/photo view-->
-  <div class="col-md-8">
-
-    <div>
-
-      <!-- Nav tabs -->
-      <ul class="nav nav-tabs nav-justified" role="tablist">
-        <li role="presentation" class="active"><a href="#maps" aria-controls="maps" role="tab" data-toggle="tab">Map</a></li>
-        <% if !@listing.three_d_models.empty? %>
-        <li role="presentation"><a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D Models</a></li>
-        <% end %>
-        <% if !@listing.three_sixty_videos.empty? %>
-        <li role="presentation"><a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab" data-toggle="tab">360 Videos</a></li>
-        <% end %>
-        <% if !@listing.three_sixty_photos.empty? %>
-        <li role="presentation"><a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab" data-toggle="tab">360 Photos</a></li>
-        <% end %>
-      </ul>
-
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="maps">
-          <div class="thumbnail">
-            <div id="detail-map"></div>
-          </div>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="three_d_models">
-          <% if !@listing.three_d_models.empty? %>
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <%= raw @listing.three_d_models.first.embed_link %>
-              </div>
-            </div>
-            <% end %>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="three_sixty_videos">
-          <% if !@listing.three_sixty_videos.empty? %>
-            <div class="thumbnail">
-              <%= raw @listing.three_sixty_videos.first.embed_link %>
-                <div class="caption">
-                  <p>
-                    <ul class="list-inline">
-                      <li>
-                        <%= @listing.address %>
-                      </li>
-                      <li><span>3</span>bedrooms</li>
-                      <li>Single-Family Home</li>
-                      <li>Built in <span>1984</span></li>
-                      <li>Compound size:<span>19089</span>sqft</li>
-                    </ul>
-                  </p>
-                </div>
-            </div>
-            <% end %>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="three_sixty_photos">
-          <% if !@listing.three_sixty_photos.empty? %>
-            <div class="thumbnail">
-              <%= raw @listing.three_sixty_photos.first.embed_link %>
-            </div>
-            <% end %>
-        </div>
-      </div>
-
-    </div>
-
-
-    <br>
-
-    <div class="thumbnails">
-      <% @listings.each do |listing| %>
-        <div class="col-sm-4 col-md-4">
-          <li class="span2 thumbnail">
-
-            <%= link_to listing do %>
-              <%= image_tag listing.photo_attachments.first.photo.url if !listing.photo_attachments.empty? %>
-                <% end %>
-
-                  <div class="caption">
-                    <p>
-                      <%= "GHC #{listing.price}, #{listing.address}" %>
-                    </p>
-                  </div>
-          </li>
-        </div>
-        <% end %>
     </div>
   </div>
-
 </div>
+
 
 <script>
 $(document).ready(function (){
@@ -183,13 +172,13 @@ $(document).ready(function (){
     L.marker([<%= @listing.latitude %>, <%= @listing.longitude %>]).addTo(detailMap)
         .bindPopup(`
           <%= link_to @listing do %>
-            <%= image_tag @listing.photo_attachments.first.photo.url if !@listing.photo_attachments.empty? %>
+            <%= image_tag @listing.photo_attachments.first.photo.url, class: "img-responsive" if !@listing.photo_attachments.empty? %>
           <% end %>
 
           <div class="caption">
             <%= "GHC #{@listing.price}, #{@listing.listing_name}" %>
           </div>
-        `)
-        .openPopup();
+        `);
+        // .openPopup();
 });
 </script>

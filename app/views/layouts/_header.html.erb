@@ -12,12 +12,43 @@
           <%= link_to "Surreal", root_path, class: "navbar-brand" %>
         </div>
 
-        <form class="navbar-form navbar-left" role="search">
+        <% if !(current_page?(root_path) or current_page?(listings_path))  %>
+        <form action="/search" autocomplete="off" class="navbar-form navbar-left" method="get" name="search" accept-charset="utf-8">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
+            <label class="sr-only" for="location">Location</label>
+            <input type="text" class="form-control" name="location" id="location" placeholder="Location">
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+          <div class="form-group">
+            <label class="sr-only" for="property-type">Property Type</label>
+            <select class="form-control" name="property_type" id="property-type">
+              <option value="">Property Type</option>
+              <option value="0">Any</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="bedrooms">Bedrooms</label>
+            <select class="form-control" name="bedrooms" id="bedrooms">
+              <option value="">Bedrooms</option>
+              <option value="0">Any</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="sr-only" for="cost-min">Cost Min</label>
+            <input type="number" class="form-control" name="cost_min" id="cost-min" placeholder="Cost Min">
+            <label class="sr-only" for="cost-min">Cost Max</label>
+            <input type="number" class="form-control" name="cost_max" id="cost-max" placeholder="Cost Max">
+          </div>
+
+          <button type="submit" class="btn btn-default">Search</button>
         </form>
+        <% end %>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

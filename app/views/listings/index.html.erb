@@ -1,81 +1,132 @@
-<!--Row with three equal columns-->
-<div class="row">
-  <div class="col-md-4">
-    <!--Column left-->
-    <!--Column left Search group-->
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Location and criteria</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-header">
+        <h1>Avoid regrets! <small>Make informed decisions about which place to rent</small></h1>
       </div>
-      <div class="panel-body">
-
-        <form class="form-inline">
-          <label class="">Location</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <input type="" name=""><br>
-          <label class="">Property type</label>&nbsp;
-          <select class="">
-            <option selected>Any</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-          <br>
-          <label class="">Bedrooms</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <select class="">
-            <option selected>Any</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-          <br>
-          <label class="">Cost</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <select class="">
-            <option selected>Min</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-          <select class="">
-            <option selected>Max</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-
-          <br><button type="submit" class="btn btn-primary">Search</button>
-        </form>
-      </div>
-    </div><br>
-    <!--Map View-->
-    <div id="search-map"></div>
+    </div>
   </div>
 
-  <div class="col-md-8">
-    <!--Column right-->
-
-    <div class="thumbnails">
-
-      <% @listings.each do |listing| %>
-        <div class="col-sm-4 col-md-4">
-          <li class="span2 thumbnail">
-
-            <%= link_to listing do %>
-              <%= image_tag listing.photo_attachments.first.photo.url if !listing.photo_attachments.empty? %>
-                <% end %>
-
-                  <div class="caption">
-                    <p>
-                      <%= "GHC #{listing.price}, #{listing.address}" %>
-                    </p>
-                  </div>
-          </li>
+  <div class="row">
+    <div class="col-sm-12 panel">     
+      <form action="/search" autocomplete="off" class="form-inline panel-body" method="get" name="search" accept-charset="utf-8">
+        <div class="form-group">
+          <label class="sr-only" for="location">Location</label>
+          <input type="text" class="form-control" name="location" id="location" placeholder="Location">
         </div>
-        <% end %>
+        <div class="form-group">
+          <label class="sr-only" for="property-type">Property Type</label>
+          <select class="form-control" name="property_type" id="property-type">
+            <option value="">Property Type</option>
+            <option value="0">Any</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="bedrooms">Bedrooms</label>
+          <select class="form-control" name="bedrooms" id="bedrooms">
+            <option value="">Bedrooms</option>
+            <option value="0">Any</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
 
+        <div class="form-group">
+          <label class="sr-only" for="cost-min">Cost Min</label>
+          <input type="number" class="form-control" name="cost_min" id="cost-min" placeholder="Cost Min">
+          <label class="sr-only" for="cost-min">Cost Max</label>
+          <input type="number" class="form-control" name="cost_max" id="cost-max" placeholder="Cost Max">
+        </div>
+
+        <button type="submit" class="btn btn-default">Search</button>
+      </form>
     </div>
+  </div>
 
+  <br>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Best neighbourhoods</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @listings.reverse.take(3).each do |listing| %>
+      <div class="col-sm-4 col-md-4">
+        <div class="thumbnail">
+
+          <%= link_to listing do %>
+            <%= image_tag listing.photo_attachments.first.photo.url if !listing.photo_attachments.empty? %>
+              <% end %>
+
+                <div class="caption">
+                  <p>
+                    <%= "GHC #{listing.price}, #{listing.address}" %>
+                  </p>
+                </div>
+        </div>
+      </div>
+      <% end %>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Affordable</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @listings.take(4).each do |listing| %>
+      <div class="col-sm-3 col-md-3">
+        <div class="thumbnail">
+
+          <%= link_to listing do %>
+            <%= image_tag listing.photo_attachments.first.photo.url if !listing.photo_attachments.empty? %>
+              <% end %>
+
+                <div class="caption">
+                  <p>
+                    <%= "GHC #{listing.price}, #{listing.address}" %>
+                  </p>
+                </div>
+        </div>
+      </div>
+      <% end %>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Bijou places</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @listings.take(2).each do |listing| %>
+      <div class="col-sm-6 col-md-6">
+        <div class="thumbnail">
+
+          <%= link_to listing do %>
+            <%= image_tag listing.photo_attachments.first.photo.url if !listing.photo_attachments.empty? %>
+              <% end %>
+
+                <div class="caption">
+                  <p>
+                    <%= "GHC #{listing.price}, #{listing.address}" %>
+                  </p>
+                </div>
+        </div>
+      </div>
+      <% end %>
   </div>
 </div>
+
 
 <script>
 $(document).ready(function (){

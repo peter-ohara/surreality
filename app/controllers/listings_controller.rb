@@ -7,6 +7,12 @@ class ListingsController < ApplicationController
     @listings = Listing.all
   end
 
+  def search
+    puts params.inspect
+    puts search_params
+    @listings = Listing.all
+  end
+
   # GET /listings/1
   # GET /listings/1.json
   def show
@@ -71,5 +77,9 @@ class ListingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
       params.require(:listing).permit(:listing_name, :summary, :address, :latitude, :longitude, :price, :accomodates, :active)
+    end
+
+    def search_params
+      params.permit(:location, :property_type, :bedrooms, :cost_min, :cost_max)
     end
 end
