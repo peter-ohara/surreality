@@ -182,15 +182,12 @@ $(document).ready(function (){
 
     L.marker([<%= @listing.latitude %>, <%= @listing.longitude %>]).addTo(detailMap)
         .bindPopup(`
-        <div class="thumbnail">
+          <%= link_to @listing do %>
+            <%= image_tag @listing.photo_attachments.first.photo.url if !@listing.photo_attachments.empty? %>
+          <% end %>
 
-            <%= link_to @listing do %>
-              <%= image_tag @listing.photo_attachments.first.photo.url if !@listing.photo_attachments.empty? %>
-                <% end %>
-
-                  <div class="caption">
-                     <%= "GHC #{@listing.price}, #{@listing.listing_name}" %>
-                  </div>
+          <div class="caption">
+            <%= "GHC #{@listing.price}, #{@listing.listing_name}" %>
           </div>
         `)
         .openPopup();
