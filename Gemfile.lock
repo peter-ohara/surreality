@@ -197,6 +197,7 @@ GEM
     font-awesome-rails (4.7.0.1)
       railties (>= 3.2, < 5.1)
     formatador (0.2.5)
+    geocoder (1.2.13)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -351,6 +352,7 @@ DEPENDENCIES
   carrierwave (= 0.11.2)
   coffee-rails (~> 4.2)
   fog (= 1.38.0)
+  geocoder
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)

@@ -41,9 +41,13 @@
 
       <div class="row">
         <div class="col-sm-12 col-md-12">
-            <%= @listings.count %> results
-            <br>
-            <br>
+          Showing
+          <span class="text-primary"><%= @listings.count(:all) %> results</span> for
+          <%= params[:location] %>
+            <%= @east_bounds %>
+              <%= @west_bounds %>
+                <br>
+                <br>
         </div>
 
         <% @listings.reverse.each do |listing| %>
@@ -101,28 +105,45 @@
 
 
 <script>
-$(document).ready(function (){
-    var searchMap = L.map('search-map').setView([5.6422718, -0.155063], 13);
+  $(document).ready(function () {
 
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(searchMap);
+  <% if @listings.empty? %>
+    var searchMap = L.map('search-map').setView(<%= @map_center %>, <%= @zoom %>);
+  <% else %>
+    var searchMap = L.map('search-map')
+      .setView(<%= @map_center %>, getZoom(<%= @west_bounds %>, <%= @east_bounds %>, "#search-map"));
 
-
-    <% @listings.each do |listing| %>
-
-    L.marker([<%= listing.latitude %>, <%= listing.longitude %>]).addTo(searchMap)
+    <% @listings.each do |listing | %>
+      L.marker([<%= listing.latitude %>, <%= listing.longitude %>]).addTo(searchMap)
         .bindPopup(`
-          <%= link_to listing do %>
-            <%= image_tag listing.photo_attachments.first.photo.url, class: "img-responsive" if !listing.photo_attachments.empty? %>
-          <% end %>
+            <%= link_to listing do %>
+              <%= image_tag listing.photo_attachments.first.photo.url, class: "img-responsive" if !listing.photo_attachments.empty? %>
+            <% end %>
 
-          <div class="caption">
-            <%= "GHC #{listing.price}, #{listing.listing_name}" %>
-          </div>
-        `);
-
+            <div class="caption">
+              <%= "GHC #{listing.price}, #{listing.listing_name}" %>
+            </div>
+          `);
     <% end %>
+  <% end %>
+
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(searchMap);
+
+  function getZoom(westBound, eastBound, mapId) {
+    var GLOBE_WIDTH = 256; // a constant in Google's map projection
+    var west = westBound;
+    var east = eastBound;
+    var angle = east - west;
+    if (angle < 0) {
+      angle += 360;
+    }
+    var pixelWidth = $(mapId).width();
+    var zoom = Math.round(Math.log(pixelWidth * 360 / angle / GLOBE_WIDTH) / Math.LN2);
+    return zoom;
+  }
     
 });
+
 </script>

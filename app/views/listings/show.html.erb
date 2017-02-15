@@ -17,6 +17,9 @@
               <span class="glyphicon glyphicon-home"></span> Home Details <span class="badge"></span>
             </a>
             <a href="#" class="list-group-item">
+              <span class=""></span> Location<span class="badge"><%= @listing.address %></span>
+            </a>
+            <a href="#" class="list-group-item">
               <span class=""></span> Price<span class="badge"> GHC <%= @listing.price %></span>
             </a>
             <a href="#" class="list-group-item">
@@ -87,6 +90,11 @@
           <div role="tabpanel" class="tab-pane active" id="maps">
             <div class="thumbnail">
               <div id="detail-map"></div>
+              <div class="caption">
+                  <p class="text-center">
+                    <%= @listing.address %>
+                  </p>
+                </div>
             </div>
           </div>
           <div role="tabpanel" class="tab-pane" id="three_d_models">
@@ -102,19 +110,19 @@
             <% if !@listing.three_sixty_videos.empty? %>
               <div class="thumbnail">
                 <%= raw @listing.three_sixty_videos.first.embed_link %>
-                  <div class="caption">
-                    <p>
-                      <ul class="list-inline">
-                        <li>
-                          <%= @listing.address %>
-                        </li>
-                        <li><span>3</span>bedrooms</li>
-                        <li>Single-Family Home</li>
-                        <li>Built in <span>1984</span></li>
-                        <li>Compound size:<span>19089</span>sqft</li>
-                      </ul>
-                    </p>
-                  </div>
+                <div class="caption">
+                  <p>
+                    <ul class="list-inline">
+                      <li>
+                        <%= @listing.address %>
+                      </li>
+                      <li><span>3</span>bedrooms</li>
+                      <li>Single-Family Home</li>
+                      <li>Built in <span>1984</span></li>
+                      <li>Compound size:<span>19089</span>sqft</li>
+                    </ul>
+                  </p>
+                </div>
               </div>
               <% end %>
           </div>
@@ -163,7 +171,7 @@
 
 <script>
 $(document).ready(function (){
-    var detailMap = L.map('detail-map').setView([<%= @listing.latitude %>, <%= @listing.longitude %>], 12);
+    var detailMap = L.map('detail-map').setView([<%= @listing.latitude %>, <%= @listing.longitude %>], 13);
 
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

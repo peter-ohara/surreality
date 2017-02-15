@@ -8,9 +8,19 @@ class ListingsController < ApplicationController
   end
 
   def search
-    puts params.inspect
-    puts search_params
-    @listings = Listing.all
+    address = params[:location]
+
+    @listings = Listing.near(address)
+
+    if @listings.empty?
+      @map_center = Geocoder.coordinates(address)
+      @zoom = 10
+    else
+      @map_center = Geocoder::Calculations.geographic_center(@listings)
+      @map_center = Geocoder.coordinates(address)
+      @west_bounds = @listings.minimum(:longitude)
+      @east_bounds = @listings.maximum(:longitude)
+    end
   end
 
   # GET /listings/1
