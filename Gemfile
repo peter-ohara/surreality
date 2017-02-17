@@ -39,14 +39,17 @@ gem 'jbuilder', '~> 2.5'
 
 # Image Uploads
 gem 'carrierwave',             '0.11.2'
-gem 'mini_magick',             '4.5.1'
 gem 'fog',                     '1.38.0'
+gem 'mini_magick',             '4.5.1'
 
 gem 'rails_admin', '~> 1.0'
 
-gem "rails_admin_import", "~> 2.0"
+gem 'rails_admin_import', '~> 2.0'
 
-gem "geocoder"
+gem 'geocoder'
+
+gem 'figaro'
+
 
 
 group :development, :test do
@@ -56,8 +59,8 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -66,4 +69,4 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-ruby "2.3.1"
+ruby '2.3.1'
