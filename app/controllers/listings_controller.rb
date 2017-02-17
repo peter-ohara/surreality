@@ -17,7 +17,6 @@ class ListingsController < ApplicationController
       @zoom = 10
     else
       @map_center = Geocoder::Calculations.geographic_center(@listings)
-      @map_center = Geocoder.coordinates(address)
       @west_bounds = @listings.minimum(:longitude)
       @east_bounds = @listings.maximum(:longitude)
     end
