@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Surreal</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom css -->
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/palette.css">
+
+  <script src="js/jquery-3.1.1.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+    <div class="paulette">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Surreal</a>
+        </div>
+
+        <form action="/search" autocomplete="off" class="navbar-form navbar-left" method="get" name="search" accept-charset="utf-8">
+          <div class="form-group">
+            <label class="sr-only" for="location">Location</label>
+            <input type="text" class="form-control" name="location" id="location" placeholder="Location">
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="property-type">Property Type</label>
+            <select class="form-control" name="property_type" id="property-type">
+              <option value="">Property Type</option>
+              <option value="0">Any</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="bedrooms">Bedrooms</label>
+            <select class="form-control" name="bedrooms" id="bedrooms">
+              <option value="">Bedrooms</option>
+              <option value="0">Any</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="sr-only" for="cost-min">Cost Min</label>
+            <input type="number" class="form-control" name="cost_min" id="cost-min" placeholder="Cost Min">
+            <label class="sr-only" for="cost-min">Cost Max</label>
+            <input type="number" class="form-control" name="cost_max" id="cost-max" placeholder="Cost Max">
+          </div>
+
+          <button type="submit" class="btn">Search</button>
+        </form>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Sign Up</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-7">
+      <div class="row">
+        <div class="col-sm-12">
+          <form action="" autocomplete="off" class="form-inline" method="post" accept-charset="utf-8">
+            <div class="form-group">
+              <label class="sr-only" for="property-type">Property Type</label>
+              <select class="form-control" id="property-type">
+                <option>Property Type</option>
+                <option value="0">Any</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="bedrooms">Bedrooms</label>
+              <select class="form-control" id="bedrooms">
+                <option>Bedrooms</option>
+                <option value="0">Any</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="sr-only" for="cost-min">Cost Min</label>
+              <input type="number" class="form-control" id="cost-min" placeholder="Cost Min">
+              <label class="sr-only" for="cost-min">Cost Max</label>
+              <input type="number" class="form-control" id="cost-max" placeholder="Cost Max">
+            </div>
+
+            <button type="submit" class="btn">Filter</button>
+          </form>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12">
+            Showing
+            <span class="text-primary">6 results</span>
+            for
+            East Legon
+            <br>
+            <br>
+        </div>
+
+          <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+
+              <a href="/listings/9">
+                <img src="images/kitchen.jpg" alt="Kitchen" />
+</a>
+                    <div class="caption">
+                      <p>
+                        GHC 300, Unnamed Road, Ghana
+                      </p>
+                    </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+
+              <a href="/listings/7">
+                <img src="images/kitchen.jpg" alt="Kitchen" />
+</a>
+                    <div class="caption">
+                      <p>
+                        GHC 300, Deedaw Ln, Madina, Ghana
+                      </p>
+                    </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+
+              <a href="/listings/5">
+                <img src="images/kitchen.jpg" alt="Kitchen" />
+</a>
+                    <div class="caption">
+                      <p>
+                        GHC 300, Paster Oko Close, Madina, Ghana
+                      </p>
+                    </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+
+              <a href="/listings/4">
+                <img src="images/kitchen.jpg" alt="Kitchen" />
+</a>
+                    <div class="caption">
+                      <p>
+                        GHC 300, Unnamed Road, Accra, Ghana
+                      </p>
+                    </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+
+              <a href="/listings/8">
+                <img src="images/kitchen.jpg" alt="Kitchen" />
+</a>
+                    <div class="caption">
+                      <p>
+                        GHC 300, Tankple St, Accra, Ghana
+                      </p>
+                    </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+
+              <a href="/listings/1">
+                <img src="images/kitchen.jpg" alt="Kitchen" />
+</a>
+                    <div class="caption">
+                      <p>
+                        GHC 300, 3rd Asoyi Ln, Accra, Ghana
+                      </p>
+                    </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <nav aria-label="Page navigation">
+            <ul class="pagination">
+              <li>
+                <a href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li>
+                <a href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="col-sm-5">
+      <div id="search-map"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script>
+$(document).ready(function (){
+    var searchMap = L.map('search-map').setView([5.655893486604699, -0.1622184547449349], 13);
+
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(searchMap);
+
+    console.log(searchMap.getBounds());
+
+    var GLOBE_WIDTH = 256; // a constant in Google's map projection
+    var west = searchMap.getBounds()._southWest.lng;
+    var east = searchMap.getBounds()._northEast.lng;
+    var angle = east - west;
+    if (angle < 0) {
+      angle += 360;
+    }
+    var pixelWidth = $("#search-map").width();
+    var zoom = Math.round(Math.log(pixelWidth * 360 / angle / GLOBE_WIDTH) / Math.LN2);
+    console.log("Zoom: ", zoom);
+
+
+    L.marker([5.6462718, -0.159063]).addTo(searchMap)
+        .bindPopup(`
+          <a href="/listings/1">
+            <img class="img-responsive" src="images/kitchen.jpg" alt="Kitchen" />
+</a>
+          <div class="caption">
+            GHC 300, Room 22 SandCity
+          </div>
+        `);
+
+
+    L.marker([5.6522718, -0.159063]).addTo(searchMap)
+        .bindPopup(`
+          <a href="/listings/8">
+            <img class="img-responsive" src="images/kitchen.jpg" alt="Kitchen" />
+</a>
+          <div class="caption">
+            GHC 300, Room 28 SandCity
+          </div>
+        `);
+
+
+    L.marker([5.6122718, -0.155063]).addTo(searchMap)
+        .bindPopup(`
+          <a href="/listings/4">
+            <img class="img-responsive" src="images/kitchen.jpg" alt="Kitchen" />
+</a>
+          <div class="caption">
+            GHC 300, Room 24 SandCity
+          </div>
+        `);
+
+
+    L.marker([5.6422718, -0.135063]).addTo(searchMap)
+        .bindPopup(`
+          <a href="/listings/5">
+            <img class="img-responsive" src="images/kitchen.jpg" alt="Kitchen" />
+</a>
+          <div class="caption">
+            GHC 300, Room 25 SandCity
+          </div>
+        `);
+
+
+    L.marker([5.6822718, -0.165063]).addTo(searchMap)
+        .bindPopup(`
+          <a href="/listings/7">
+            <img class="img-responsive" src="images/kitchen.jpg" alt="Kitchen" />
+</a>
+          <div class="caption">
+            GHC 300, Room 27 SandCity
+          </div>
+        `);
+
+
+    L.marker([5.7, -0.2]).addTo(searchMap)
+        .bindPopup(`
+          <a href="/listings/9">
+            <img class="img-responsive" src="images/kitchen.jpg" alt="Kitchen" />
+</a>
+          <div class="caption">
+            GHC 300, Room 29 SandCity
+          </div>
+        `);
+
+    
+});
+</script>
+
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+</body>
+</html>
