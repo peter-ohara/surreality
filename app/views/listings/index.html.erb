@@ -1,12 +1,22 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="page-header">
-        <h1>Avoid regrets! <small>Make informed decisions about which place to rent</small></h1>
-      </div>
-    </div>
-  </div>
+<br><br><br>
 
+<div class="container">
+  <div class="col-sm-12" id="clone">
+    <p class="tagline">
+            <span>
+            <b>
+                Great homes and neighbourhoods start with Surreal. <br>
+            </b>
+            <small style="color: #616161;">
+                Make informed decisions about which place to rent
+            </small>
+            </span>
+    </p>
+  </div>
+</div>
+<br><br>
+
+<div class="container">
   <div class="row">
     <div class="col-sm-12 panel">
       <form action="/search" autocomplete="off" class="form-inline panel-body" method="get" name="search" accept-charset="utf-8">
@@ -42,8 +52,9 @@
           <input type="number" class="form-control" name="cost_max" id="cost-max" placeholder="Cost Max">
         </div>
 
-        <button type="submit" class="btn btn-default">Search</button>
-      </form>
+        <button class="btn "  type="submit" ><strong>Search</strong></button>
+        <br><br><br>
+    </form>
     </div>
   </div>
 
@@ -51,7 +62,7 @@
 
   <div class="row">
     <div class="col-md-12">
-      <h4>Best neighbourhoods</h4>
+      <h4>Safe neighbourhoods</h4><br>
     </div>
   </div>
 
@@ -62,13 +73,20 @@
 
           <%= link_to listing do %>
             <%= image_tag listing.photo_attachments.first.photo.url if !listing.photo_attachments.empty? %>
-              <% end %>
+          <% end %>
 
-                <div class="caption">
-                  <p>
-                    <%= "GHC #{listing.price}, #{listing.address}" %>
-                  </p>
-                </div>
+          <div class="caption">
+            <p>
+              <strong><%= "GHC #{listing.price} - 3bd" %>
+                <span class="pull-right">
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                             </span><br>
+              </strong><%= "#{listing.address}" %>
+            </p>
+          </div>
         </div>
       </div>
       <% end %>
@@ -77,7 +95,7 @@
 
   <div class="row">
     <div class="col-md-12">
-      <h4>Affordable</h4>
+      <h4>Featured Homes</h4><br>
     </div>
   </div>
 
@@ -88,13 +106,20 @@
 
           <%= link_to listing do %>
             <%= image_tag listing.photo_attachments.first.photo.url if !listing.photo_attachments.empty? %>
-              <% end %>
+          <% end %>
 
-                <div class="caption">
-                  <p>
-                    <%= "GHC #{listing.price}, #{listing.address}" %>
-                  </p>
-                </div>
+          <div class="caption">
+            <p>
+              <strong><%= "GHC #{listing.price} - 3bd" %>
+                <span class="pull-right">
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                             </span><br>
+              </strong><%= "#{listing.address}" %>
+            </p>
+          </div>
         </div>
       </div>
       <% end %>
@@ -103,7 +128,7 @@
 
   <div class="row">
     <div class="col-md-12">
-      <h4>Bijou places</h4>
+      <h4>Best neighbourhoods</h4><br>
     </div>
   </div>
 
@@ -114,27 +139,22 @@
 
           <%= link_to listing do %>
             <%= image_tag listing.photo_attachments.first.photo.url if !listing.photo_attachments.empty? %>
-              <% end %>
+          <% end %>
 
-                <div class="caption">
-                  <p>
-                    <%= "GHC #{listing.price}, #{listing.address}" %>
-                  </p>
-                </div>
+          <div class="caption">
+            <p>
+              <strong><%= "GHC #{listing.price} - 3bd" %>
+                <span class="pull-right">
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                             </span><br>
+              </strong><%= "#{listing.address}" %>
+            </p>
+          </div>
         </div>
       </div>
       <% end %>
   </div>
 </div>
-
-
-<script>
-$(document).ready(function (){
-    var searchMap = L.map('search-map').setView([5.6422718, -0.155063], 13);
-
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(searchMap);
-
-});
-</script>

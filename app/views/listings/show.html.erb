@@ -1,37 +1,44 @@
 <div class="container">
   <div class="row">
+
     <div class="col-md-4">
-      <!--Column left Search group-->
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <%= @listing.listing_name %>
-          </h3>
-        </div>
+      <!--Column left-->
+      <div class="panel noborder">
+
         <div class="panel-body">
 
 
           <!--List view of Home details-->
           <div class="list-group">
-            <a href="#" class="list-group-item active">
-              <span class="glyphicon glyphicon-home"></span> Home Details <span class="badge"></span>
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">List group item heading</h5>
+                <small>3 days ago</small>
+              </div>
+              <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
+                risus varius blandit.</p>
+              <small>Donec id elit non mi porta.</small>
             </a>
-            <a href="#" class="list-group-item">
-              <span class=""></span> Location<span class="badge"><%= @listing.address %></span>
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">List group item heading</h5>
+                <small class="text-muted">3 days ago</small>
+              </div>
+              <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
+                risus varius blandit.</p>
+              <small class="text-muted">Donec id elit non mi porta.</small>
             </a>
-            <a href="#" class="list-group-item">
-              <span class=""></span> Price<span class="badge"> GHC <%= @listing.price %></span>
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">List group item heading</h5>
+                <small class="text-muted">3 days ago</small>
+              </div>
+              <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
+                risus varius blandit.</p>
+              <small class="text-muted">Donec id elit non mi porta.</small>
             </a>
-            <a href="#" class="list-group-item">
-              <span class=""></span> Bedrooms<span class="badge">4</span>
-            </a>
-            <a href="#" class="list-group-item">
-              <span class="g"></span> Bathrooms <span class="badge">3</span>
-            </a>
-            <a href="#" class="list-group-item">
-              <span class="g"></span> Property type<span class="badge">Residential</span>
-            </a>
-          </div> <br>
+          </div>
+          <br>
           <div class="list-group">
             <a href="#" class="list-group-item active">
               <span class="glyphicon glyphicon-info-sign"></span> Features <span class="badge"></span>
@@ -53,17 +60,13 @@
             </a>
           </div>
 
-          <br> <br><button type="submit" class="btn btn-primary">Request More Information</button>
+          <br> <br>
+          <button type="submit" class="btn btn-primary">Request More Information</button>
 
         </div>
-      </div><br>
-      <!--Map View-->
-      <div class="col-md-4">
-        <!--Insert Map here-->
       </div>
 
     </div>
-
 
 
     <!--Column right Model/video/photo view-->
@@ -73,15 +76,21 @@
 
         <!-- Nav tabs -->
         <ul class="nav nav-tabs nav-justified" role="tablist">
-          <li role="presentation" class="active"><a href="#maps" aria-controls="maps" role="tab" data-toggle="tab">Map</a></li>
+          <li role="presentation" class="active">
+            <a href="#maps" aria-controls="maps" role="tab" data-toggle="tab">Map</a></li>
           <% if !@listing.three_d_models.empty? %>
-          <li role="presentation"><a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D Models</a></li>
+              <li role="presentation">
+                <a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D Models</a></li>
           <% end %>
           <% if !@listing.three_sixty_videos.empty? %>
-          <li role="presentation"><a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab" data-toggle="tab">360 Videos</a></li>
+              <li role="presentation">
+                <a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab" data-toggle="tab">360
+                  Videos</a></li>
           <% end %>
           <% if !@listing.three_sixty_photos.empty? %>
-          <li role="presentation"><a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab" data-toggle="tab">360 Photos</a></li>
+              <li role="presentation">
+                <a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab" data-toggle="tab">360
+                  Photos</a></li>
           <% end %>
         </ul>
 
@@ -91,27 +100,27 @@
             <div class="thumbnail">
               <div id="detail-map"></div>
               <div class="caption">
-                  <p class="text-center">
-                    <%= @listing.address %>
-                  </p>
-                </div>
+                <p class="text-center">
+                  <%= @listing.address %>
+                </p>
+              </div>
             </div>
           </div>
           <div role="tabpanel" class="tab-pane" id="three_d_models">
             <% if !@listing.three_d_models.empty? %>
-              <div class="panel panel-default">
-                <div class="panel-body">
-                  <%= raw @listing.three_d_models.first.embed_link %>
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <%= raw @listing.three_d_models.first.embed_link %>
+                  </div>
                 </div>
-              </div>
-              <% end %>
+            <% end %>
           </div>
           <div role="tabpanel" class="tab-pane" id="three_sixty_videos">
             <% if !@listing.three_sixty_videos.empty? %>
-              <div class="thumbnail">
-                <%= raw @listing.three_sixty_videos.first.embed_link %>
-                <div class="caption">
-                  <p>
+                <div class="thumbnail">
+                  <%= raw @listing.three_sixty_videos.first.embed_link %>
+                  <div class="caption">
+                    <p>
                     <ul class="list-inline">
                       <li>
                         <%= @listing.address %>
@@ -121,17 +130,17 @@
                       <li>Built in <span>1984</span></li>
                       <li>Compound size:<span>19089</span>sqft</li>
                     </ul>
-                  </p>
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <% end %>
+            <% end %>
           </div>
           <div role="tabpanel" class="tab-pane" id="three_sixty_photos">
             <% if !@listing.three_sixty_photos.empty? %>
-              <div class="thumbnail">
-                <%= raw @listing.three_sixty_photos.first.embed_link %>
-              </div>
-              <% end %>
+                <div class="thumbnail">
+                  <%= raw @listing.three_sixty_photos.first.embed_link %>
+                </div>
+            <% end %>
           </div>
         </div>
 
@@ -148,21 +157,21 @@
 
       <div class="row">
         <% @listings.reverse.take(6).each do |listing| %>
-          <div class="col-sm-4 col-md-4">
-            <li class="thumbnail">
+            <div class="col-sm-4 col-md-4">
+              <li class="thumbnail">
 
-              <%= link_to listing do %>
-                <%= image_tag listing.photo_attachments.first.photo.url if !listing.photo_attachments.empty? %>
-                  <% end %>
+                <%= link_to listing do %>
+                    <%= image_tag listing.photo_attachments.first.photo.url if !listing.photo_attachments.empty? %>
+                <% end %>
 
-                    <div class="caption">
-                      <p>
-                        <%= "GHC #{listing.price}, #{listing.address}" %>
-                      </p>
-                    </div>
-            </li>
-          </div>
-          <% end %>
+                <div class="caption">
+                  <p>
+                    <%= "GHC #{listing.price}, #{listing.address}" %>
+                  </p>
+                </div>
+              </li>
+            </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -170,15 +179,15 @@
 
 
 <script>
-$(document).ready(function (){
-    var detailMap = L.map('detail-map').setView([<%= @listing.latitude %>, <%= @listing.longitude %>], 13);
+    $(document).ready(function () {
+        var detailMap = L.map('detail-map').setView([<%= @listing.latitude %>, <%= @listing.longitude %>], 13);
 
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(detailMap);
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(detailMap);
 
-    L.marker([<%= @listing.latitude %>, <%= @listing.longitude %>]).addTo(detailMap)
-        .bindPopup(`
+        L.marker([<%= @listing.latitude %>, <%= @listing.longitude %>]).addTo(detailMap)
+            .bindPopup(`
           <%= link_to @listing do %>
             <%= image_tag @listing.photo_attachments.first.photo.url, class: "img-responsive" if !@listing.photo_attachments.empty? %>
           <% end %>
@@ -188,5 +197,5 @@ $(document).ready(function (){
           </div>
         `);
         // .openPopup();
-});
+    });
 </script>
