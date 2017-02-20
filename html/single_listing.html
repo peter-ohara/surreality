@@ -2,304 +2,333 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Surreal</title>
-  <!-- Font Awesome -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Surreal</title>
+    <!-- Font Awesome -->
 
-  <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom css -->
-  <link href="css/style.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/palette.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom css -->
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/palette.css">
 
-  <script src="js/jquery-3.1.1.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
 </head>
 
 
 <body>
-    <nav class="navbar sticky-top">
+<nav class="navbar sticky-top">
     <div class="paulette">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">Surreal</a>
-        </div>
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Surreal</a>
+            </div>
 
-        <form action="/search" autocomplete="off" class="navbar-form navbar-left" method="get" name="search" accept-charset="utf-8">
-          <div class="form-group">
-            <label class="sr-only" for="location">Location</label>
-            <input type="text" class="form-control" name="location" id="location" placeholder="Location">
-          </div>
+            <form action="/search" autocomplete="off" class="navbar-form navbar-left" method="get" name="search"
+                  accept-charset="utf-8">
+                <div class="form-group">
+                    <label class="sr-only" for="location">Location</label>
+                    <input type="text" class="form-control" name="location" id="location" placeholder="Location">
+                </div>
 
-          <button type="submit" class="btn">Search</button>
-        </form>
+                <button type="submit" class="btn">Search</button>
+            </form>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Sign Up</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Sign Up</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
     </div>
-  </nav>
+</nav>
 
-  <div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <!--Column left-->
-      <div class="panel noborder">
-       
-        <div class="panel-body">
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <!--Column left-->
+            <div class="panel noborder">
 
-
-          <!--List view of Home details-->
-          <div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small>3 days ago</small>
-    </div>
-    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-    <small>Donec id elit non mi porta.</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small class="text-muted">3 days ago</small>
-    </div>
-    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-    <small class="text-muted">Donec id elit non mi porta.</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small class="text-muted">3 days ago</small>
-    </div>
-    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-    <small class="text-muted">Donec id elit non mi porta.</small>
-  </a>
-</div><br>
-          <div class="list-group">
-            <a href="#" class="list-group-item active">
-              <span class="glyphicon glyphicon-info-sign"></span> Features <span class="badge"></span>
-            </a>
-            <a href="#" class="list-group-item">
-              <span class="g"></span> Colonial Architecture <span class="badge"></span>
-            </a>
-            <a href="#" class="list-group-item">
-              <span class="g"></span> Age<span class="badge">20 Yrs</span>
-            </a>
-            <a href="#" class="list-group-item">
-              <span class=""></span> Parking space<span class="badge"></span>
-            </a>
-            <a href="#" class="list-group-item">
-              <span class=""></span> Basement<span class="badge"></span>
-            </a>
-            <a href="#" class="list-group-item">
-              <span class=""></span> Security<span class="badge">CCTV<br></span>
-            </a>
-          </div>
-
-          <br> <br><button type="submit" class="btn btn-primary">Request More Information</button>
-
-        </div>
-      </div><br>
-
-      
-      <!--Map View-->
-      <div class="col-md-4">
-        <!--Insert Map here-->
-      </div>
-
-    </div>
+                <div class="panel-body">
 
 
+                    <!--List view of Home details-->
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">List group item heading</h5>
+                                <small>3 days ago</small>
+                            </div>
+                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
+                                risus varius blandit.</p>
+                            <small>Donec id elit non mi porta.</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">List group item heading</h5>
+                                <small class="text-muted">3 days ago</small>
+                            </div>
+                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
+                                risus varius blandit.</p>
+                            <small class="text-muted">Donec id elit non mi porta.</small>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">List group item heading</h5>
+                                <small class="text-muted">3 days ago</small>
+                            </div>
+                            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget
+                                risus varius blandit.</p>
+                            <small class="text-muted">Donec id elit non mi porta.</small>
+                        </a>
+                    </div>
+                    <br>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item active">
+                            <span class="glyphicon glyphicon-info-sign"></span> Features <span class="badge"></span>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <span class="g"></span> Colonial Architecture <span class="badge"></span>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <span class="g"></span> Age<span class="badge">20 Yrs</span>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <span class=""></span> Parking space<span class="badge"></span>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <span class=""></span> Basement<span class="badge"></span>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <span class=""></span> Security<span class="badge">CCTV<br></span>
+                        </a>
+                    </div>
 
-    <!--Column right Model/video/photo view-->
-    <div class="col-md-8">
+                    <br> <br>
+                    <button type="submit" class="btn btn-primary">Request More Information</button>
 
-      <div>
-
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs nav-justified" role="tablist">
-          <li role="presentation" class="active"><a href="#maps" aria-controls="maps" role="tab" data-toggle="tab">Map</a></li>
-          <li role="presentation"><a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D Models</a></li>
-          <li role="presentation"><a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab" data-toggle="tab">360 Videos</a></li>
-          <li role="presentation"><a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab" data-toggle="tab">360 Photos</a></li>
-        </ul>
-
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="maps">
-            <div class="thumbnail">
-              <div id="detail-map"></div>
-              <div class="caption">
-                  <p class="text-center">
-                    3rd Asoyi Ln, Accra, Ghana
-                  </p>
                 </div>
             </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="three_d_models">
-              <div class="panel panel-default">
-                <div class="panel-body">
-                  
-      <div class="sketchfab-embed-wrapper"><iframe width="300" height="300" src="https://sketchfab.com/models/3aa64527d1614998b4812bfefbbc896a/embed" frameborder="0" allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
+            <br>
 
-      <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
-          <a href="https://sketchfab.com/models/3aa64527d1614998b4812bfefbbc896a?utm_medium=embed&utm_source=website&utm_campain=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">Interior scene - baked textures</a>
-          by <a href="https://sketchfab.com/andzbrazil?utm_medium=embed&utm_source=website&utm_campain=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">Anderson Baptista</a>
-          on <a href="https://sketchfab.com?utm_medium=embed&utm_source=website&utm_campain=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
-      </p>
-      </div>
-      
-                </div>
-              </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="three_sixty_videos">
-              <div class="thumbnail">
-                <iframe class="col-md-12" width="560" height="480" src="https://www.youtube.com/embed/G8dHyWxXwy8" frameborder="0" allowfullscreen></iframe>
-                <div class="caption">
-                  <p>
-                    <ul class="list-inline">
-                      <li>
-                        3rd Asoyi Ln, Accra, Ghana
-                      </li>
-                      <li><span>3</span>bedrooms</li>
-                      <li>Single-Family Home</li>
-                      <li>Built in <span>1984</span></li>
-                      <li>Compound size:<span>19089</span>sqft</li>
-                    </ul>
-                  </p>
-                </div>
-              </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="three_sixty_photos">
-              <div class="thumbnail">
-                <iframe src="https://www.360cities.net/embed_iframe/black-angus-tauno-kangro-helsinki" width="100%" height="480px" frameborder="0" bgcolor="#000000" target="_blank" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe><br/><a title="Panorama photos of Black Angus sculpture by Tauno Kangro on 360cities.net" href="https://www.360cities.net/image/black-angus-tauno-kangro-helsinki">Black Angus sculpture by Tauno Kangro</a>
-              </div>
-          </div>
+
+            <!--Map View-->
+            <div class="col-md-4">
+                <!--Insert Map here-->
+            </div>
+
         </div>
 
-      </div>
+
+        <!--Column right Model/video/photo view-->
+        <div class="col-md-8">
+
+            <div>
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs nav-justified" role="tablist">
+                    <li role="presentation" class="active"><a href="#maps" aria-controls="maps" role="tab"
+                                                              data-toggle="tab">Map</a></li>
+                    <li role="presentation"><a href="#three_d_models" aria-controls="three_d_models" role="tab"
+                                               data-toggle="tab">3D Models</a></li>
+                    <li role="presentation"><a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab"
+                                               data-toggle="tab">360 Videos</a></li>
+                    <li role="presentation"><a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab"
+                                               data-toggle="tab">360 Photos</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="maps">
+                        <div class="thumbnail">
+                            <div id="detail-map"></div>
+                            <div class="caption">
+                                <p class="text-center">
+                                    3rd Asoyi Ln, Accra, Ghana
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="three_d_models">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+
+                                <div class="sketchfab-embed-wrapper">
+                                    <iframe width="300" height="300"
+                                            src="https://sketchfab.com/models/3aa64527d1614998b4812bfefbbc896a/embed"
+                                            frameborder="0" allowvr allowfullscreen mozallowfullscreen="true"
+                                            webkitallowfullscreen="true" onmousewheel=""></iframe>
+
+                                    <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
+                                        <a href="https://sketchfab.com/models/3aa64527d1614998b4812bfefbbc896a?utm_medium=embed&utm_source=website&utm_campain=share-popup"
+                                           target="_blank" style="font-weight: bold; color: #1CAAD9;">Interior scene -
+                                            baked textures</a>
+                                        by <a
+                                            href="https://sketchfab.com/andzbrazil?utm_medium=embed&utm_source=website&utm_campain=share-popup"
+                                            target="_blank" style="font-weight: bold; color: #1CAAD9;">Anderson
+                                        Baptista</a>
+                                        on <a
+                                            href="https://sketchfab.com?utm_medium=embed&utm_source=website&utm_campain=share-popup"
+                                            target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="three_sixty_videos">
+                        <div class="thumbnail">
+                            <iframe class="col-md-12" width="560" height="480"
+                                    src="https://www.youtube.com/embed/G8dHyWxXwy8" frameborder="0"
+                                    allowfullscreen></iframe>
+                            <div class="caption">
+                                <p>
+                                <ul class="list-inline">
+                                    <li>
+                                        3rd Asoyi Ln, Accra, Ghana
+                                    </li>
+                                    <li><span>3</span>bedrooms</li>
+                                    <li>Single-Family Home</li>
+                                    <li>Built in <span>1984</span></li>
+                                    <li>Compound size:<span>19089</span>sqft</li>
+                                </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="three_sixty_photos">
+                        <div class="thumbnail">
+                            <iframe src="https://www.360cities.net/embed_iframe/black-angus-tauno-kangro-helsinki"
+                                    width="100%" height="480px" frameborder="0" bgcolor="#000000" target="_blank"
+                                    allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+                            <br/><a title="Panorama photos of Black Angus sculpture by Tauno Kangro on 360cities.net"
+                                    href="https://www.360cities.net/image/black-angus-tauno-kangro-helsinki">Black Angus
+                            sculpture by Tauno Kangro</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
 
 
-      <br>
+            <br>
 
-      <div class="row">
-        <div class="col-md-12">
-          <h4>Other listings in this area</h4>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>Other listings in this area</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4 col-md-4">
+                    <li class="thumbnail">
+
+                        <a href="/listings/1">
+                            <img src="images/kitchen.jpg" alt="Kitchen"/>
+                        </a>
+                        <div class="caption">
+                            <p>
+                                GHC 300, 3rd Asoyi Ln, Accra, Ghana
+                            </p>
+                        </div>
+                    </li>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <li class="thumbnail">
+
+                        <a href="/listings/4">
+                            <img src="images/kitchen.jpg" alt="Kitchen"/>
+                        </a>
+                        <div class="caption">
+                            <p>
+                                GHC 300, Unnamed Road, Accra, Ghana
+                            </p>
+                        </div>
+                    </li>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <li class="thumbnail">
+
+                        <a href="/listings/5">
+                            <img src="images/kitchen.jpg" alt="Kitchen"/>
+                        </a>
+                        <div class="caption">
+                            <p>
+                                GHC 300, Paster Oko Close, Madina, Ghana
+                            </p>
+                        </div>
+                    </li>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <li class="thumbnail">
+
+                        <a href="/listings/6">
+                            <img src="images/kitchen.jpg" alt="Kitchen"/>
+                        </a>
+                        <div class="caption">
+                            <p>
+                                GHC 300, Unnamed Road, Ghana
+                            </p>
+                        </div>
+                    </li>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <li class="thumbnail">
+
+                        <a href="/listings/9">
+                            <img src="images/kitchen.jpg" alt="Kitchen"/>
+                        </a>
+                        <div class="caption">
+                            <p>
+                                GHC 300, Unnamed Road, Ghana
+                            </p>
+                        </div>
+                    </li>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <li class="thumbnail">
+
+                        <a href="/listings/8">
+                            <img src="images/kitchen.jpg" alt="Kitchen"/>
+                        </a>
+                        <div class="caption">
+                            <p>
+                                GHC 300, Tankple St, Accra, Ghana
+                            </p>
+                        </div>
+                    </li>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="row">
-          <div class="col-sm-4 col-md-4">
-            <li class="thumbnail">
-
-              <a href="/listings/1">
-                <img src="images/kitchen.jpg" alt="Kitchen" />
-</a>
-                    <div class="caption">
-                      <p>
-                        GHC 300, 3rd Asoyi Ln, Accra, Ghana
-                      </p>
-                    </div>
-            </li>
-          </div>
-          <div class="col-sm-4 col-md-4">
-            <li class="thumbnail">
-
-              <a href="/listings/4">
-                <img src="images/kitchen.jpg" alt="Kitchen" />
-</a>
-                    <div class="caption">
-                      <p>
-                        GHC 300, Unnamed Road, Accra, Ghana
-                      </p>
-                    </div>
-            </li>
-          </div>
-          <div class="col-sm-4 col-md-4">
-            <li class="thumbnail">
-
-              <a href="/listings/5">
-                <img src="images/kitchen.jpg" alt="Kitchen" />
-</a>
-                    <div class="caption">
-                      <p>
-                        GHC 300, Paster Oko Close, Madina, Ghana
-                      </p>
-                    </div>
-            </li>
-          </div>
-          <div class="col-sm-4 col-md-4">
-            <li class="thumbnail">
-
-              <a href="/listings/6">
-                <img src="images/kitchen.jpg" alt="Kitchen" />
-</a>
-                    <div class="caption">
-                      <p>
-                        GHC 300, Unnamed Road, Ghana
-                      </p>
-                    </div>
-            </li>
-          </div>
-          <div class="col-sm-4 col-md-4">
-            <li class="thumbnail">
-
-              <a href="/listings/9">
-                <img src="images/kitchen.jpg" alt="Kitchen" />
-</a>
-                    <div class="caption">
-                      <p>
-                        GHC 300, Unnamed Road, Ghana
-                      </p>
-                    </div>
-            </li>
-          </div>
-          <div class="col-sm-4 col-md-4">
-            <li class="thumbnail">
-
-              <a href="/listings/8">
-                <img src="images/kitchen.jpg" alt="Kitchen" />
-</a>
-                    <div class="caption">
-                      <p>
-                        GHC 300, Tankple St, Accra, Ghana
-                      </p>
-                    </div>
-            </li>
-          </div>
-      </div>
     </div>
-  </div>
 </div>
 
 
 <script>
-$(document).ready(function (){
-    var detailMap = L.map('detail-map').setView([5.6462718, -0.159063], 13);
+    $(document).ready(function () {
+        var detailMap = L.map('detail-map').setView([5.6462718, -0.159063], 13);
 
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(detailMap);
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(detailMap);
 
-    L.marker([5.6462718, -0.159063]).addTo(detailMap)
-        .bindPopup(`
+        L.marker([5.6462718, -0.159063]).addTo(detailMap)
+            .bindPopup(`
           <a href="/listings/1">
             <img class="img-responsive" src="images/kitchen.jpg" alt="Kitchen" />
 </a>
@@ -308,10 +337,10 @@ $(document).ready(function (){
           </div>
         `);
         // .openPopup();
-});
+    });
 </script>
 
-  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 </body>
 
 </html>
