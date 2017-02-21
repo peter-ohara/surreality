@@ -75,10 +75,6 @@ body {
     height: 300px;
 }
 
-.navbar-brand {
-
-}
-
 .btn {
     background: #F44336;
     color: #FFFFFF;
@@ -187,7 +183,7 @@ div {
 }
 
 .panel.noborder {
-    border: none;
+
     box-shadow: none;
 }
 
@@ -210,4 +206,5 @@ h4{
 }
 .carousel slide{
     margin-bottom: 30px;
+    height: 450px;
 }
