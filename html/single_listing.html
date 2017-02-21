@@ -113,10 +113,16 @@
                         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
                             <div class="d-flex w-100 justify-content-between">
                                 <h4 class="mb-1">Home Details for 332 Central Park E #5S</h4>
-                                <small>Updated 3 days ago</small><br>
+                                <small>Updated 3 days ago</small>
+                                <br>
                             </div>
                             <p class="mb-1">Description.</p>
-                            <small>One Bedroom Condo with Private Terrace on tree-lined Park Block. Separate dining area can be converted to second bedroom in elegant mint condition. A full service, pet friendly building with gym, laundry room, bike room, and parking. Conveniently located to Central Park, Whole Foods shopping and all transportation. Ask: $1,188,000 CC+RE TAX $1092 month.</small>
+                            <small>One Bedroom Condo with Private Terrace on tree-lined Park Block. Separate dining area
+                                can be converted to second bedroom in elegant mint condition. A full service, pet
+                                friendly building with gym, laundry room, bike room, and parking. Conveniently located
+                                to Central Park, Whole Foods shopping and all transportation. Ask: $1,188,000 CC+RE TAX
+                                $1092 month.
+                            </small>
                         </a>
                         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                             <div class="d-flex w-100 justify-content-between">
@@ -150,9 +156,9 @@
                                 <li>
                                     Available 24hrs a day
                                 </li>
-                                <li>Water reservoir: Available </li>
-                                <li>Water pump: </li>
-                                <li>Borehole: </li>
+                                <li>Water reservoir: Available</li>
+                                <li>Water pump:</li>
+                                <li>Borehole:</li>
                                 <li>Compound size:<span>19089</span>sqft</li>
                             </ul>
                             </p>
@@ -168,8 +174,8 @@
                                 <li>
                                     Available 24hrs a day
                                 </li>
-                                <li>Backup generator: Available </li>
-                                <li>Payment: Pre-paid </li>
+                                <li>Backup generator: Available</li>
+                                <li>Payment: Pre-paid</li>
 
                             </ul>
                             </p>
@@ -185,8 +191,8 @@
                                 <li>
                                     Internet: Mtn -3G 500kbs
                                 </li>
-                                <li>Garbage Collection: 2 times/week </li>
-                                <li>Security: </li>
+                                <li>Garbage Collection: 2 times/week</li>
+                                <li>Security:</li>
 
                             </ul>
                             </p>
@@ -216,7 +222,8 @@
 
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs nav-justified" role="tablist">
-                    <li role="presentation" class="active"><a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab"
+                    <li role="presentation" class="active"><a href="#three_sixty_videos"
+                                                              aria-controls="three_sixty_videos" role="tab"
                                                               data-toggle="tab">360 video</a></li>
 
                     <li role="presentation"><a href="#maps" aria-controls="maps" role="tab"
@@ -264,16 +271,16 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <h4>See schools, businesses, restaurants  and crimes near this home</h4>
+                    <h4>See schools, businesses, restaurants and crimes near this home</h4>
                 </div>
             </div>
-            <div role="tabpanel" class="tab-pane active" class="maps">
-                <div class="thumbnail">
-                    <div id="surroundings-map"></div>
-                    <div class="caption">
-                        <p class="text-center">
-                            3rd Asoyi Ln, Accra, Ghana
-                        </p>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="surroundings-map"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -389,7 +396,7 @@
           </div>
         `);
 
-        $("body").on("shown.bs.tab", "#map-tab", function() {
+        $("body").on("shown.bs.tab", "#map-tab", function () {
             detailMap.invalidateSize(false);
         });
 

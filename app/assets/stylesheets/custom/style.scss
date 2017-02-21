@@ -5,7 +5,6 @@ body {
 
 .paulette {
   background: #FFFFFF;
-
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
@@ -37,7 +36,6 @@ body {
 
 .panel-title {
   color: #1976D2;
-
 }
 
 .badge {
@@ -46,7 +44,7 @@ body {
 }
 
 .tab-pane .thumbnail {
-  border-top: 0 none;
+  border-top: none;
 }
 
 .tab-pane .panel {
@@ -85,11 +83,6 @@ body {
 #clone {
   color: #F44336;
   font-size: 2em;
-}
-
-.thumbnail {
-  border: 0 none;
-  box-shadow: none;
 }
 
 div {
@@ -160,7 +153,7 @@ div {
 }
 
 /***********************
-  CUSTON BTN VALUES
+  CUSTOM BTN VALUES
 ************************/
 
 .btn {
@@ -176,12 +169,10 @@ div {
 }
 
 .list-group {
-  padding: 0px 1px;
+    padding: 0 1px;
   border: 0 none;
   font-weight: 300;
   letter-spacing: 1px;
-
-
 }
 
 .panel.noborder {
@@ -198,14 +189,17 @@ div {
   border: 0;
   box-shadow: none;
 }
+
 h4{
   color: #26A69A;
 }
+
 .carousel-inner {
   height: 450px;
   background-position: center;
   background-size: cover;
 }
-.carousel slide{
+
+.carousel .slide {
   margin-bottom: 30px;
 }
