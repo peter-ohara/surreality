@@ -68,6 +68,11 @@ body {
     height: 480px;
 }
 
+#surroundings-map{
+    width: 100%;
+    height: 300px;
+}
+
 .navbar-brand {
 
 }
