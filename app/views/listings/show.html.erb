@@ -2,6 +2,42 @@
 
 
 <div class="container">
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <% @listing.photo_attachments.each do |photo_attachment| %>
+              <div class="item active">
+                <%= image_tag photo_attachment.photo.url %>
+              </div>
+          <% end %>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
   <div class="row">
 
     <div class="col-md-4">
@@ -16,10 +52,15 @@
             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
               <div class="d-flex w-100 justify-content-between">
                 <h4 class="mb-1">Home Details for 332 Central Park E #5S</h4>
-                <small>Updated 3 days ago</small><br>
+                <small>Updated 3 days ago</small>
+                <br>
               </div>
               <p class="mb-1">Description.</p>
-              <small>One Bedroom Condo with Private Terrace on tree-lined Park Block. Separate dining area can be converted to second bedroom in elegant mint condition. A full service, pet friendly building with gym, laundry room, bike room, and parking. Conveniently located to Central Park, Whole Foods shopping and all transportation. Ask: $1,188,000 CC+RE TAX $1092 month.</small>
+              <small>One Bedroom Condo with Private Terrace on tree-lined Park Block. Separate dining area can be
+                converted to second bedroom in elegant mint condition. A full service, pet friendly building with gym,
+                laundry room, bike room, and parking. Conveniently located to Central Park, Whole Foods shopping and all
+                transportation. Ask: $1,188,000 CC+RE TAX $1092 month.
+              </small>
             </a>
             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
@@ -53,9 +94,9 @@
                 <li>
                   Available 24hrs a day
                 </li>
-                <li>Water reservoir: Available </li>
-                <li>Water pump: </li>
-                <li>Borehole: </li>
+                <li>Water reservoir: Available</li>
+                <li>Water pump:</li>
+                <li>Borehole:</li>
                 <li>Compound size:<span>19089</span>sqft</li>
               </ul>
               </p>
@@ -71,8 +112,8 @@
                 <li>
                   Available 24hrs a day
                 </li>
-                <li>Backup generator: Available </li>
-                <li>Payment: Pre-paid </li>
+                <li>Backup generator: Available</li>
+                <li>Payment: Pre-paid</li>
 
               </ul>
               </p>
@@ -88,8 +129,8 @@
                 <li>
                   Internet: Mtn -3G 500kbs
                 </li>
-                <li>Garbage Collection: 2 times/week </li>
-                <li>Security: </li>
+                <li>Garbage Collection: 2 times/week</li>
+                <li>Security:</li>
 
               </ul>
               </p>
@@ -115,95 +156,111 @@
     <!--Column right Model/video/photo view-->
     <div class="col-md-8">
 
-      <div>
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs nav-justified" role="tablist">
+            <% if !@listing.three_d_models.empty? %>
+                <li role="presentation" class="active">
+                  <a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D Models</a></li>
+            <% end %>
+            <% if !@listing.three_sixty_videos.empty? %>
+                <li role="presentation">
+                  <a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab" data-toggle="tab">360
+                    Videos</a></li>
+            <% end %>
+            <% if !@listing.three_sixty_photos.empty? %>
+                <li role="presentation">
+                  <a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab" data-toggle="tab">360
+                    Photos</a></li>
+            <% end %>
+            <li role="presentation">
+              <a href="#maps" aria-controls="maps" role="tab" data-toggle="tab" id="map-tab">Map</a></li>
+          </ul>
 
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs nav-justified" role="tablist">
-          <li role="presentation" class="active">
-            <a href="#maps" aria-controls="maps" role="tab" data-toggle="tab">Map</a></li>
-          <% if !@listing.three_d_models.empty? %>
-              <li role="presentation">
-                <a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D Models</a></li>
-          <% end %>
-          <% if !@listing.three_sixty_videos.empty? %>
-              <li role="presentation">
-                <a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab" data-toggle="tab">360
-                  Videos</a></li>
-          <% end %>
-          <% if !@listing.three_sixty_photos.empty? %>
-              <li role="presentation">
-                <a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab" data-toggle="tab">360
-                  Photos</a></li>
-          <% end %>
-        </ul>
-
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="maps">
-            <div class="thumbnail">
-              <div id="detail-map"></div>
-              <div class="caption">
-                <p class="text-center">
-                  <%= @listing.address %>
-                </p>
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="three_d_models">
+              <% if !@listing.three_d_models.empty? %>
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <%= raw @listing.three_d_models.first.embed_link %>
+                    </div>
+                  </div>
+              <% end %>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="three_sixty_videos">
+              <% if !@listing.three_sixty_videos.empty? %>
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <%= raw @listing.three_sixty_videos.first.embed_link %>
+                      <div class="caption">
+                        <p>
+                        <ul class="list-inline">
+                          <li>
+                            <%= @listing.address %>
+                          </li>
+                          <li><span>3</span>bedrooms</li>
+                          <li>Single-Family Home</li>
+                          <li>Built in <span>1984</span></li>
+                          <li>Compound size:<span>19089</span>sqft</li>
+                        </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+              <% end %>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="three_sixty_photos">
+              <% if !@listing.three_sixty_photos.empty? %>
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <%= raw @listing.three_sixty_photos.first.embed_link %>
+                    </div>
+                  </div>
+              <% end %>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="maps">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div id="detail-map"></div>
+                  <div class="caption">
+                    <div class="caption">
+                      <p>
+                      <ul class="list-inline">
+                        <li>
+                          <%= @listing.address %>
+                        </li>
+                        <li><span>3</span>bedrooms</li>
+                        <li>Single-Family Home</li>
+                        <li>Built in <span>1984</span></li>
+                        <li>Compound size:<span>19089</span>sqft</li>
+                      </ul>
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div role="tabpanel" class="tab-pane" id="three_d_models">
-            <% if !@listing.three_d_models.empty? %>
-                <div class="panel panel-default">
-                  <div class="panel-body">
-                    <%= raw @listing.three_d_models.first.embed_link %>
-                  </div>
-                </div>
-            <% end %>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="three_sixty_videos">
-            <% if !@listing.three_sixty_videos.empty? %>
-                <div class="thumbnail">
-                  <%= raw @listing.three_sixty_videos.first.embed_link %>
-                  <div class="caption">
-                    <p>
-                    <ul class="list-inline">
-                      <li>
-                        <%= @listing.address %>
-                      </li>
-                      <li><span>3</span>bedrooms</li>
-                      <li>Single-Family Home</li>
-                      <li>Built in <span>1984</span></li>
-                      <li>Compound size:<span>19089</span>sqft</li>
-                    </ul>
-                    </p>
-                  </div>
-                </div>
-            <% end %>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="three_sixty_photos">
-            <% if !@listing.three_sixty_photos.empty? %>
-                <div class="thumbnail">
-                  <%= raw @listing.three_sixty_photos.first.embed_link %>
-                </div>
-            <% end %>
-          </div>
         </div>
-
       </div>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <h4>Schools, restaurants and other surroundings</h4>
-                </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h4>See schools, businesses, restaurants and crimes near this home</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div id="surroundings-map"></div>
             </div>
-            <div role="tabpanel" class="tab-pane active" class="maps">
-                <div class="thumbnail">
-                    <div id="surroundings-map"></div>
-                    <div class="caption">
-                        <p class="text-center">
-                            3rd Asoyi Ln, Accra, Ghana
-                        </p>
-                    </div>
-                </div>
-            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="row">
         <div class="col-md-12">
@@ -253,6 +310,10 @@
           </div>
         `);
 
+        $("body").on("shown.bs.tab", "#map-tab", function () {
+            detailMap.invalidateSize(false);
+        });
+
         var surroundingsMap = L.map('surroundings-map').setView([5.6462718, -0.159063], 13);
 
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -269,7 +330,5 @@
           </div>
         `);
 
-
     });
-
 </script>
