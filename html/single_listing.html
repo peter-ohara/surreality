@@ -186,16 +186,6 @@
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane" id="maps">
-                        <div class="thumbnail">
-                            <div id="detail-map"></div>
-                            <div class="caption">
-                                <p class="text-center">
-                                    3rd Asoyi Ln, Accra, Ghana
-                                </p>
-                            </div>
-                        </div>
-                    </div>
 
                     <div role="tabpanel" class="tab-pane active" id="three_sixty_videos">
                         <div class="thumbnail">
@@ -218,6 +208,17 @@
                         </div>
                     </div>
 
+                    <div role="tabpanel" class="tab-pane" id="maps">
+                        <div class="thumbnail">
+                            <div id="detail-map"></div>
+                            <div class="caption">
+                                <p class="text-center">
+                                    3rd Asoyi Ln, Accra, Ghana
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -226,7 +227,7 @@
                     <h4>Schools, restaurants and other surroundings</h4>
                 </div>
             </div>
-            <div role="tabpanel" class="tab-pane active" id="maps">
+            <div role="tabpanel" class="tab-pane active" class="maps">
                 <div class="thumbnail">
                     <div id="surroundings-map"></div>
                     <div class="caption">
@@ -352,9 +353,9 @@
 
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(detailMap);
+        }).addTo(surroundingsMap);
 
-        L.marker([5.6462718, -0.159063]).addTo(detailMap)
+        L.marker([5.6462718, -0.159063]).addTo(surroundingsMap)
             .bindPopup(`
           <a href="/listings/1">
             <img class="img-responsive" src="images/kitchen.jpg" alt="Kitchen" />
