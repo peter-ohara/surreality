@@ -156,78 +156,94 @@
     <!--Column right Model/video/photo view-->
     <div class="col-md-8">
 
-      <div>
-
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs nav-justified" role="tablist">
-          <% if !@listing.three_d_models.empty? %>
-              <li role="presentation" class="active">
-                <a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D Models</a></li>
-          <% end %>
-          <% if !@listing.three_sixty_videos.empty? %>
-              <li role="presentation">
-                <a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab" data-toggle="tab">360
-                  Videos</a></li>
-          <% end %>
-          <% if !@listing.three_sixty_photos.empty? %>
-              <li role="presentation">
-                <a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab" data-toggle="tab">360
-                  Photos</a></li>
-          <% end %>
-          <li role="presentation">
-            <a href="#maps" aria-controls="maps" role="tab" data-toggle="tab" id="map-tab">Map</a></li>
-        </ul>
-
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="three_d_models">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs nav-justified" role="tablist">
             <% if !@listing.three_d_models.empty? %>
-                <div class="panel panel-default">
-                  <div class="panel-body">
-                    <%= raw @listing.three_d_models.first.embed_link %>
-                  </div>
-                </div>
+                <li role="presentation" class="active">
+                  <a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D Models</a></li>
             <% end %>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="three_sixty_videos">
             <% if !@listing.three_sixty_videos.empty? %>
-                <div class="thumbnail">
-                  <%= raw @listing.three_sixty_videos.first.embed_link %>
+                <li role="presentation">
+                  <a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab" data-toggle="tab">360
+                    Videos</a></li>
+            <% end %>
+            <% if !@listing.three_sixty_photos.empty? %>
+                <li role="presentation">
+                  <a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab" data-toggle="tab">360
+                    Photos</a></li>
+            <% end %>
+            <li role="presentation">
+              <a href="#maps" aria-controls="maps" role="tab" data-toggle="tab" id="map-tab">Map</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="three_d_models">
+              <% if !@listing.three_d_models.empty? %>
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <%= raw @listing.three_d_models.first.embed_link %>
+                    </div>
+                  </div>
+              <% end %>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="three_sixty_videos">
+              <% if !@listing.three_sixty_videos.empty? %>
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <%= raw @listing.three_sixty_videos.first.embed_link %>
+                      <div class="caption">
+                        <p>
+                        <ul class="list-inline">
+                          <li>
+                            <%= @listing.address %>
+                          </li>
+                          <li><span>3</span>bedrooms</li>
+                          <li>Single-Family Home</li>
+                          <li>Built in <span>1984</span></li>
+                          <li>Compound size:<span>19089</span>sqft</li>
+                        </ul>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+              <% end %>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="three_sixty_photos">
+              <% if !@listing.three_sixty_photos.empty? %>
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      <%= raw @listing.three_sixty_photos.first.embed_link %>
+                    </div>
+                  </div>
+              <% end %>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="maps">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div id="detail-map"></div>
                   <div class="caption">
-                    <p>
-                    <ul class="list-inline">
-                      <li>
-                        <%= @listing.address %>
-                      </li>
-                      <li><span>3</span>bedrooms</li>
-                      <li>Single-Family Home</li>
-                      <li>Built in <span>1984</span></li>
-                      <li>Compound size:<span>19089</span>sqft</li>
-                    </ul>
-                    </p>
+                    <div class="caption">
+                      <p>
+                      <ul class="list-inline">
+                        <li>
+                          <%= @listing.address %>
+                        </li>
+                        <li><span>3</span>bedrooms</li>
+                        <li>Single-Family Home</li>
+                        <li>Built in <span>1984</span></li>
+                        <li>Compound size:<span>19089</span>sqft</li>
+                      </ul>
+                      </p>
+                    </div>
                   </div>
                 </div>
-            <% end %>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="three_sixty_photos">
-            <% if !@listing.three_sixty_photos.empty? %>
-                <div class="thumbnail">
-                  <%= raw @listing.three_sixty_photos.first.embed_link %>
-                </div>
-            <% end %>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="maps">
-            <div class="thumbnail">
-              <div id="detail-map"></div>
-              <div class="caption">
-                <p class="text-center">
-                  <%= @listing.address %>
-                </p>
               </div>
             </div>
           </div>
         </div>
-
       </div>
 
       <div class="row">

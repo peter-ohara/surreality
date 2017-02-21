@@ -43,10 +43,6 @@ body {
     color: #FFFFFF;
 }
 
-.tab-pane .thumbnail {
-    border-top: none;
-}
-
 .tab-pane .panel {
     border-top: 0 none;
 }

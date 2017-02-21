@@ -218,57 +218,114 @@
         <!--Column right Model/video/photo view-->
         <div class="col-md-8">
 
-            <div>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs nav-justified" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D
+                                Models</a></li>
+                        <li role="presentation">
+                            <a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab" data-toggle="tab">360
+                                Videos</a></li>
+                        <li role="presentation">
+                            <a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab" data-toggle="tab">360
+                                Photos</a></li>
+                        <li role="presentation">
+                            <a href="#maps" aria-controls="maps" role="tab" data-toggle="tab" id="map-tab">Map</a></li>
+                    </ul>
 
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs nav-justified" role="tablist">
-                    <li role="presentation" class="active"><a href="#three_sixty_videos"
-                                                              aria-controls="three_sixty_videos" role="tab"
-                                                              data-toggle="tab">360 video</a></li>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="three_d_models">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
 
-                    <li role="presentation"><a href="#maps" aria-controls="maps" role="tab"
-                                               data-toggle="tab" id="map-tab">Map view</a></li>
+                                    <div class="sketchfab-embed-wrapper">
+                                        <iframe width="300" height="300"
+                                                src="https://sketchfab.com/models/3aa64527d1614998b4812bfefbbc896a/embed"
+                                                frameborder="0" allowvr allowfullscreen mozallowfullscreen="true"
+                                                webkitallowfullscreen="true" onmousewheel=""></iframe>
 
-                </ul>
+                                        <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
+                                            <a href="https://sketchfab.com/models/3aa64527d1614998b4812bfefbbc896a?utm_medium=embed&utm_source=website&utm_campain=share-popup"
+                                               target="_blank" style="font-weight: bold; color: #1CAAD9;">Interior scene -
+                                                baked textures</a>
+                                            by <a
+                                                href="https://sketchfab.com/andzbrazil?utm_medium=embed&utm_source=website&utm_campain=share-popup"
+                                                target="_blank" style="font-weight: bold; color: #1CAAD9;">Anderson
+                                            Baptista</a>
+                                            on <a
+                                                href="https://sketchfab.com?utm_medium=embed&utm_source=website&utm_campain=share-popup"
+                                                target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+                                        </p>
+                                    </div>
 
-                <!-- Tab panes -->
-                <div class="tab-content">
-
-                    <div role="tabpanel" class="tab-pane active" id="three_sixty_videos">
-                        <div class="thumbnail">
-                            <iframe class="col-md-12" width="560" height="480"
-                                    src="https://www.youtube.com/embed/G8dHyWxXwy8" frameborder="0"
-                                    allowfullscreen></iframe>
-                            <div class="caption">
-                                <p>
-                                <ul class="list-inline">
-                                    <li>
-                                        3rd Asoyi Ln, Accra, Ghana
-                                    </li>
-                                    <li><span>3</span>bedrooms</li>
-                                    <li>Single-Family Home</li>
-                                    <li>Built in <span>1984</span></li>
-                                    <li>Compound size:<span>19089</span>sqft</li>
-                                </ul>
-                                </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div role="tabpanel" class="tab-pane" id="maps">
-                        <div class="thumbnail">
-                            <div id="detail-map"></div>
-                            <div class="caption">
-                                <p class="text-center">
-                                    3rd Asoyi Ln, Accra, Ghana
-                                </p>
+                        <div role="tabpanel" class="tab-pane" id="three_sixty_videos">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <iframe class="col-md-12" width="560" height="480"
+                                            src="https://www.youtube.com/embed/G8dHyWxXwy8" frameborder="0"
+                                            allowfullscreen></iframe>
+                                    <div class="caption">
+                                        <p>
+                                        <ul class="list-inline">
+                                            <li>
+                                                3rd Asoyi Ln, Accra, Ghana
+                                            </li>
+                                            <li><span>3</span>bedrooms</li>
+                                            <li>Single-Family Home</li>
+                                            <li>Built in <span>1984</span></li>
+                                            <li>Compound size:<span>19089</span>sqft</li>
+                                        </ul>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="three_sixty_photos">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <iframe src="https://www.360cities.net/embed_iframe/black-angus-tauno-kangro-helsinki"
+                                            width="100%" height="480px" frameborder="0" bgcolor="#000000" target="_blank"
+                                            allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+                                    <br/><a
+                                        title="Panorama photos of Black Angus sculpture by Tauno Kangro on 360cities.net"
+                                        href="https://www.360cities.net/image/black-angus-tauno-kangro-helsinki">Black Angus
+                                    sculpture by Tauno Kangro</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="maps">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div id="detail-map"></div>
+                                    <div class="caption">
+                                        <div class="caption">
+                                            <p>
+                                            <ul class="list-inline">
+                                                <li>
+                                                    3rd Asoyi Ln, Accra, Ghana
+                                                </li>
+                                                <li><span>3</span>bedrooms</li>
+                                                <li>Single-Family Home</li>
+                                                <li>Built in <span>1984</span></li>
+                                                <li>Compound size:<span>19089</span>sqft</li>
+                                            </ul>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                 </div>
-
             </div>
+
             <div class="row">
                 <div class="col-md-12">
                     <h4>See schools, businesses, restaurants and crimes near this home</h4>
