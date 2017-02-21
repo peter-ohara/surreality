@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Surreality</title>
+  <title>Surreal</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -25,5 +25,20 @@
 <%= yield %>
 
 <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+<style>
+  #survey_button {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    z-index: 9999;
+    margin-bottom: 10px;
+    margin-left: -123px;
+  }
+</style>
+<a class="btn btn-primary btn-lg" href="https://goo.gl/forms/WSx4QFj5qE9Uu2s92" target="_blank" role="button" id="survey_button">Give feedback</a>
+
+<%= render 'layouts/google_analytics' %>
+
 </body>
 </html>
