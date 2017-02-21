@@ -1,44 +1,90 @@
+<%= render 'layouts/searchpage_header' %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <form action="/search" autocomplete="off" class="form-inline" method="get" name="search" accept-charset="utf-8">
+        <div class="form-group">
+          <label class="sr-only" for="location">Location</label>
+          <input type="text" class="form-control" name="location" id="location" placeholder="Location">
+        </div>
+
+        <div class="form-group">
+          <label class="sr-only" for="cost-min">Cost Min</label>
+          <input type="number" class="form-control" name="cost_min" id="cost-min" placeholder="Cost Min">
+          <label class="sr-only" for="cost-min">Cost Max</label>
+          <input type="number" class="form-control" name="cost_max" id="cost-max" placeholder="Cost Max">
+        </div>
+
+        <div class="form-group">
+          <label class="sr-only" for="bedrooms">Bedrooms</label>
+          <select class="form-control" name="bedrooms" id="bedrooms">
+            <option value="">Bedrooms</option>
+            <option value="0">Any</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="sr-only" for="home-type">Home type</label>
+          <select class="form-control" name="home_type" id="home-type">
+            <option value="">Home type</option>
+            <option value="apartment">Apartment</option>
+            <option value="semi_detached">Semi-Detached</option>
+            <option value="hostel">Hostel</option>
+            <option value="house">House</option>
+            <option value="condo">Condo</option>
+            <option value="townhome">Townhome</option>
+            <option value="multi_family">Multi-Family</option>
+            <option value="land">Land</option>
+            <option value="mobile_or_manufactured">Mobile/Manufactured</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="sr-only" for="listing-type">Listing Type</label>
+          <select class="form-control" name="listing_type" id="listing-type">
+            <option value="for_sale">For Rent</option>
+            <option value="for_rent">For Sale</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="sr-only" for="keywords">Keywords</label>
+          <input type="text" class="form-control" name="keywords" id="keywords" placeholder="Pool, parking, cctv">
+        </div>
+
+        <div class="form-group">
+          <label class="sr-only" for="lot-size-min">Min lot size</label>
+          <input type="number" class="form-control" name="lot_size_min" id="lot-size-min" placeholder="Min lot size">
+          <label class="sr-only" for="lot-size-min">Max lot size</label>
+          <input type="number" class="form-control" name="lot_size_max" id="lot-size-max" placeholder="Max lot size">
+        </div>
+
+        <div class="form-group">
+          <label class="sr-only" for="min-yr-built">Min year built</label>
+          <input type="number" class="form-control" name="min_yr_built" id="min-yr-built" placeholder="Min year built">
+          <label class="sr-only" for="max-yr-built">Max year built</label>
+          <input type="number" class="form-control" name="max_yr_built" id="max-yr-built" placeholder="Max year built">
+        </div>
+
+        <button type="submit" class="btn btn-default">Search</button>
+        <button type="button" class="btn btn-link">
+          <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>Save this search
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<br>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-7">
-      <div class="row">
-        <div class="col-sm-12">
-          <form action="" autocomplete="off" class="form-inline" method="post" accept-charset="utf-8">
-            <div class="form-group">
-              <label class="sr-only" for="property-type">Property Type</label>
-              <select class="form-control" id="property-type">
-                <option value="">Property type</option>
-                <option value="apartment">Apartment</option>
-                <option value="semi_detached">Semi-Detached</option>
-                <option value="detached">Detached</option>
-                <option value="hostel">Hostel</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="bedrooms">Bedrooms</label>
-              <select class="form-control" id="bedrooms">
-                <option value="">Bedrooms</option>
-                <option value="0">Any</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label class="sr-only" for="cost-min">Cost Min</label>
-              <input type="number" class="form-control" id="cost-min" placeholder="Cost Min">
-              <label class="sr-only" for="cost-min">Cost Max</label>
-              <input type="number" class="form-control" id="cost-max" placeholder="Cost Max">
-            </div>
-
-            <button type="submit" class="btn btn-default">Filter</button>
-          </form>
-        </div>
-      </div>
-
-      <br>
-
       <div class="row">
         <div class="col-sm-12 col-md-12">
           Showing
