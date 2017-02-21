@@ -25,5 +25,20 @@
 <%= yield %>
 
 <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+<style>
+  #survey_button {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    z-index: 9999;
+    margin-bottom: 10px;
+    margin-left: -123px;
+  }
+</style>
+<a class="btn btn-primary btn-lg" href="https://goo.gl/forms/WSx4QFj5qE9Uu2s92" target="_blank" role="button" id="survey_button">Give feedback</a>
+
+<%= render 'layouts/google_analytics' %>
+
 </body>
 </html>
