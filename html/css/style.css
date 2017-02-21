@@ -51,7 +51,9 @@ body {
 
 .tab-pane .panel {
     border-top: 0 none;
+
 }
+
 
 .tab-pane iframe {
     width: 100%;
@@ -200,4 +202,12 @@ div {
 }
 h4{
     color: #26A69A;
+}
+.carousel-inner {
+    height: 450px;
+    background-position: center;
+    background-size: cover;
+}
+.carousel slide{
+    margin-bottom: 30px;
 }
