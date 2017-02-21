@@ -38,16 +38,6 @@
                 <a class="navbar-brand" href="/">Surreal</a>
             </div>
 
-            <form action="/search" autocomplete="off" class="navbar-form navbar-left" method="get" name="search"
-                  accept-charset="utf-8">
-                <div class="form-group">
-                    <label class="sr-only" for="location">Location</label>
-                    <input type="text" class="form-control" name="location" id="location" placeholder="Location">
-                </div>
-
-                <button type="submit" class="btn">Search</button>
-            </form>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -60,9 +50,40 @@
 </nav>
 
 <div class="container">
+    <div class="row">
+        <form action="/search" autocomplete="off" class="navbar-form navbar-left" method="get" name="search"
+              accept-charset="utf-8">
+            <div class="form-group">
+                <label class="sr-only" for="location">Location</label>
+                <input type="text" class="form-control" name="location" id="location" placeholder="Location">
+            </div>
+
+            <button type="submit" class="btn">Search</button>
+        </form>
+    </div>
+
 
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">$230,000</div>
+                <div class="panel-body">
+                    <p></p>
+                </div>
+
+                <!-- List group -->
+                <ul class="list-group">
+                    <li class="list-group-item">...</li>
+                    <li class="list-group-item">...</li>
+                    <li class="list-group-item">...</li>
+                    <li class="list-group-item">...</li>
+                    <li class="list-group-item">...</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-9">
+
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
@@ -226,10 +247,12 @@
                             <a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D
                                 Models</a></li>
                         <li role="presentation">
-                            <a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab" data-toggle="tab">360
+                            <a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab"
+                               data-toggle="tab">360
                                 Videos</a></li>
                         <li role="presentation">
-                            <a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab" data-toggle="tab">360
+                            <a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab"
+                               data-toggle="tab">360
                                 Photos</a></li>
                         <li role="presentation">
                             <a href="#maps" aria-controls="maps" role="tab" data-toggle="tab" id="map-tab">Map</a></li>
@@ -249,7 +272,8 @@
 
                                         <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
                                             <a href="https://sketchfab.com/models/3aa64527d1614998b4812bfefbbc896a?utm_medium=embed&utm_source=website&utm_campain=share-popup"
-                                               target="_blank" style="font-weight: bold; color: #1CAAD9;">Interior scene -
+                                               target="_blank" style="font-weight: bold; color: #1CAAD9;">Interior scene
+                                                -
                                                 baked textures</a>
                                             by <a
                                                 href="https://sketchfab.com/andzbrazil?utm_medium=embed&utm_source=website&utm_campain=share-popup"
@@ -290,11 +314,13 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <iframe src="https://www.360cities.net/embed_iframe/black-angus-tauno-kangro-helsinki"
-                                            width="100%" height="480px" frameborder="0" bgcolor="#000000" target="_blank"
+                                            width="100%" height="480px" frameborder="0" bgcolor="#000000"
+                                            target="_blank"
                                             allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
                                     <br/><a
                                         title="Panorama photos of Black Angus sculpture by Tauno Kangro on 360cities.net"
-                                        href="https://www.360cities.net/image/black-angus-tauno-kangro-helsinki">Black Angus
+                                        href="https://www.360cities.net/image/black-angus-tauno-kangro-helsinki">Black
+                                    Angus
                                     sculpture by Tauno Kangro</a>
                                 </div>
                             </div>
@@ -478,7 +504,8 @@
 
 <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 
-<a class="btn btn-primary" href="https://goo.gl/forms/WSx4QFj5qE9Uu2s92" target="_blank" role="button" id="survey_button">Give feedback</a>
+<a class="btn btn-info" href="https://goo.gl/forms/WSx4QFj5qE9Uu2s92" target="_blank" role="button" id="survey_button">Give
+    feedback</a>
 
 </body>
 
