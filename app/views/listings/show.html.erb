@@ -3,40 +3,47 @@
 
 <div class="container">
 
-  <div class="row">
-    <div class="col-sm-12">
-      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-        </ol>
+  <% unless @listing.photo_attachments.empty? %>
+      <div class="row">
+        <div class="col-sm-12">
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <% if @listing.photo_attachments.count > 1 %>
+                <ol class="carousel-indicators">
+                  <% @listing.photo_attachments.each_with_index do |photo_attachment, index| %>
+                      <li data-target="#carousel-example-generic"
+                          data-slide-to="<%= index %>" class="<%= 'active' if index == 0 %>"></li>
+                  <% end %>
+                </ol>
+            <% end %>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-          <% @listing.photo_attachments.each do |photo_attachment| %>
-              <div class="item active">
-                <%= image_tag photo_attachment.photo.url %>
-              </div>
-          <% end %>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+              <% @listing.photo_attachments.each_with_index do |photo_attachment, index| %>
+                  <div class="item <%= 'active' if index == 0 %>">
+                    <%= image_tag photo_attachment.photo.url %>
+                  </div>
+              <% end %>
+            </div>
+
+            <!-- Controls -->
+            <% if @listing.photo_attachments.count > 1 %>
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+            <% end %>
+          </div>
         </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
       </div>
-    </div>
-  </div>
 
-  <br>
-  <br>
+      <br>
+      <br>
+  <% end %>
 
   <div class="row">
 
@@ -160,37 +167,38 @@
         <div class="col-md-12">
           <!-- Nav tabs -->
           <ul class="nav nav-tabs nav-justified" role="tablist">
-            <% if !@listing.three_d_models.empty? %>
+            <% unless @listing.three_d_models.empty? %>
                 <li role="presentation" class="active">
-                  <a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D Models</a></li>
+                  <a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D Models</a>
+                </li>
             <% end %>
-            <% if !@listing.three_sixty_videos.empty? %>
-                <li role="presentation">
+            <% unless @listing.three_sixty_videos.empty? %>
+                <li role="presentation" class="<%= 'active' if @listing.three_d_models.empty? %>">
                   <a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab" data-toggle="tab">360
                     Videos</a></li>
             <% end %>
-            <% if !@listing.three_sixty_photos.empty? %>
-                <li role="presentation">
+            <% unless @listing.three_sixty_photos.empty? %>
+                <li role="presentation" class="<%= 'active' if @listing.three_sixty_videos.empty? %>">
                   <a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab" data-toggle="tab">360
                     Photos</a></li>
             <% end %>
-            <li role="presentation">
+            <li role="presentation" class="<%= 'active' if @listing.three_sixty_photos.empty? %>">
               <a href="#maps" aria-controls="maps" role="tab" data-toggle="tab" id="map-tab">Map</a></li>
           </ul>
 
           <!-- Tab panes -->
           <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="three_d_models">
-              <% if !@listing.three_d_models.empty? %>
+            <% unless @listing.three_d_models.empty? %>
+                <div role="tabpanel" class="tab-pane active" id="three_d_models">
                   <div class="panel panel-default">
                     <div class="panel-body">
                       <%= raw @listing.three_d_models.first.embed_link %>
                     </div>
                   </div>
-              <% end %>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="three_sixty_videos">
-              <% if !@listing.three_sixty_videos.empty? %>
+                </div>
+            <% end %>
+            <% unless @listing.three_sixty_videos.empty? %>
+                <div role="tabpanel" class="tab-pane <%= 'active' if @listing.three_d_models.empty? %>" id="three_sixty_videos">
                   <div class="panel panel-default">
                     <div class="panel-body">
                       <%= raw @listing.three_sixty_videos.first.embed_link %>
@@ -209,18 +217,18 @@
                       </div>
                     </div>
                   </div>
-              <% end %>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="three_sixty_photos">
-              <% if !@listing.three_sixty_photos.empty? %>
+                </div>
+            <% end %>
+            <% unless @listing.three_sixty_photos.empty? %>
+                <div role="tabpanel" class="tab-pane <%= 'active' if @listing.three_sixty_videos.empty? %>" id="three_sixty_photos">
                   <div class="panel panel-default">
                     <div class="panel-body">
                       <%= raw @listing.three_sixty_photos.first.embed_link %>
                     </div>
                   </div>
-              <% end %>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="maps">
+                </div>
+            <% end %>
+            <div role="tabpanel" class="tab-pane <%= 'active' if @listing.three_sixty_photos.empty? %>" id="maps">
               <div class="panel panel-default">
                 <div class="panel-body">
                   <div id="detail-map"></div>
@@ -324,7 +332,7 @@
             .bindPopup(`
           <a href="/listings/1">
             <img class="img-responsive" src="images/kitchen.jpg" alt="Kitchen" />
-</a>
+          </a>
           <div class="caption">
             GHC 300, Room 22 SandCity
           </div>
