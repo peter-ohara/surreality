@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @architecture.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @architecture.description %>
+</p>
+
+<%= link_to 'Edit', edit_architecture_path(@architecture) %> |
+<%= link_to 'Back', architectures_path %>

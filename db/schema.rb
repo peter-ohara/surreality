@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170211161021) do
+ActiveRecord::Schema.define(version: 20170224054238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "architectures", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "listings", force: :cascade do |t|
     t.string   "listing_name"
@@ -26,6 +40,14 @@ ActiveRecord::Schema.define(version: 20170211161021) do
     t.boolean  "active"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "model3_ds", force: :cascade do |t|
+    t.text     "embed_link"
+    t.integer  "listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_model3_ds_on_listing_id", using: :btree
   end
 
   create_table "photo_attachments", force: :cascade do |t|
@@ -77,6 +99,7 @@ ActiveRecord::Schema.define(version: 20170211161021) do
     t.datetime "updated_at",   null: false
   end
 
+  add_foreign_key "model3_ds", "listings"
   add_foreign_key "photo_attachments", "listings"
   add_foreign_key "three_d_models", "listings"
   add_foreign_key "three_sixty_photos", "listings"
