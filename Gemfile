@@ -52,6 +52,8 @@ gem 'figaro'
 
 gem 'money-rails', '~>1'
 
+gem 'cloudinary'
+
 
 
 group :development, :test do

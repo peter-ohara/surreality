@@ -2,6 +2,8 @@ class SaleListing < ApplicationRecord
   belongs_to :category, inverse_of: :sale_listings
   belongs_to :architecture, inverse_of: :sale_listings
 
+  has_many :sale_photo_attachments, inverse_of: :sale_listing, dependent: :destroy
+
   monetize :price_cents
   monetize :sold_cents
 

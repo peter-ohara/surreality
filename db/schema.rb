@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224063653) do
+ActiveRecord::Schema.define(version: 20170224075432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,14 @@ ActiveRecord::Schema.define(version: 20170224063653) do
     t.index ["category_id"], name: "index_sale_listings_on_category_id", using: :btree
   end
 
+  create_table "sale_photo_attachments", force: :cascade do |t|
+    t.string   "photo"
+    t.integer  "sale_listing_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["sale_listing_id"], name: "index_sale_photo_attachments_on_sale_listing_id", using: :btree
+  end
+
   create_table "three_d_models", force: :cascade do |t|
     t.text     "embed_link"
     t.integer  "listing_id"
@@ -135,6 +143,7 @@ ActiveRecord::Schema.define(version: 20170224063653) do
   add_foreign_key "photo_attachments", "listings"
   add_foreign_key "sale_listings", "architectures"
   add_foreign_key "sale_listings", "categories"
+  add_foreign_key "sale_photo_attachments", "sale_listings"
   add_foreign_key "three_d_models", "listings"
   add_foreign_key "three_sixty_photos", "listings"
   add_foreign_key "three_sixty_videos", "listings"
