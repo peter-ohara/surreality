@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224054238) do
+ActiveRecord::Schema.define(version: 20170224063653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,38 @@ ActiveRecord::Schema.define(version: 20170224054238) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sale_listings", force: :cascade do |t|
+    t.string   "listing_name"
+    t.integer  "price_cents"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
+    t.string   "string"
+    t.string   "city"
+    t.string   "state"
+    t.string   "state_code"
+    t.string   "postal_code"
+    t.string   "country"
+    t.string   "country_code"
+    t.integer  "category_id"
+    t.integer  "num_bedrooms"
+    t.integer  "num_bathrooms"
+    t.float    "floor_area"
+    t.float    "lot_size"
+    t.datetime "build_date"
+    t.text     "description"
+    t.integer  "architecture_id"
+    t.text     "three_d_model"
+    t.text     "three_sixty_video"
+    t.text     "three_sixty_photo"
+    t.text     "street_view"
+    t.integer  "sold_cents"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["architecture_id"], name: "index_sale_listings_on_architecture_id", using: :btree
+    t.index ["category_id"], name: "index_sale_listings_on_category_id", using: :btree
+  end
+
   create_table "three_d_models", force: :cascade do |t|
     t.text     "embed_link"
     t.integer  "listing_id"
@@ -101,6 +133,8 @@ ActiveRecord::Schema.define(version: 20170224054238) do
 
   add_foreign_key "model3_ds", "listings"
   add_foreign_key "photo_attachments", "listings"
+  add_foreign_key "sale_listings", "architectures"
+  add_foreign_key "sale_listings", "categories"
   add_foreign_key "three_d_models", "listings"
   add_foreign_key "three_sixty_photos", "listings"
   add_foreign_key "three_sixty_videos", "listings"

@@ -1,0 +1,142 @@
+<%= form_for(sale_listing) do |f| %>
+  <% if sale_listing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sale_listing.errors.count, "error") %> prohibited this sale_listing from being saved:</h2>
+
+      <ul>
+      <% sale_listing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :listing_name %>
+    <%= f.text_field :listing_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price_cents %>
+    <%= f.number_field :price_cents %>
+  </div>
+
+  <div class="field">
+    <%= f.label :latitude %>
+    <%= f.text_field :latitude %>
+  </div>
+
+  <div class="field">
+    <%= f.label :longitude %>
+    <%= f.text_field :longitude %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :string %>
+    <%= f.text_field :string %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+  </div>
+
+  <div class="field">
+    <%= f.label :state_code %>
+    <%= f.text_field :state_code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postal_code %>
+    <%= f.text_field :postal_code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :country %>
+    <%= f.text_field :country %>
+  </div>
+
+  <div class="field">
+    <%= f.label :country_code %>
+    <%= f.text_field :country_code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category_id %>
+    <%= f.text_field :category_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :num_bedrooms %>
+    <%= f.number_field :num_bedrooms %>
+  </div>
+
+  <div class="field">
+    <%= f.label :num_bathrooms %>
+    <%= f.number_field :num_bathrooms %>
+  </div>
+
+  <div class="field">
+    <%= f.label :floor_area %>
+    <%= f.text_field :floor_area %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lot_size %>
+    <%= f.text_field :lot_size %>
+  </div>
+
+  <div class="field">
+    <%= f.label :build_date %>
+    <%= f.datetime_select :build_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :architecture_id %>
+    <%= f.text_field :architecture_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :three_d_model %>
+    <%= f.text_area :three_d_model %>
+  </div>
+
+  <div class="field">
+    <%= f.label :three_sixty_video %>
+    <%= f.text_area :three_sixty_video %>
+  </div>
+
+  <div class="field">
+    <%= f.label :three_sixty_photo %>
+    <%= f.text_area :three_sixty_photo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :street_view %>
+    <%= f.text_area :street_view %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sold_cents %>
+    <%= f.number_field :sold_cents %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

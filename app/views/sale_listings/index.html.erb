@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sale Listings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Listing name</th>
+      <th>Price cents</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Address</th>
+      <th>String</th>
+      <th>City</th>
+      <th>State</th>
+      <th>State code</th>
+      <th>Postal code</th>
+      <th>Country</th>
+      <th>Country code</th>
+      <th>Category</th>
+      <th>Num bedrooms</th>
+      <th>Num bathrooms</th>
+      <th>Floor area</th>
+      <th>Lot size</th>
+      <th>Build date</th>
+      <th>Description</th>
+      <th>Architecture</th>
+      <th>Three d model</th>
+      <th>Three sixty video</th>
+      <th>Three sixty photo</th>
+      <th>Street view</th>
+      <th>Sold cents</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sale_listings.each do |sale_listing| %>
+      <tr>
+        <td><%= sale_listing.listing_name %></td>
+        <td><%= sale_listing.price_cents %></td>
+        <td><%= sale_listing.latitude %></td>
+        <td><%= sale_listing.longitude %></td>
+        <td><%= sale_listing.address %></td>
+        <td><%= sale_listing.string %></td>
+        <td><%= sale_listing.city %></td>
+        <td><%= sale_listing.state %></td>
+        <td><%= sale_listing.state_code %></td>
+        <td><%= sale_listing.postal_code %></td>
+        <td><%= sale_listing.country %></td>
+        <td><%= sale_listing.country_code %></td>
+        <td><%= sale_listing.category %></td>
+        <td><%= sale_listing.num_bedrooms %></td>
+        <td><%= sale_listing.num_bathrooms %></td>
+        <td><%= sale_listing.floor_area %></td>
+        <td><%= sale_listing.lot_size %></td>
+        <td><%= sale_listing.build_date %></td>
+        <td><%= sale_listing.description %></td>
+        <td><%= sale_listing.architecture %></td>
+        <td><%= sale_listing.three_d_model %></td>
+        <td><%= sale_listing.three_sixty_video %></td>
+        <td><%= sale_listing.three_sixty_photo %></td>
+        <td><%= sale_listing.street_view %></td>
+        <td><%= sale_listing.sold_cents %></td>
+        <td><%= link_to 'Show', sale_listing %></td>
+        <td><%= link_to 'Edit', edit_sale_listing_path(sale_listing) %></td>
+        <td><%= link_to 'Destroy', sale_listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sale Listing', new_sale_listing_path %>

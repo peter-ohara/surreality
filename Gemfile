@@ -50,6 +50,8 @@ gem 'geocoder'
 
 gem 'figaro'
 
+gem 'money-rails', '~>1'
+
 
 
 group :development, :test do

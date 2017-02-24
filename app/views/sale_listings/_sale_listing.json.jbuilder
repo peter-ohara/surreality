@@ -1,0 +1,2 @@
+json.extract! sale_listing, :id, :listing_name, :price_cents, :latitude, :longitude, :address, :string, :city, :state, :state_code, :postal_code, :country, :country_code, :category_id, :num_bedrooms, :num_bathrooms, :floor_area, :lot_size, :build_date, :description, :architecture_id, :three_d_model, :three_sixty_video, :three_sixty_photo, :street_view, :sold_cents, :created_at, :updated_at
+json.url sale_listing_url(sale_listing, format: :json)
