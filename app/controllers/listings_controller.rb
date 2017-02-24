@@ -26,6 +26,7 @@ class ListingsController < ApplicationController
   # GET /listings/1.json
   def show
     @listings = Listing.all
+    @zoom_level = 17
   end
 
   # GET /listings/new

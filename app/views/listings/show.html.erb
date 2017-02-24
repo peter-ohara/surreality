@@ -1,9 +1,77 @@
-<%= render 'layouts/header' %>
+<nav class="navbar navbar-default">
+  <div class="paulette">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <h4><b><a class="navbar-brand" href="index.html">Surreal</a></b></h4>
+      </div>
 
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Sign Up</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </div>
+</nav>
 
 <div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+                        <button class="btn btn-secondary btn-pink" type="button">Search</button>
+                    </span>
+      </div>
+    </div>
 
-  <% unless @listing.photo_attachments.empty? %>
+  </div>
+</div>
+
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading "><h2>$<%= @listing.price %></h2>
+          <small>$5,048 /mo - est. payment</small>
+        </div>
+        <div class="container-fluid">
+          <form>
+            <div class="form-group">
+
+              <input type="text" class="form-control" id="name" placeholder="Your name">
+            </div>
+            <div class="form-group">
+
+              <input type="text" class="form-control" id="phone" placeholder="Phone">
+            </div>
+            <div class="form-group">
+
+              <input type="text" class="form-control" id="email" placeholder="email">
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" placeholder="">I am interested in <%= @listing.listing_name %></textarea>
+            </div>
+            <button type="submit" class="btn x">Request More Information</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-md-8">
       <div class="row">
         <div class="col-sm-12">
           <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -39,44 +107,46 @@
             <% end %>
           </div>
         </div>
+        <div class="col-sm-12">
+          <h4 class="text-center"><%= @listing.address %></h4>
+        </div>
       </div>
+    </div>
+  </div>
 
-      <br>
-      <br>
-  <% end %>
+  <br>
+  <br>
 
   <div class="row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1>Home Details for <%= @listing.listing_name %></h1>
+      </div>
 
-    <div class="col-md-4">
-      <!--Column left-->
-      <div class="panel noborder">
+      <ol class="breadcrumb">
+        <li><a href="#">For Sale</a></li>
+        <li><a href="#">Accra</a></li>
+        <li>East Legon</li>
+        <li>Aluguntugui Street</li>
+        <li>CA 94112</li>
+      </ol>
 
-        <div class="panel-body">
-
-
-          <!--List view of Home details-->
+      <div class="row">
+        <div class="col-md-8">
           <div class="list-group">
             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
               <div class="d-flex w-100 justify-content-between">
-                <h4 class="mb-1">Home Details for 332 Central Park E #5S</h4>
-                <small>Updated 3 days ago</small>
-                <br>
+                <h4 class="mb-1">Description</h4>
               </div>
-              <p class="mb-1">Description.</p>
-              <small>One Bedroom Condo with Private Terrace on tree-lined Park Block. Separate dining area can be
-                converted to second bedroom in elegant mint condition. A full service, pet friendly building with gym,
-                laundry room, bike room, and parking. Conveniently located to Central Park, Whole Foods shopping and all
-                transportation. Ask: $1,188,000 CC+RE TAX $1092 month.
-              </small>
+              <p>
+                <%= @listing.summary %>
+              </p>
             </a>
             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
                 <h4 class="mb-1">Features of this property</h4>
-
               </div>
-
-
-              <p>
+              <p class="mb-1">
               <ul class="list-unstyled">
                 <li>
                   3rd Asoyi Ln, Accra, Ghana
@@ -87,221 +157,346 @@
                 <li>Compound size:<span>19089</span>sqft</li>
               </ul>
               </p>
-
-
             </a>
             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
                 <h4 class="mb-1">Utilities</h4>
-                <h5 class="mb-1">Water</h5>
-
               </div>
-              <p class="mb-1">
-              <ul class="list-unstyled">
-                <li>
-                  Available 24hrs a day
-                </li>
-                <li>Water reservoir: Available</li>
-                <li>Water pump:</li>
-                <li>Borehole:</li>
-                <li>Compound size:<span>19089</span>sqft</li>
-              </ul>
-              </p>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"><strong>Water</strong></h5>
+                  </div>
+                  <p class="mb-1">
+                  <ul class="list-unstyled">
+                    <li>
+                      Available 24hrs a day
+                    </li>
+                    <li>Water reservoir: Available</li>
+                    <li>Water pump:</li>
+                    <li>Borehole:</li>
+                    <li>Compound size:<span>19089</span>sqft</li>
+                  </ul>
+                  </p>
+                  <br>
+                </div>
 
-            </a>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Electricity</h5>
+                <div class="col-sm-6">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"><strong>Electricity</strong></h5>
+                  </div>
+                  <p class="mb-1">
+                  <ul class="list-unstyled">
+                    <li>
+                      Available 24hrs a day
+                    </li>
+                    <li>Backup generator: Available</li>
+                    <li>Payment: Pre-paid</li>
+                  </ul>
+                  </p>
+                  <br>
+                </div>
 
+                <div class="col-sm-6">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"><strong>Internet</strong></h5>
+                  </div>
+                  <p class="mb-1">
+                  <ul class="list-unstyled">
+                    <li>
+                      MTN -3G 500kbs
+                    </li>
+                  </ul>
+                  </p>
+                  <br>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"><strong>Others</strong></h5>
+                  </div>
+                  <p class="mb-1">
+                  <ul class="list-unstyled">
+
+                    <li>Garbage Collection: 2 times/week</li>
+                    <li>Security:</li>
+                  </ul>
+                  </p>
+                  <br>
+                </div>
               </div>
-              <p class="mb-1">
-              <ul class="list-unstyled">
-                <li>
-                  Available 24hrs a day
-                </li>
-                <li>Backup generator: Available</li>
-                <li>Payment: Pre-paid</li>
-
-              </ul>
-              </p>
-
             </a>
-            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-              <div class="d-flex w-100 justify-content-between">
-                <h4 class="mb-1">Amenities </h4>
-
-              </div>
-              <p class="mb-1">
-              <ul class="list-unstyled">
-                <li>
-                  Internet: Mtn -3G 500kbs
-                </li>
-                <li>Garbage Collection: 2 times/week</li>
-                <li>Security:</li>
-
-              </ul>
-              </p>
-
-            </a>
-
-            <button type="submit" class="btn btn-primary">Request More Information</button>
           </div>
+        </div>
 
+        <div class="col-md-4">
+          <div class="list-group">
+            <div class="list-group-item">
+              <h4 class="list-group-item-heading">
+                <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                Schools
+              </h4>
+              <br>
+              <div class="list-group-item-text">
+                <p class="text-muted">Primary Schools</p>
+                <p class="rating">Average</p>
+                <hr>
+                <p class="text-muted">Junior High Schools</p>
+                <p class="rating">Above Average</p>
+                <hr>
+                <p class="text-muted">Senior High Schools</p>
+                <p class="rating">Above Average</p>
+                <a href="#" class="btn btn-link">More Details</a>
+              </div>
+            </div>
+          </div>
+          <div class="list-group">
+            <div href="#" class="list-group-item">
+              <h4 class="list-group-item-heading">
+                <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>
+                Crime &nbsp;<span class="rating">Lowest</span>
+              </h4>
+              <a href="#" class="btn btn-link">More Details</a>
+            </div>
+          </div>
         </div>
       </div>
-      <br>
-
-
-      <!--Map View-->
-      <div class="col-md-4">
-        <!--Insert Map here-->
-      </div>
-
     </div>
+  </div>
 
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1>See businesses, schools, and crimes near this home</h1>
+      </div>
+    </div>
+  </div>
 
-    <!--Column right Model/video/photo view-->
-    <div class="col-md-8">
-
-      <div class="row">
-        <div class="col-md-12">
-          <!-- Nav tabs -->
-          <ul class="nav nav-tabs nav-justified" role="tablist">
-            <% unless @listing.three_d_models.empty? %>
-                <li role="presentation" class="active">
-                  <a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D Models</a>
-                </li>
-            <% end %>
-            <% unless @listing.three_sixty_videos.empty? %>
-                <li role="presentation" class="<%= 'active' if @listing.three_d_models.empty? %>">
-                  <a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab" data-toggle="tab">360
-                    Videos</a></li>
-            <% end %>
-            <% unless @listing.three_sixty_photos.empty? %>
-                <li role="presentation" class="<%= 'active' if @listing.three_sixty_videos.empty? %>">
-                  <a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab" data-toggle="tab">360
-                    Photos</a></li>
-            <% end %>
-            <li role="presentation" class="<%= 'active' if @listing.three_sixty_photos.empty? %>">
-              <a href="#maps" aria-controls="maps" role="tab" data-toggle="tab" id="map-tab">Map</a></li>
-          </ul>
-
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <% unless @listing.three_d_models.empty? %>
-                <div role="tabpanel" class="tab-pane active" id="three_d_models">
-                  <div class="panel panel-default">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                      <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Calculate your commute time from this home
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                     <div class="panel-body">
-                      <%= raw @listing.three_d_models.first.embed_link %>
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                     </div>
                   </div>
                 </div>
-            <% end %>
-            <% unless @listing.three_sixty_videos.empty? %>
-                <div role="tabpanel" class="tab-pane <%= 'active' if @listing.three_d_models.empty? %>" id="three_sixty_videos">
-                  <div class="panel panel-default">
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Chipotle Mexican Grill, Trader Joe's, The Spot Lounge with...
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                     <div class="panel-body">
-                      <%= raw @listing.three_sixty_videos.first.embed_link %>
-                      <div class="caption">
-                        <p>
-                        <ul class="list-inline">
-                          <li>
-                            <%= @listing.address %>
-                          </li>
-                          <li><span>3</span>bedrooms</li>
-                          <li>Single-Family Home</li>
-                          <li>Built in <span>1984</span></li>
-                          <li>Compound size:<span>19089</span>sqft</li>
-                        </ul>
-                        </p>
-                      </div>
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                     </div>
                   </div>
                 </div>
-            <% end %>
-            <% unless @listing.three_sixty_photos.empty? %>
-                <div role="tabpanel" class="tab-pane <%= 'active' if @listing.three_sixty_videos.empty? %>" id="three_sixty_photos">
-                  <div class="panel panel-default">
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingThree">
+                    <h4 class="panel-title">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        48 median age, 75% married, 65% college graduate in this area
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                     <div class="panel-body">
-                      <%= raw @listing.three_sixty_photos.first.embed_link %>
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                     </div>
                   </div>
                 </div>
-            <% end %>
-            <div role="tabpanel" class="tab-pane <%= 'active' if @listing.three_sixty_photos.empty? %>" id="maps">
-              <div class="panel panel-default">
-                <div class="panel-body">
-                  <div id="detail-map"></div>
-                  <div class="caption">
-                    <div class="caption">
-                      <p>
-                      <ul class="list-inline">
-                        <li>
-                          <%= @listing.address %>
-                        </li>
-                        <li><span>3</span>bedrooms</li>
-                        <li>Single-Family Home</li>
-                        <li>Built in <span>1984</span></li>
-                        <li>Compound size:<span>19089</span>sqft</li>
-                      </ul>
-                      </p>
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingFour">
+                    <h4 class="panel-title">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        See 11 schools assigned to this home. Lakeshore Alternativ...
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                    <div class="panel-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="headingFive">
+                    <h4 class="panel-title">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        See reported crimes near this home...
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                    <div class="panel-body">
+                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <h4>See schools, businesses, restaurants and crimes near this home</h4>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <div class="panel panel-default">
-            <div class="panel-body">
+            <div class="col-md-6">
               <div id="surroundings-map"></div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div class="row">
-        <div class="col-md-12">
-          <h4>Other listings in this area</h4>
-        </div>
-      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs nav-justified" role="tablist">
+        <% unless @listing.three_d_models.empty? %>
+            <li role="presentation" class="active">
+              <a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D Models</a>
+            </li>
+        <% end %>
+        <% unless @listing.three_sixty_videos.empty? %>
+            <li role="presentation" class="<%= 'active' if @listing.three_d_models.empty? %>">
+              <a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab" data-toggle="tab">360
+                Videos</a>
+            </li>
+        <% end %>
+        <% unless @listing.three_sixty_photos.empty? %>
+            <li role="presentation" class="<%= 'active' if @listing.three_sixty_videos.empty? %>">
+              <a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab" data-toggle="tab">360
+                Photos</a>
+            </li>
+        <% end %>
+        <li role="presentation" class="<%= 'active' if @listing.three_sixty_photos.empty? %>">
+          <a href="#maps" aria-controls="maps" role="tab" data-toggle="tab" id="map-tab">Map</a>
+        </li>
+        <li role="presentation">
+          <a href="#street_view" aria-controls="street_view" role="tab" data-toggle="tab" id="street_view_tab">Street View</a>
+        </li>
+      </ul>
 
-      <div class="row">
-        <% @listings.reverse.take(3).each do |listing| %>
-            <div class="col-sm-4 col-md-4">
-              <li class="thumbnail">
-
-                <%= link_to listing do %>
-                    <%= image_tag listing.photo_attachments.first.photo.url if !listing.photo_attachments.empty? %>
-                <% end %>
-
-                <div class="caption">
-                  <p>
-                    <%= "GHC #{listing.price}, #{listing.address}" %>
-                  </p>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <% unless @listing.three_d_models.empty? %>
+            <div role="tabpanel" class="tab-pane active" id="three_d_models">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <%= raw @listing.three_d_models.first.embed_link %>
+                  <br/>
+                  <a title="<%= @listing.listing_name %>" href="#">
+                    <%= @listing.listing_name %>
+                  </a>
                 </div>
-              </li>
+              </div>
             </div>
         <% end %>
+        <% unless @listing.three_sixty_videos.empty? %>
+            <div role="tabpanel" class="tab-pane <%= 'active' if @listing.three_d_models.empty? %>" id="three_sixty_videos">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <%= raw @listing.three_sixty_videos.first.embed_link %>
+                  <br/>
+                  <a title="<%= @listing.listing_name %>" href="#">
+                    <%= @listing.listing_name %>
+                  </a>
+                </div>
+              </div>
+            </div>
+        <% end %>
+        <% unless @listing.three_sixty_photos.empty? %>
+            <div role="tabpanel" class="tab-pane <%= 'active' if @listing.three_sixty_videos.empty? %>" id="three_sixty_photos">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <%= raw @listing.three_sixty_photos.first.embed_link %>
+                  <br/>
+                  <a title="<%= @listing.listing_name %>" href="#">
+                    <%= @listing.listing_name %>
+                  </a>
+                </div>
+              </div>
+            </div>
+        <% end %>
+        <div role="tabpanel" class="tab-pane <%= 'active' if @listing.three_sixty_photos.empty? %>" id="maps">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div id="detail-map"></div>
+              <br/>
+              <a title="<%= @listing.listing_name %>" href="#">
+                <%= @listing.listing_name %>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="street_view">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div id="street-view-container"></div>
+              <br/>
+              <a title="<%= @listing.listing_name %>" href="#">
+                <%= @listing.listing_name %>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Other listings in this area</h4>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <% @listings.reverse.take(3).each do |listing| %>
+        <div class="col-sm-4 col-md-4">
+          <li class="thumbnail">
+
+            <%= link_to listing do %>
+                <%= image_tag listing.photo_attachments.first.photo.url if !listing.photo_attachments.empty? %>
+            <% end %>
+
+            <div class="caption">
+              <p>
+                <%= "GHC #{listing.price}, #{listing.address}" %>
+              </p>
+            </div>
+          </li>
+        </div>
+    <% end %>
+  </div>
+
 </div>
 
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <p class="text-muted">&copy; Surreal 2017</p>
+      </div>
+    </div>
+  </div>
+</footer>
 
 <script>
     $(document).ready(function () {
-        var detailMap = L.map('detail-map').setView([<%= @listing.latitude %>, <%= @listing.longitude %>], 13);
+        var detailMap = L.map('detail-map').setView([<%= @listing.latitude %>, <%= @listing.longitude %>], <%= @zoom_level %>);
 
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -322,13 +517,13 @@
             detailMap.invalidateSize(false);
         });
 
-        var surroundingsMap = L.map('surroundings-map').setView([5.6462718, -0.159063], 13);
+        var surroundingsMap = L.map('surroundings-map').setView([<%= @listing.latitude %>, <%= @listing.longitude %>], <%= @zoom_level %>);
 
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(surroundingsMap);
 
-        L.marker([5.6462718, -0.159063]).addTo(surroundingsMap)
+        L.marker([<%= @listing.latitude %>, <%= @listing.longitude %>]).addTo(surroundingsMap)
             .bindPopup(`
           <a href="/listings/1">
             <img class="img-responsive" src="images/kitchen.jpg" alt="Kitchen" />
@@ -339,4 +534,26 @@
         `);
 
     });
+</script>
+
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+<script>
+    var panorama;
+    function initMap() {
+        panorama = new google.maps.StreetViewPanorama(
+            document.getElementById('street-view-container'),
+            {
+                position: {lat: <%= @listing.latitude %>, lng: <%= @listing.longitude %>},
+                pov: {heading: 60, pitch: 0},
+                zoom: 1
+            });
+
+        $("body").on("shown.bs.tab", "#street_view_tab", function () {
+            google.maps.event.trigger(panorama, 'resize');
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrRvrsJS76i6RqSHHJif6wlq1cY93Ynm0&callback=initMap">
 </script>

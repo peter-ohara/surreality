@@ -62,18 +62,9 @@ body {
   height: 480px;
 }
 
-#surroundings-map {
+#surroundings-map, #street-view-container {
   width: 100%;
-  height: 300px;
-}
-
-.navbar-brand {
-
-}
-
-.btn {
-  background: #F44336;
-  color: #FFFFFF;
+  height: 480px;
 }
 
 #clone {
@@ -99,7 +90,21 @@ div {
   border-radius: 0 !important;
 }
 
-.btn {
+/***********************
+  SHARP BUTTONS
+************************/
+.sharp {
+  border-radius: 0;
+}
+
+/***********************
+  CUSTOM BTN VALUES
+************************/
+
+.btn-pink {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #FFFFFF;
   display: inline-block;
   margin-bottom: 0;
   font-size: 14px;
@@ -113,7 +118,7 @@ div {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-image: none;
+  background: #F44336 none;
   border: 1px solid transparent;
   border-radius: 4px;
   padding: 10px 16px;
@@ -128,7 +133,6 @@ div {
 .btn-primary {
   color: #fff;
   background-color: #428bca;
-
 }
 
 .btn-primary:hover,
@@ -141,27 +145,15 @@ div {
   border-color: #285e8e;
 }
 
-/***********************
-  SHARP BUTTONS
-************************/
-.sharp {
-  border-radius: 0;
-}
-
-/***********************
-  CUSTOM BTN VALUES
-************************/
-
-.btn {
-  padding: 14px 24px;
-  border: 0 none;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
 .form-control {
   height: 48px;
+}
+
+.x {
+  height: 45px;
+  width: 100%;
+  margin-bottom: 15px;
+  background: #009688;
 }
 
 .list-group {
@@ -172,7 +164,7 @@ div {
 }
 
 .panel.noborder {
-  border: none;
+
   box-shadow: none;
 }
 
@@ -187,24 +179,74 @@ div {
 }
 
 h4 {
+  /*color: #26A69A;*/
+}
+
+.rating {
   color: #26A69A;
 }
 
 .carousel-inner {
-  height: 450px;
   background-position: center;
   background-size: cover;
 }
 
-.carousel .slide {
-  margin-bottom: 30px;
+.item img {
+  width: 100%;
+  height: 200px;
 }
 
 #survey_button {
   position: fixed;
   bottom: 0;
-  left: 50%;
   z-index: 9999;
-  margin-bottom: 10px;
-  margin-left: -123px;
+  width: 100%;
+}
+
+.noborder {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.btn-info {
+  height: 44px;
+}
+
+.panel-heading {
+  background: #9E9E9E;
+  margin-bottom: 15px;
+
+}
+
+.navbar-form {
+  width: auto;
+}
+
+.shadows {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+a.collapsed, a.collapsed:hover, a.collapsed:focus {
+  text-decoration: none;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: auto;
+  background-color: #f5f5f5;
+  padding: 10px;
 }
