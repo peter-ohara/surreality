@@ -1,0 +1,219 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1>See businesses, schools, and crimes near this home</h1>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="list-group surroundings-map-controls" id="accordion">
+            <li class="list-group-item">
+              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                Calculate your commute time from this home
+                <span class="caret pull-right"></span>
+              </a>
+              <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                  <form class="form-inline">
+                    <div class="form-group">
+                      <label class="sr-only" for="destination">Destination</label>
+                      <input type="text" class="form-control" id="destination" name="destination"
+                             placeholder="Enter your commute destination">
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">
+                              <i class="fa fa-car" aria-hidden="true"></i>
+                          </button>
+                        </span>
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">
+                            <i class="fa fa-bus" aria-hidden="true"></i>
+                          </button>
+                        </span>
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">
+                            <i class="fa fa-male" aria-hidden="true"></i>
+                          </button>
+                        </span>
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">
+                            <i class="fa fa-bicycle" aria-hidden="true"></i>
+                          </button>
+                        </span>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-default">Calculate</button>
+                  </form>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <i class="fa fa-cutlery" aria-hidden="true"></i>
+                <%= "#{@restaurants.first.name}, #{@groceries.first.name}, #{@night_life.first.name}..." %>
+                <span class="caret pull-right"></span>
+              </a>
+              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
+                  <form class="form">
+                    <div class="form-group">
+                      <input type="radio" name="amenities" value="restaurants">
+                      <strong> <%= @restaurants.count %> Restaurants </strong>
+                      <div class="">
+                        <%= @restaurants.first(3).map {|obj| obj.name }.join(", ") %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="amenities" value="groceries">
+                      <strong> <%= @groceries.count %> Groceries </strong>
+                      <div class="">
+                        <%= @groceries.first(3).map {|obj| obj.name }.join(", ") %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="amenities" value="nightlife">
+                      <strong> <%= @night_life.count %> Nightlife </strong>
+                      <div class="">
+                        <%= @night_life.first(3).map {|obj| obj.name }.join(", ") %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="amenities" value="cafes">
+                      <strong> <%= @cafes.count %> Cafes </strong>
+                      <div class="">
+                        <%= @cafes.first(3).map {|obj| obj.name }.join(", ") %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="amenities" value="shopping">
+                      <strong> <%= @shopping.count %> Shopping </strong>
+                      <div class="">
+                        <%= @shopping.first(3).map {|obj| obj.name }.join(", ") %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="amenities" value="shopping">
+                      <strong> <%= @arts_and_entertainment.count %> Arts &amp; Entertainment </strong>
+                      <div class="">
+                        <%= @arts_and_entertainment.first(3).map {|obj| obj.name }.join(", ") %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="amenities" value="beauty">
+                      <strong> <%= @beauty_and_spas.count %> Beauty &amp; Spas </strong>
+                      <div class="">
+                        <%= @beauty_and_spas.first(3).map {|obj| obj.name }.join(", ") %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="amenities" value="gyms">
+                      <strong> <%= @active_life.count %> Active Life </strong>
+                      <div class="">
+                        <%= @active_life.first(3).map {|obj| obj.name }.join(", ")  %>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                See <%= @schools.count %> schools assigned to this home. <%= @schools.first.name %>...
+                <span class="caret pull-right"></span>
+              </a>
+              <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                <div class="panel-body">
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th>Assigned schools for this home</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% @schools.each do |school| %>
+                        <tr>
+                          <td><%= school.name %></td>
+                          <td><%= school.rating %></td>
+                          <td> 1.2 km</td>
+                        </tr>
+                    <% end %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                <i class="fa fa-shield" aria-hidden="true"></i>
+                See reported crimes near this home...
+                <span class="caret pull-right"></span>
+              </a>
+              <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                <div class="panel-body">
+                  <table class="table">
+                    <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Type</th>
+                      <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>01/30/2017</td>
+                        <td>Vandalism</td>
+                        <td>VANDALISM. MALICIOUS MISCHIEF, BREAKING WINDOWS. Resolution: NONE. PD District: RICHMOND</td>
+                      </tr>
+                      <tr>
+                        <td>01/30/2017</td>
+                        <td>Vandalism</td>
+                        <td>VANDALISM. MALICIOUS MISCHIEF, BREAKING WINDOWS. Resolution: NONE. PD District: RICHMOND</td>
+                      </tr>
+                      <tr>
+                        <td>01/30/2017</td>
+                        <td>Vandalism</td>
+                        <td>VANDALISM. MALICIOUS MISCHIEF, BREAKING WINDOWS. Resolution: NONE. PD District: RICHMOND</td>
+                      </tr>
+                      <tr>
+                        <td>01/30/2017</td>
+                        <td>Vandalism</td>
+                        <td>VANDALISM. MALICIOUS MISCHIEF, BREAKING WINDOWS. Resolution: NONE. PD District: RICHMOND</td>
+                      </tr>
+                      <tr>
+                        <td>01/30/2017</td>
+                        <td>Vandalism</td>
+                        <td>VANDALISM. MALICIOUS MISCHIEF, BREAKING WINDOWS. Resolution: NONE. PD District: RICHMOND</td>
+                      </tr>
+                      <tr>
+                        <td>01/30/2017</td>
+                        <td>Vandalism</td>
+                        <td>VANDALISM. MALICIOUS MISCHIEF, BREAKING WINDOWS. Resolution: NONE. PD District: RICHMOND</td>
+                      </tr>
+                      <tr>
+                        <td>01/30/2017</td>
+                        <td>Vandalism</td>
+                        <td>VANDALISM. MALICIOUS MISCHIEF, BREAKING WINDOWS. Resolution: NONE. PD District: RICHMOND</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <div id="surroundings-map"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

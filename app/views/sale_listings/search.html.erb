@@ -1,0 +1,125 @@
+<%= render 'layouts/homepage_header' %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <%= render 'search_form' %>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      Showing <%= @listings.count(:all) %> resuls for <%= params[:location] %>
+      <button type="button" class="btn btn-link pull-right">
+          <span class="text-primary">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            Save this search
+          </span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-7 search-results-list">
+      <div class="row">
+        <% @listings.reverse.each do |listing| %>
+          <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+
+              <%= link_to listing do %>
+                <%= image_tag listing.sale_photo_attachments.first.photo.url if !listing.sale_photo_attachments.empty? %>
+                  <% end %>
+
+                    <div class="caption">
+                      <p>
+                        <%= "GHC #{listing.price}, #{listing.address}" %>
+                      </p>
+                    </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <nav aria-label="Page navigation">
+            <ul class="pagination">
+              <li>
+                <a href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li>
+                <a href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="col-sm-5 search-results-map">
+      <div id="search-map"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script>
+  $(document).ready(function () {
+
+  <% if @listings.empty? %>
+    var searchMap = L.map('search-map').setView(<%= @map_center %>, <%= @zoom %>);
+  <% else %>
+    var searchMap = L.map('search-map')
+      .setView(<%= @map_center %>, getZoom(<%= @west_bounds %>, <%= @east_bounds %>, "#search-map"));
+
+    <% @listings.each do |listing | %>
+      L.marker([<%= listing.latitude %>, <%= listing.longitude %>]).addTo(searchMap)
+        .bindPopup(`
+            <%= link_to listing do %>
+              <%= image_tag listing.sale_photo_attachments.first.photo.url, class: "img-responsive" if !listing.sale_photo_attachments.empty? %>
+            <% end %>
+
+            <div class="caption">
+              <%= "GHC #{listing.price}, #{listing.listing_name}" %>
+            </div>
+          `);
+    <% end %>
+  <% end %>
+
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(searchMap);
+
+  function getZoom(westBound, eastBound, mapId) {
+    var GLOBE_WIDTH = 256; // a constant in Google's map projection
+    var west = westBound;
+    var east = eastBound;
+    var angle = east - west;
+    if (angle < 0) {
+      angle += 360;
+    }
+    var pixelWidth = $(mapId).width();
+    var zoom = Math.round(Math.log(pixelWidth * 360 / angle / GLOBE_WIDTH) / Math.LN2);
+    return zoom;
+  }
+    
+});
+
+</script>

@@ -54,6 +54,8 @@ gem 'money-rails', '~>1'
 
 gem 'cloudinary'
 
+gem 'google_places'
+
 
 
 group :development, :test do

@@ -1,0 +1,161 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1>Home Details for <%= @listing.listing_name %></h1>
+    </div>
+
+    <ol class="breadcrumb">
+      <li><a href="#">For Sale</a></li>
+      <li><a href="#"><%= @listing.city %></a></li>
+      <li><%= @listing.address %></li>
+    </ol>
+
+    <div class="row">
+      <div class="col-md-8">
+        <div class="list-group">
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
+            <div class="d-flex w-100 justify-content-between">
+              <h4 class="mb-1">Description</h4>
+            </div>
+            <p>
+              <%= @listing.description %>
+            </p>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h4 class="mb-1">Features of this property</h4>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="mb-1">
+                <ul class="list-unstyled">
+                  <li>
+                    <%= @listing.address %>
+                  </li>
+                  <li><%= @listing.category.name %></li>
+                  <li><%= @listing.num_bedrooms %> Bedrooms</li>
+                  <li><%= @listing.num_bathrooms %> full Bathrooms</li>
+                </ul>
+                </p>
+                <br>
+              </div>
+
+              <div class="col-sm-6">
+                <p class="mb-1">
+                <ul class="list-unstyled">
+                  <li><%= @listing.floor_area %> sqft</li>
+                  <li><%= money_without_cents_and_with_symbol (@listing.price_cents / @listing.floor_area) %>/sqft</li>
+                  <li>Built in <%= @listing.build_date.year %></li>
+                  <li>Lot size: <%= @listing.lot_size %> sqft</li>
+                </ul>
+                </p>
+                <br>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+              <h4 class="mb-1">Utilities</h4>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1"><strong>Water</strong></h5>
+                </div>
+                <p class="mb-1">
+                <ul class="list-unstyled">
+                  <li>
+                    Available 24hrs a day
+                  </li>
+                  <li>Water reservoir: Available</li>
+                  <li>Water pump:</li>
+                  <li>Borehole:</li>
+                  <li>Compound size:<span>19089</span>sqft</li>
+                </ul>
+                </p>
+                <br>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1"><strong>Electricity</strong></h5>
+                </div>
+                <p class="mb-1">
+                <ul class="list-unstyled">
+                  <li>
+                    Available 24hrs a day
+                  </li>
+                  <li>Backup generator: Available</li>
+                  <li>Payment: Pre-paid</li>
+                </ul>
+                </p>
+                <br>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1"><strong>Internet</strong></h5>
+                </div>
+                <p class="mb-1">
+                <ul class="list-unstyled">
+                  <li>
+                    MTN -3G 500kbs
+                  </li>
+                </ul>
+                </p>
+                <br>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1"><strong>Others</strong></h5>
+                </div>
+                <p class="mb-1">
+                <ul class="list-unstyled">
+
+                  <li>Garbage Collection: 2 times/week</li>
+                  <li>Security:</li>
+                </ul>
+                </p>
+                <br>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="list-group">
+          <div class="list-group-item">
+            <h4 class="list-group-item-heading">
+              <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+              Schools
+              <i class="fa fa-info pull-right" aria-hidden="true"></i>
+            </h4>
+            <br>
+            <div class="list-group-item-text">
+              <p class="text-muted">Primary Schools</p>
+              <p class="rating">Average</p>
+              <hr>
+              <p class="text-muted">Junior High Schools</p>
+              <p class="rating">Above Average</p>
+              <hr>
+              <p class="text-muted">Senior High Schools</p>
+              <p class="rating">Above Average</p>
+              <a href="#" class="btn btn-link">More Details</a>
+            </div>
+          </div>
+        </div>
+        <div class="list-group">
+          <div href="#" class="list-group-item">
+            <h4 class="list-group-item-heading">
+              <i class="fa fa-shield" aria-hidden="true"></i>
+              Crime &nbsp;<span class="rating">Lowest</span>
+            </h4>
+            <a href="#" class="btn btn-link">More Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

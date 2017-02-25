@@ -1,0 +1,60 @@
+<!--Leaflet Map-->
+<script>
+    $(document).ready(function () {
+        var detailMap = L.map('detail-map').setView([<%= @listing.latitude %>, <%= @listing.longitude %>], <%= @zoom_level %>);
+
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(detailMap);
+
+        L.marker([<%= @listing.latitude %>, <%= @listing.longitude %>]).addTo(detailMap)
+            .bindPopup(`
+
+          <div class="caption">
+            <%= "GHC #{@listing.price}, #{@listing.listing_name}" %>
+          </div>
+        `);
+
+        $("body").on("shown.bs.tab", "#map-tab", function () {
+            detailMap.invalidateSize(false);
+        });
+
+        var surroundingsMap = L.map('surroundings-map').setView([<%= @listing.latitude %>, <%= @listing.longitude %>], <%= @zoom_level %>);
+
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(surroundingsMap);
+
+        L.marker([<%= @listing.latitude %>, <%= @listing.longitude %>]).addTo(surroundingsMap)
+            .bindPopup(`
+          <a href="/listings/1">
+            <img class="img-responsive" src="images/kitchen.jpg" alt="Kitchen" />
+          </a>
+          <div class="caption">
+            GHC 300, Room 22 SandCity
+          </div>
+        `);
+
+    });
+</script>
+
+<!--Google StreetView-->
+<script>
+    var panorama;
+    function initMap() {
+        panorama = new google.maps.StreetViewPanorama(
+            document.getElementById('street-view-container'),
+            {
+                position: {lat: <%= @listing.latitude %>, lng: <%= @listing.longitude %>},
+                pov: {heading: 60, pitch: 0},
+                zoom: 1
+            });
+
+        $("body").on("shown.bs.tab", "#street_view_tab", function () {
+            google.maps.event.trigger(panorama, 'resize');
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrRvrsJS76i6RqSHHJif6wlq1cY93Ynm0&callback=initMap">
+</script>

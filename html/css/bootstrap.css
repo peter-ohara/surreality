@@ -27,7 +27,7 @@ nav,
 section,
 
 summary {
-  display: block
+  display: block;
   background: #1976D2;
   background-color: #1976D2;
 }

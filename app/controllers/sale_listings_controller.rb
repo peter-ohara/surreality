@@ -7,11 +7,60 @@ class SaleListingsController < ApplicationController
     @listings = SaleListing.all
   end
 
+  def search
+    address = params[:location]
+
+    @listings = SaleListing.near(address)
+
+    if @listings.empty?
+      @map_center = Geocoder.coordinates(address)
+      @zoom = 10
+    else
+      @map_center = Geocoder::Calculations.geographic_center(@listings)
+      @west_bounds = @listings.minimum(:longitude)
+      @east_bounds = @listings.maximum(:longitude)
+    end
+  end
+
   # GET /sale_listings/1
   # GET /sale_listings/1.json
   def show
-    @listings = SaleListing.all
+    @listings = SaleListing.near([@listing.latitude, @listing.longitude], 20)
+    @listings = @listings.to_a - [@listing]
+
     @zoom_level = 17
+
+    @client = GooglePlaces::Client.new(ENV["GOOGLE_PLACES_API_KEY"])
+
+    @restaurants = @client.spots(@listing.latitude, @listing.longitude,
+                                 :types => ['restaurants'],
+                                 :exclude => 'political')
+    @groceries = @client.spots(@listing.latitude, @listing.longitude,
+                               :types => ['groceries', 'bakery', 'convenience_store'],
+                               :exclude => 'political')
+    @night_life = @client.spots(@listing.latitude, @listing.longitude,
+                               :types => ['night_club', 'bar', 'casino', 'clothing_store', 'electronics_store'],
+                                :exclude => 'political')
+
+    @cafes = @client.spots(@listing.latitude, @listing.longitude,
+                           :types => 'cafes',
+                           :exclude => 'political')
+    @shopping = @client.spots(@listing.latitude, @listing.longitude,
+                              :types => ['shopping_mall', 'bank', 'atm'],
+                              :exclude => 'political')
+    @arts_and_entertainment = @client.spots(@listing.latitude, @listing.longitude,
+                                            :types => ['entertainment'],
+                                            :exclude => 'political')
+    @beauty_and_spas = @client.spots(@listing.latitude, @listing.longitude,
+                                     :types => ['beauty_salon', 'hair_care'],
+                                     :exclude => 'political')
+    @active_life = @client.spots(@listing.latitude, @listing.longitude,
+                                 :types => ['amusement_park', 'aquarium', 'art_gallery', 'church', 'gym'],
+                                 :exclude => 'political')
+
+    @schools = @client.spots(@listing.latitude, @listing.longitude,
+                                 :types => ['school'],
+                                 :exclude => 'political')
   end
 
   # GET /sale_listings/new

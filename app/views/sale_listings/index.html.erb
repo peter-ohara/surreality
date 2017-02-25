@@ -1,75 +1,65 @@
-<p id="notice"><%= notice %></p>
+<%= render 'layouts/homepage_header' %>
 
-<h1>Sale Listings</h1>
+<br><br><br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Listing name</th>
-      <th>Price cents</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Address</th>
-      <th>String</th>
-      <th>City</th>
-      <th>State</th>
-      <th>State code</th>
-      <th>Postal code</th>
-      <th>Country</th>
-      <th>Country code</th>
-      <th>Category</th>
-      <th>Num bedrooms</th>
-      <th>Num bathrooms</th>
-      <th>Floor area</th>
-      <th>Lot size</th>
-      <th>Build date</th>
-      <th>Description</th>
-      <th>Architecture</th>
-      <th>Three d model</th>
-      <th>Three sixty video</th>
-      <th>Three sixty photo</th>
-      <th>Street view</th>
-      <th>Sold cents</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container">
+  <div class="col-sm-12" id="clone">
+    <p class="tagline">
+        <span>
+        <b>
+            Great homes and neighbourhoods start with Surreal. <br>
+        </b>
+        <small style="color: #616161;">
+            Make informed decisions about which place to rent
+        </small>
+        </span>
+    </p>
+  </div>
+</div>
 
-  <tbody>
-    <% @sale_listings.each do |sale_listing| %>
-      <tr>
-        <td><%= sale_listing.listing_name %></td>
-        <td><%= sale_listing.price_cents %></td>
-        <td><%= sale_listing.latitude %></td>
-        <td><%= sale_listing.longitude %></td>
-        <td><%= sale_listing.address %></td>
-        <td><%= sale_listing.string %></td>
-        <td><%= sale_listing.city %></td>
-        <td><%= sale_listing.state %></td>
-        <td><%= sale_listing.state_code %></td>
-        <td><%= sale_listing.postal_code %></td>
-        <td><%= sale_listing.country %></td>
-        <td><%= sale_listing.country_code %></td>
-        <td><%= sale_listing.category %></td>
-        <td><%= sale_listing.num_bedrooms %></td>
-        <td><%= sale_listing.num_bathrooms %></td>
-        <td><%= sale_listing.floor_area %></td>
-        <td><%= sale_listing.lot_size %></td>
-        <td><%= sale_listing.build_date %></td>
-        <td><%= sale_listing.description %></td>
-        <td><%= sale_listing.architecture %></td>
-        <td><%= sale_listing.three_d_model %></td>
-        <td><%= sale_listing.three_sixty_video %></td>
-        <td><%= sale_listing.three_sixty_photo %></td>
-        <td><%= sale_listing.street_view %></td>
-        <td><%= sale_listing.sold_cents %></td>
-        <td><%= link_to 'Show', sale_listing %></td>
-        <td><%= link_to 'Edit', edit_sale_listing_path(sale_listing) %></td>
-        <td><%= link_to 'Destroy', sale_listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<br><br>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <%= render 'search_form' %>
+    </div>
+  </div>
+</div>
 
 <br>
 
-<%= link_to 'New Sale Listing', new_sale_listing_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Popular neighbourhoods</h4><br>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @listings.reverse.take(3).each do |listing| %>
+        <div class="col-sm-4 col-md-4">
+          <div class="thumbnail">
+
+            <%= link_to listing do %>
+                <%= image_tag listing.sale_photo_attachments.first.photo.url if !listing.sale_photo_attachments.empty? %>
+            <% end %>
+
+            <div class="caption">
+              <p>
+                <strong><%= "GHC #{listing.price} - 3bd" %>
+                  <span class="pull-right">
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                             </span><br>
+                </strong><%= "#{listing.address}" %>
+              </p>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

@@ -7,12 +7,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Surreal</title>
     <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom css -->
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/palette.css">
+
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
     <script src="js/jquery-3.1.1.js"></script>
@@ -23,7 +25,7 @@
 
 
 <body>
-<nav class="navbar navbar-default">
+<nav class="navbar sticky-top">
     <div class="paulette">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -35,32 +37,155 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <h4><b><a class="navbar-brand" href="index.html">Surreal</a></b></h4>
+                <a class="navbar-brand" href="/">Surreal</a>
             </div>
-
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Buy</a></li>
+                    <li><a href="#">Rent</a></li>
+                    <li><a href="#">Mortgage</a></li>
+                    <li><a href="#">Sale</a></li>
+                </ul>
+
+
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Sign Up</a></li>
+                    <li><a href="#">Saved Homes</a></li>
+                    <li><a href="#">Saved Searches</a></li>
+                    <li><a href="#">Sign in</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </div>
 </nav>
 
+<nav class="navbar navbar-toolbar" data-spy="affix" data-offset-top="50">
+    <div class="container">
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-toolbar-nav">
+                <li><a href="#" class="btn btn-danger">Request more info</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-toolbar-nav navbar-right">
+                <li><a href="#" class="btn btn-default">Calculate Mortgage</a></li>
+                <li>
+                    <a href="#" class="btn btn-default">
+            <span class="text-primary">
+              <i class="fa fa-heart" aria-hidden="true"></i>
+              Save
+          </span>
+                    </a>
+                </li>
+                <li><a href="#" class="btn btn-default">Share</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                        <button class="btn btn-secondary btn-pink" type="button">Search</button>
-                    </span>
-            </div>
-        </div>
+            <form action="/sale_search" autocomplete="off" method="get" name="search" accept-charset="utf-8">
 
+                <div class="form-group">
+                    <label class="sr-only" for="location">Location</label>
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                For Sale <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">For Sale</a></li>
+                                <li><a href="#">For Rent</a></li>
+                            </ul>
+                        </div>
+                        <input type="text" class="form-control" name="location" id="location" placeholder="Location">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="button" id="dLabel" data-toggle="collapse" href="#expandedForm" aria-expanded="false" aria-controls="expandedForm">
+                                More
+                                <span class="caret"></span>
+                            </button>
+
+                            <button type="submit" class="btn btn-danger">Search</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse" id="expandedForm">
+                    <div class="row">
+                        <div class="form-group col-sm-2">
+                            <label class="sr-only" for="cost-min">Cost Min</label>
+                            <input type="number" min="0" class="form-control" name="cost_min" id="cost-min" placeholder="Cost Min">
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <label class="sr-only" for="cost-min">Cost Max</label>
+                            <input type="number" min="0" class="form-control" name="cost_max" id="cost-max" placeholder="Cost Max">
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <label class="sr-only" for="bedrooms">Bedrooms</label>
+                            <input type="number" min="0" class="form-control" name="bedrooms" id="bedrooms" placeholder="Bedrooms">
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label class="sr-only" for="category">Category</label>
+                            <select class="form-control" name="category" id="category">
+                                <option value="">Category</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="semi_detached">Semi-Detached</option>
+                                <option value="hostel">Hostel</option>
+                                <option value="house">House</option>
+                                <option value="condo">Condo</option>
+                                <option value="townhome">Townhome</option>
+                                <option value="multi_family">Multi-Family</option>
+                                <option value="land">Land</option>
+                                <option value="mobile_or_manufactured">Mobile/Manufactured</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label class="sr-only" for="architecture">Architecture</label>
+                            <select class="form-control" name="architecture" id="architecture">
+                                <option value="">Architecture</option>
+                                <option value="colonial">Colonial</option>
+                                <option value="contemporary">Contemporary</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <label class="sr-only" for="keywords">Keywords</label>
+                            <input type="text" class="form-control" name="keywords" id="keywords" placeholder="Keywords, eg. Pool, parking, cctv">
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label class="sr-only" for="lot-size-min">Min lot size</label>
+                            <input type="number" min="0" class="form-control" name="lot_size_min" id="lot-size-min" placeholder="Min lot size">
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label class="sr-only" for="lot-size-min">Max lot size</label>
+                            <input type="number" min="0" class="form-control" name="lot_size_max" id="lot-size-max" placeholder="Max lot size">
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label class="sr-only" for="min-yr-built">Min year built</label>
+                            <input type="number" min="0" class="form-control" name="min_yr_built" id="min-yr-built" placeholder="Min year built">
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label class="sr-only" for="max-yr-built">Max year built</label>
+                            <input type="number" min="0" class="form-control" name="max_yr_built" id="max-yr-built" placeholder="Max year built">
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+
+            </form>
+
+        </div>
     </div>
 </div>
 
@@ -70,8 +195,9 @@
     <div class="row">
         <div class="col-md-4">
             <div class="panel panel-default">
-                <div class="panel-heading "><h2>$230,000</h2>
-                    <small>$5,048 /mo - est. payment</small>
+                <div class="panel-heading ">
+                    <h2>$84,000</h2>
+                    <small><a href="#">See if you qualify for this home »</a></small>
                 </div>
                 <div class="container-fluid">
                     <form>
@@ -88,7 +214,7 @@
                             <input type="text" class="form-control" id="email" placeholder="email">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="">I am interested in 20 Aluguntugui, Accra, CA 94112.</textarea>
+                            <textarea class="form-control" placeholder="">I am interested in No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon</textarea>
                         </div>
                         <button type="submit" class="btn x">Request More Information</button>
                     </form>
@@ -102,17 +228,19 @@
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic"
+                                data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic"
+                                data-slide-to="1" class=""></li>
                         </ol>
 
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox">
                             <div class="item active">
-                                <img src="images/house1_h400.jpg" alt="...">
+                                <img src="https://surreal-0-bucket.s3.amazonaws.com/uploads/sale_photo_attachment/photo/1/pic9.jpg" alt="Pic9" />
                             </div>
-                            <div class="item">
-                                <img src="images/house2_h400.jpg" alt="...">
+                            <div class="item ">
+                                <img src="https://surreal-0-bucket.s3.amazonaws.com/uploads/sale_photo_attachment/photo/2/home1.jpg" alt="Home1" />
                             </div>
                         </div>
 
@@ -128,27 +256,24 @@
                     </div>
                 </div>
                 <div class="col-sm-12">
-                    <h4 class="text-center">20 Aluguntugui, Accra, CA 94112</h4>
+                    <h4 class="text-center">Aluguntugui St, Accra, Ghana</h4>
                 </div>
             </div>
         </div>
     </div>
 
     <br>
-    <br>
 
     <div class="row">
         <div class="col-md-12">
             <div class="page-header">
-                <h1>Home Details for 20 Aluguntugui, Accra, CA 94112</h1>
+                <h1>Home Details for No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon</h1>
             </div>
 
             <ol class="breadcrumb">
                 <li><a href="#">For Sale</a></li>
                 <li><a href="#">Accra</a></li>
-                <li>East Legon</li>
-                <li>Aluguntugui Street</li>
-                <li>CA 94112</li>
+                <li>Aluguntugui St, Accra, Ghana</li>
             </ol>
 
             <div class="row">
@@ -158,31 +283,41 @@
                             <div class="d-flex w-100 justify-content-between">
                                 <h4 class="mb-1">Description</h4>
                             </div>
-                            <p>One Bedroom Condo with Private Terrace on tree-lined Park Block. Separate dining
-                                area
-                                can be converted to second bedroom in elegant mint condition. A full service, pet
-                                friendly building with gym, laundry room, bike room, and parking. Conveniently
-                                located
-                                to Central Park, Whole Foods shopping and all transportation. Ask: $1,188,000 CC+RE
-                                TAX
-                                $1092 month.
+                            <p>
+                                Located on a desirable block of 44th Ave, close to the great restaurants of the Balboa Corridor, and ideal for an outdoor lifestyle afforded by proximity to GG Park, Lands End, and Ocean Beach, this wonderful 3 bed, 2 bath Outer Richmond residence was remodeled in 2004 to open and upgrade the kitchen, and again in 2010 to add a garden level master suite. Built in 1926, this home retains its period charm in its formal living room with Pacific Ocean Views, fireplace, formal dining room, hardwood floors, lush garden, and functional floorplan. Garage parking for 1 car, Washer &amp; Dryer, Cat5e... wired, gas range, dishwasher, and additional storage as well.
                             </p>
                         </a>
                         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                             <div class="d-flex w-100 justify-content-between">
                                 <h4 class="mb-1">Features of this property</h4>
                             </div>
-                            <p class="mb-1">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        3rd Asoyi Ln, Accra, Ghana
-                                    </li>
-                                    <li><span>3</span>bedrooms</li>
-                                    <li>Single-Family Home</li>
-                                    <li>Built in <span>1984</span></li>
-                                    <li>Compound size:<span>19089</span>sqft</li>
-                                </ul>
-                            </p>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p class="mb-1">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            Aluguntugui St, Accra, Ghana
+                                        </li>
+                                        <li>Single-Family Home</li>
+                                        <li>3 Bedrooms</li>
+                                        <li>2 full Bathrooms</li>
+                                    </ul>
+                                    </p>
+                                    <br>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <p class="mb-1">
+                                    <ul class="list-unstyled">
+                                        <li>1656.0 sqft</li>
+                                        <li>$5,072/sqft</li>
+                                        <li>Built in 1926</li>
+                                        <li>Lot size: 2095.0 sqft</li>
+                                    </ul>
+                                    </p>
+                                    <br>
+                                </div>
+                            </div>
                         </a>
                         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                             <div class="d-flex w-100 justify-content-between">
@@ -194,15 +329,15 @@
                                         <h5 class="mb-1"><strong>Water</strong></h5>
                                     </div>
                                     <p class="mb-1">
-                                        <ul class="list-unstyled">
-                                            <li>
-                                                Available 24hrs a day
-                                            </li>
-                                            <li>Water reservoir: Available</li>
-                                            <li>Water pump:</li>
-                                            <li>Borehole:</li>
-                                            <li>Compound size:<span>19089</span>sqft</li>
-                                        </ul>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            Available 24hrs a day
+                                        </li>
+                                        <li>Water reservoir: Available</li>
+                                        <li>Water pump:</li>
+                                        <li>Borehole:</li>
+                                        <li>Compound size:<span>19089</span>sqft</li>
+                                    </ul>
                                     </p>
                                     <br>
                                 </div>
@@ -212,13 +347,13 @@
                                         <h5 class="mb-1"><strong>Electricity</strong></h5>
                                     </div>
                                     <p class="mb-1">
-                                        <ul class="list-unstyled">
-                                            <li>
-                                                Available 24hrs a day
-                                            </li>
-                                            <li>Backup generator: Available</li>
-                                            <li>Payment: Pre-paid</li>
-                                        </ul>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            Available 24hrs a day
+                                        </li>
+                                        <li>Backup generator: Available</li>
+                                        <li>Payment: Pre-paid</li>
+                                    </ul>
                                     </p>
                                     <br>
                                 </div>
@@ -228,11 +363,11 @@
                                         <h5 class="mb-1"><strong>Internet</strong></h5>
                                     </div>
                                     <p class="mb-1">
-                                        <ul class="list-unstyled">
-                                            <li>
-                                                MTN -3G 500kbs
-                                            </li>
-                                        </ul>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            MTN -3G 500kbs
+                                        </li>
+                                    </ul>
                                     </p>
                                     <br>
                                 </div>
@@ -242,11 +377,11 @@
                                         <h5 class="mb-1"><strong>Others</strong></h5>
                                     </div>
                                     <p class="mb-1">
-                                        <ul class="list-unstyled">
+                                    <ul class="list-unstyled">
 
-                                            <li>Garbage Collection: 2 times/week</li>
-                                            <li>Security:</li>
-                                        </ul>
+                                        <li>Garbage Collection: 2 times/week</li>
+                                        <li>Security:</li>
+                                    </ul>
                                     </p>
                                     <br>
                                 </div>
@@ -259,8 +394,9 @@
                     <div class="list-group">
                         <div class="list-group-item">
                             <h4 class="list-group-item-heading">
-                                <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                                 Schools
+                                <i class="fa fa-info pull-right" aria-hidden="true"></i>
                             </h4>
                             <br>
                             <div class="list-group-item-text">
@@ -279,7 +415,7 @@
                     <div class="list-group">
                         <div href="#" class="list-group-item">
                             <h4 class="list-group-item-heading">
-                                <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>
+                                <i class="fa fa-shield" aria-hidden="true"></i>
                                 Crime &nbsp;<span class="rating">Lowest</span>
                             </h4>
                             <a href="#" class="btn btn-link">More Details</a>
@@ -301,113 +437,296 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingOne">
-                                    <h4 class="panel-title">
-                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Calculate your commute time from this home
-                                        </a>
-                                    </h4>
-                                    </div>
-                                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-group surroundings-map-controls" id="accordion">
+                            <li class="list-group-item">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    Calculate your commute time from this home
+                                    <span class="caret pull-right"></span>
+                                </a>
+                                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                                     <div class="panel-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                    </div>
+                                        <form class="form-inline">
+                                            <div class="form-group">
+                                                <label class="sr-only" for="destination">Destination</label>
+                                                <input type="text" class="form-control" id="destination" name="destination"
+                                                       placeholder="Enter your commute destination">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">
+                              <i class="fa fa-car" aria-hidden="true"></i>
+                          </button>
+                        </span>
+                                                    <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">
+                            <i class="fa fa-bus" aria-hidden="true"></i>
+                          </button>
+                        </span>
+                                                    <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">
+                            <i class="fa fa-male" aria-hidden="true"></i>
+                          </button>
+                        </span>
+                                                    <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">
+                            <i class="fa fa-bicycle" aria-hidden="true"></i>
+                          </button>
+                        </span>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-default">Calculate</button>
+                                        </form>
                                     </div>
                                 </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingTwo">
-                                    <h4 class="panel-title">
-                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Chipotle Mexican Grill, Trader Joe's, The Spot Lounge with...
-                                        </a>
-                                    </h4>
-                                    </div>
-                                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            </li>
+                            <li class="list-group-item">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <i class="fa fa-cutlery" aria-hidden="true"></i>
+                                    Mirage Royale Hotel, MaxMart Bakery, Uniforms 4 All...
+                                    <span class="caret pull-right"></span>
+                                </a>
+                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                     <div class="panel-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                    </div>
+                                        <form class="form">
+                                            <div class="form-group">
+                                                <input type="radio" name="amenities" value="restaurants">
+                                                <strong> 18 Restaurants </strong>
+                                                <div class="">
+                                                    Mirage Royale Hotel, Best One Hotel, Jaria Hotel
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="radio" name="amenities" value="groceries">
+                                                <strong> 2 Groceries </strong>
+                                                <div class="">
+                                                    MaxMart Bakery, Pink Panda Bakery
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="radio" name="amenities" value="nightlife">
+                                                <strong> 20 Nightlife </strong>
+                                                <div class="">
+                                                    Uniforms 4 All, Zeno&#39;s Yoghurt Bar, Sprog Store
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="radio" name="amenities" value="cafes">
+                                                <strong> 18 Cafes </strong>
+                                                <div class="">
+                                                    Mirage Royale Hotel, Best One Hotel, Jaria Hotel
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="radio" name="amenities" value="shopping">
+                                                <strong> 17 Shopping </strong>
+                                                <div class="">
+                                                    A&amp;C Shopping Centre, CIG Microfinance GH. Ltd., Barclay&#39;s Bank
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="radio" name="amenities" value="shopping">
+                                                <strong> 18 Arts &amp; Entertainment </strong>
+                                                <div class="">
+                                                    Mirage Royale Hotel, Best One Hotel, Jaria Hotel
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="radio" name="amenities" value="beauty">
+                                                <strong> 6 Beauty &amp; Spas </strong>
+                                                <div class="">
+                                                    Hannah Danquah Beauty Salon, X-MEN GHANA, Jackie Dee Saloon
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="radio" name="amenities" value="gyms">
+                                                <strong> 12 Active Life </strong>
+                                                <div class="">
+                                                    Agapeland, Agape House Church Office, Victory Bible Church International, Higher Heights Sanctuary.
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingThree">
-                                    <h4 class="panel-title">
-                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        48 median age, 75% married, 65% college graduate in this area
-                                        </a>
-                                    </h4>
-                                    </div>
-                                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            </li>
+                            <li class="list-group-item">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                    See 13 schools assigned to this home. True Love School...
+                                    <span class="caret pull-right"></span>
+                                </a>
+                                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
                                     <div class="panel-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                    </div>
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>Assigned schools for this home</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>True Love School</td>
+                                                <td>3</td>
+                                                <td> 1.2 km</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kay Billie Klaer</td>
+                                                <td>4</td>
+                                                <td> 1.2 km</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Lotus Educational Centre.</td>
+                                                <td>4</td>
+                                                <td> 1.2 km</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Meltwater Entrepreneurial School Of Technology</td>
+                                                <td>4.4</td>
+                                                <td> 1.2 km</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Afex Prep Centre</td>
+                                                <td></td>
+                                                <td> 1.2 km</td>
+                                            </tr>
+                                            <tr>
+                                                <td>British International School</td>
+                                                <td>2.5</td>
+                                                <td> 1.2 km</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Princess Diana Memorial School</td>
+                                                <td></td>
+                                                <td> 1.2 km</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mother&#39;s Pride</td>
+                                                <td></td>
+                                                <td> 1.2 km</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Young Heros Academy</td>
+                                                <td></td>
+                                                <td> 1.2 km</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Little Miracles International School</td>
+                                                <td></td>
+                                                <td> 1.2 km</td>
+                                            </tr>
+                                            <tr>
+                                                <td>East Legon Academy</td>
+                                                <td></td>
+                                                <td> 1.2 km</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Queens International School</td>
+                                                <td></td>
+                                                <td> 1.2 km</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Daddy Daycare Ghana</td>
+                                                <td>5</td>
+                                                <td> 1.2 km</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingFour">
-                                    <h4 class="panel-title">
-                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                         See 11 schools assigned to this home. Lakeshore Alternativ...
-                                        </a>
-                                    </h4>
-                                    </div>
-                                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                            </li>
+                            <li class="list-group-item">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    <i class="fa fa-shield" aria-hidden="true"></i>
+                                    See reported crimes near this home...
+                                    <span class="caret pull-right"></span>
+                                </a>
+                                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
                                     <div class="panel-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                    </div>
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Type</th>
+                                                <th>Description</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>01/30/2017</td>
+                                                <td>Vandalism</td>
+                                                <td>VANDALISM. MALICIOUS MISCHIEF, BREAKING WINDOWS. Resolution: NONE. PD District: RICHMOND</td>
+                                            </tr>
+                                            <tr>
+                                                <td>01/30/2017</td>
+                                                <td>Vandalism</td>
+                                                <td>VANDALISM. MALICIOUS MISCHIEF, BREAKING WINDOWS. Resolution: NONE. PD District: RICHMOND</td>
+                                            </tr>
+                                            <tr>
+                                                <td>01/30/2017</td>
+                                                <td>Vandalism</td>
+                                                <td>VANDALISM. MALICIOUS MISCHIEF, BREAKING WINDOWS. Resolution: NONE. PD District: RICHMOND</td>
+                                            </tr>
+                                            <tr>
+                                                <td>01/30/2017</td>
+                                                <td>Vandalism</td>
+                                                <td>VANDALISM. MALICIOUS MISCHIEF, BREAKING WINDOWS. Resolution: NONE. PD District: RICHMOND</td>
+                                            </tr>
+                                            <tr>
+                                                <td>01/30/2017</td>
+                                                <td>Vandalism</td>
+                                                <td>VANDALISM. MALICIOUS MISCHIEF, BREAKING WINDOWS. Resolution: NONE. PD District: RICHMOND</td>
+                                            </tr>
+                                            <tr>
+                                                <td>01/30/2017</td>
+                                                <td>Vandalism</td>
+                                                <td>VANDALISM. MALICIOUS MISCHIEF, BREAKING WINDOWS. Resolution: NONE. PD District: RICHMOND</td>
+                                            </tr>
+                                            <tr>
+                                                <td>01/30/2017</td>
+                                                <td>Vandalism</td>
+                                                <td>VANDALISM. MALICIOUS MISCHIEF, BREAKING WINDOWS. Resolution: NONE. PD District: RICHMOND</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingFive">
-                                    <h4 class="panel-title">
-                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                         See reported crimes near this home...
-                                        </a>
-                                    </h4>
-                                    </div>
-                                    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-                                    <div class="panel-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                    </div>
-                                    </div>
-                                </div>                       
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div id="surroundings-map"></div>
-                        </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="surroundings-map"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <br>
+
     <div class="row">
         <div class="col-md-12">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs nav-justified" role="tablist">
                 <li role="presentation" class="active">
-                    <a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D
-                        Models</a></li>
-                <li role="presentation">
-                    <a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab"
-                        data-toggle="tab">360
-                        Videos</a></li>
-                <li role="presentation">
-                    <a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab"
-                        data-toggle="tab">360
-                        Photos</a></li>
-                <li role="presentation">
+                    <a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D Models</a>
+                </li>
+                <li role="presentation" class="">
+                    <a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab" data-toggle="tab">360
+                        Videos</a>
+                </li>
+                <li role="presentation" class="">
+                    <a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab" data-toggle="tab">360
+                        Photos</a>
+                </li>
+                <li role="presentation" class="">
                     <a href="#maps" aria-controls="maps" role="tab" data-toggle="tab" id="map-tab">Map</a>
                 </li>
                 <li role="presentation">
-                    <a href="#street_view" aria-controls="street_view" role="tab" data-toggle="tab" id="street_view_tab">
-                        Street View
-                    </a>
+                    <a href="#street_view" aria-controls="street_view" role="tab" data-toggle="tab" id="street_view_tab">Street
+                        View</a>
                 </li>
             </ul>
 
@@ -416,36 +735,32 @@
                 <div role="tabpanel" class="tab-pane active" id="three_d_models">
                     <div class="panel panel-default">
                         <div class="panel-body">
-
-                            <div class="sketchfab-embed-wrapper">
-                                <iframe width="560" height="480"
-                                        src="https://sketchfab.com/models/3aa64527d1614998b4812bfefbbc896a/embed"
-                                        frameborder="0" allowvr allowfullscreen mozallowfullscreen="true"
-                                        webkitallowfullscreen="true" onmousewheel=""></iframe>
-                                <br/>
-                                <a title="3rd Asoyi Ln, Accra, Ghana  3bedrooms Single-Family Home" href="#">
-                                    3rd Asoyi Ln, Accra, Ghana 3bedrooms Single-Family Home
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div role="tabpanel" class="tab-pane" id="three_sixty_videos">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <iframe width="560" height="480"
-                                    src="https://www.youtube.com/embed/G8dHyWxXwy8"
+                            <iframe width="480" height="480px" bgcolor="#000000"
+                                    src="https://sketchfab.com/models/331119460fed4869a32f42a204c39aa2/embed"
                                     frameborder="0" allowvr allowfullscreen mozallowfullscreen="true"
                                     webkitallowfullscreen="true" onmousewheel=""></iframe>
                             <br/>
-                            <a title="3rd Asoyi Ln, Accra, Ghana  3bedrooms Single-Family Home" href="#">
-                                3rd Asoyi Ln, Accra, Ghana 3bedrooms Single-Family Home
+                            <a title="No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon" href="#">
+                                No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon
                             </a>
                         </div>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="three_sixty_photos">
+                <div role="tabpanel" class="tab-pane " id="three_sixty_videos">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <iframe width="480" height="480px" bgcolor="#000000"
+                                    src="https://www.youtube.com/embed/G8dHyWxXwy8"
+                                    frameborder="0" allowvr allowfullscreen mozallowfullscreen="true"
+                                    webkitallowfullscreen="true" onmousewheel=""></iframe>
+                            <br/>
+                            <a title="No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon" href="#">
+                                No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane " id="three_sixty_photos">
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <iframe width="480" height="480px" bgcolor="#000000"
@@ -453,19 +768,19 @@
                                     frameborder="0" allowvr allowfullscreen mozallowfullscreen="true"
                                     webkitallowfullscreen="true" onmousewheel=""></iframe>
                             <br/>
-                            <a title="3rd Asoyi Ln, Accra, Ghana  3bedrooms Single-Family Home" href="#">
-                                3rd Asoyi Ln, Accra, Ghana 3bedrooms Single-Family Home
+                            <a title="No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon" href="#">
+                                No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon
                             </a>
                         </div>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="maps">
+                <div role="tabpanel" class="tab-pane " id="maps">
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div id="detail-map"></div>
                             <br/>
-                            <a title="3rd Asoyi Ln, Accra, Ghana  3bedrooms Single-Family Home" href="#">
-                                3rd Asoyi Ln, Accra, Ghana 3bedrooms Single-Family Home
+                            <a title="No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon" href="#">
+                                No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon
                             </a>
                         </div>
                     </div>
@@ -475,8 +790,8 @@
                         <div class="panel-body">
                             <div id="street-view-container"></div>
                             <br/>
-                            <a title="3rd Asoyi Ln, Accra, Ghana  3bedrooms Single-Family Home" href="#">
-                                3rd Asoyi Ln, Accra, Ghana 3bedrooms Single-Family Home
+                            <a title="No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon" href="#">
+                                No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon
                             </a>
                         </div>
                     </div>
@@ -485,56 +800,8 @@
         </div>
     </div>
 
-      <div class="row">
-        <div class="col-md-12">
-          <h4>Other listings in this area</h4>
-        </div>
-      </div>
 
 
-      <div class="row">
-            <div class="col-sm-4 col-md-4">
-              <div class="thumbnail">
-
-                <a href="/listings/1">
-                    <img src="https://surreal-0-bucket.s3.amazonaws.com/uploads/photo_attachment/photo/10/house1.jpg" alt="House1" />
-</a>
-                <div class="caption">
-                  <p>
-                    GHC 300, 3rd Asoyi Ln, Accra, Ghana
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 col-md-4">
-              <div class="thumbnail">
-
-                <a href="/listings/4">
-                    <img src="https://surreal-0-bucket.s3.amazonaws.com/uploads/photo_attachment/photo/2/house2.jpg" alt="House1" />
-
-</a>
-                <div class="caption">
-                  <p>
-                    GHC 300, Unnamed Road, Accra, Ghana
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-4 col-md-4">
-              <div class="thumbnail">
-
-                <a href="/listings/5">
-                    <img src="https://surreal-0-bucket.s3.amazonaws.com/uploads/photo_attachment/photo/5/house5.jpg" alt="House5" />
-</a>
-                <div class="caption">
-                  <p>
-                    GHC 300, Paster Oko Close, Madina, Ghana
-                  </p>
-                </div>
-              </div>
-            </div>
-
-      </div>
 
 </div>
 
@@ -548,25 +815,20 @@
     </div>
 </footer>
 
-<a class="btn btn-info btn-pink" href="https://goo.gl/forms/WSx4QFj5qE9Uu2s92" target="_blank" role="button" id="survey_button">
-    Please help us improve this product :)
-</a>
-
+<!--Leaflet Map-->
 <script>
     $(document).ready(function () {
-        var detailMap = L.map('detail-map').setView([5.6462718, -0.159063], 13);
+        var detailMap = L.map('detail-map').setView([5.6442913, -0.1517274], 17);
 
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(detailMap);
 
-        L.marker([5.6462718, -0.159063]).addTo(detailMap)
+        L.marker([5.6442913, -0.1517274]).addTo(detailMap)
             .bindPopup(`
-          <a href="/listings/1">
-            <img class="img-responsive" src="images/house4.jpg" alt="Kitchen" />
-          </a>
+
           <div class="caption">
-            GHC 300, Room 22 SandCity
+            GHC 84000.00, No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon
           </div>
         `);
 
@@ -574,16 +836,16 @@
             detailMap.invalidateSize(false);
         });
 
-        var surroundingsMap = L.map('surroundings-map').setView([5.6462718, -0.159063], 13);
+        var surroundingsMap = L.map('surroundings-map').setView([5.6442913, -0.1517274], 17);
 
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(surroundingsMap);
 
-        L.marker([5.6462718, -0.159063]).addTo(surroundingsMap)
+        L.marker([5.6442913, -0.1517274]).addTo(surroundingsMap)
             .bindPopup(`
           <a href="/listings/1">
-            <img class="img-responsive" src="images/house2.jpg" alt="Kitchen" />
+            <img class="img-responsive" src="images/kitchen.jpg" alt="Kitchen" />
           </a>
           <div class="caption">
             GHC 300, Room 22 SandCity
@@ -593,8 +855,7 @@
     });
 </script>
 
-<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-
+<!--Google StreetView-->
 <script>
     var panorama;
     function initMap() {
@@ -612,10 +873,26 @@
     }
 </script>
 <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrRvrsJS76i6RqSHHJif6wlq1cY93Ynm0&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrRvrsJS76i6RqSHHJif6wlq1cY93Ynm0&callback=initMap">
 </script>
 
 
-</body>
+<a class="btn btn-info btn-pink" href="https://goo.gl/forms/WSx4QFj5qE9Uu2s92" target="_blank" role="button" id="survey_button">
+    Please help us improve this product :)
+</a>
 
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-92347426-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+</body>
 </html>
