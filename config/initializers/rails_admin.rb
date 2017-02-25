@@ -42,8 +42,8 @@ RailsAdmin.config do |config|
 
   config.model 'SaleListing' do
     edit do
-      exclude_fields :address, :string, :city, :state, :state_code,
-                     :postal_code, :country, :country_code, :street_view
+      exclude_fields :address, :city, :state, :state_code, :postal_code,
+                     :country, :country_code
     end
   end
 end
