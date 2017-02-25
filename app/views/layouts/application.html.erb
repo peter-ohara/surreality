@@ -5,19 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Surreal</title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
   <%= csrf_meta_tags %>
-
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   <%= render 'layouts/shim' %>
-
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
-
 </head>
 
 <body>
@@ -28,9 +20,19 @@
   Please help us improve this product :)
 </a>
 
+<noscript id="deferred-styles">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
+</noscript>
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
 <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 
 <%= render 'layouts/google_analytics' %>
+
+
 
 </body>
 </html>
