@@ -61,7 +61,8 @@
             <div class="carousel-inner" role="listbox">
               <% @listing.sale_photo_attachments.each_with_index do |sale_photo_attachment, index| %>
                   <div class="item <%= 'active' if index == 0 %>">
-                    <%= image_tag sale_photo_attachment.photo.url %>
+                    <%= cl_image_tag(sale_photo_attachment.photo.full_public_id,
+                                     :height=>400, :crop=>"limit", :secure=>true) %>
                   </div>
               <% end %>
             </div>

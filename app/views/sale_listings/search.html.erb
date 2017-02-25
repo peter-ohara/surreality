@@ -31,14 +31,17 @@
             <div class="thumbnail">
 
               <%= link_to listing do %>
-                <%= image_tag listing.sale_photo_attachments.first.photo.url if !listing.sale_photo_attachments.empty? %>
+                  <% unless listing.sale_photo_attachments.empty? %>
+                      <%= cl_image_tag(listing.sale_photo_attachments.first.photo.full_public_id,
+                                       :width=>250, :crop=>"limit", :secure=>true) %>
                   <% end %>
+              <% end %>
 
-                    <div class="caption">
-                      <p>
-                        <%= "GHC #{listing.price}, #{listing.address}" %>
-                      </p>
-                    </div>
+              <div class="caption">
+                <p>
+                  <%= "GHC #{listing.price}, #{listing.address}" %>
+                </p>
+              </div>
             </div>
           </div>
         <% end %>
@@ -93,7 +96,8 @@
       L.marker([<%= listing.latitude %>, <%= listing.longitude %>]).addTo(searchMap)
         .bindPopup(`
             <%= link_to listing do %>
-              <%= image_tag listing.sale_photo_attachments.first.photo.url, class: "img-responsive" if !listing.sale_photo_attachments.empty? %>
+              <%= cl_image_tag(listing.sale_photo_attachments.first.photo.full_public_id, class: "img-responsive",
+                 :width=>300, :crop=>"limit", :secure=>true) %>
             <% end %>
 
             <div class="caption">

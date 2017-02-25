@@ -43,7 +43,10 @@
           <div class="thumbnail">
 
             <%= link_to listing do %>
-                <%= image_tag listing.sale_photo_attachments.first.photo.url if !listing.sale_photo_attachments.empty? %>
+                <% unless listing.sale_photo_attachments.empty? %>
+                      <%= cl_image_tag(listing.sale_photo_attachments.first.photo.full_public_id,
+                                       :width=>400, :crop=>"limit", :secure=>true) %>
+                <% end %>
             <% end %>
 
             <div class="caption">
