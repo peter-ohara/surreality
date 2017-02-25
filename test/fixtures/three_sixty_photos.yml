@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  embed_link: MyText
-  listing: one
-
-two:
-  embed_link: MyText
-  listing: two
