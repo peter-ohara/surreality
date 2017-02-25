@@ -1,5 +1,4 @@
 RailsAdmin.config do |config|
-
   ### Popular gems integration
 
   ## == Devise ==
@@ -37,5 +36,14 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+  end
+
+  config.included_models = %w(Category Architecture SaleListing SalePhotoAttachment)
+
+  config.model 'SaleListing' do
+    edit do
+      exclude_fields :address, :string, :city, :state, :state_code,
+                     :postal_code, :country, :country_code, :street_view
+    end
   end
 end
