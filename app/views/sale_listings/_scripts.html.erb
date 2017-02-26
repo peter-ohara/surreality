@@ -48,7 +48,57 @@
             location: listingLocation,
             radius: 500,
             type: ['restaurant']
-        }, callback);
+        }, restuarantCallback);
+
+        service.nearbySearch({
+            location: listingLocation,
+            radius: 500,
+            type: ['bakery']
+        }, groceriesCallback);
+
+        service.nearbySearch({
+            location: listingLocation,
+            radius: 500,
+            type: ['night_club']
+        }, nightLifeCallback);
+
+        service.nearbySearch({
+            location: listingLocation,
+            radius: 500,
+            type: ['cafe']
+        }, cafesCallback);
+
+        service.nearbySearch({
+            location: listingLocation,
+            radius: 500,
+            type: ['store']
+        }, shopsCallback);
+
+        service.nearbySearch({
+            location: listingLocation,
+            radius: 500,
+            type: ['art_gallery']
+        }, artAndEntertainmentsCallback);
+
+        service.nearbySearch({
+            location: listingLocation,
+            radius: 500,
+            type: ['spa']
+        }, beautyAndSpasCallback);
+
+        service.nearbySearch({
+            location: listingLocation,
+            radius: 500,
+            type: ['gym']
+        }, activeLifeCallback);
+
+        service.nearbySearch({
+            location: listingLocation,
+            radius: 500,
+            type: ['school']
+        }, schoolsCallback);
+
+
     }
 
     function initStreetView() {
@@ -65,15 +115,102 @@
         });
     }
 
-    function callback(results, status) {
+    function restuarantCallback(results, status) {
         $("#restaurant-count").text(results.length);
         if (status === google.maps.places.PlacesServiceStatus.OK) {
             for (let i = 0; i < results.length; i++) {
                 //createMarker(results[i]);
-                $("#restaurant-list").append(place.name);
+                $("#restaurant-list").append(results[i].name + ", ");
             }
         }
     }
+
+    function groceriesCallback(results, status) {
+        $("#groceries-count").text(results.length);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                $("#groceries-list").append(results[i].name + ", ");
+            }
+        }
+    }
+
+    function nightLifeCallback(results, status) {
+        $("#night-life-count").text(results.length);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                $("#night-life-list").append(results[i].name + ", ");
+            }
+        }
+    }
+
+    function cafesCallback(results, status) {
+        $("#cafes-count").text(results.length);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                $("#cafes-list").append(results[i].name + ", ");
+            }
+        }
+    }
+
+    function shopsCallback(results, status) {
+        $("#shops-count").text(results.length);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                $("#shops-list").append(results[i].name + ", ");
+            }
+        }
+    }
+
+    function artAndEntertainmentsCallback(results, status) {
+        $("#arts-and-entertainment-count").text(results.length);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                $("#arts-and-entertainment-list").append(results[i].name + ", ");
+            }
+        }
+    }
+
+    function beautyAndSpasCallback(results, status) {
+        $("#beauty-and-spas-count").text(results.length);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                $("#beauty-and-spas-list").append(results[i].name + ", ");
+            }
+        }
+    }
+
+    function activeLifeCallback(results, status) {
+        $("#active-life-count").text(results.length);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                $("#active-life-list").append(results[i].name + ", ");
+            }
+        }
+    }
+
+    function schoolsCallback(results, status) {
+        $("#schools-count").text(results.length);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                $("#schools-list").append(`
+                        <tr>
+                          <td> ${results[i].name} </td>
+                          <td> ${results[i].rating} </td>
+                          <td> 1.2 km </td>
+                        </tr>
+                `);
+            }
+        }
+    }
+
+
 
     function createMarker(place) {
         let placeLoc = place.geometry.location;

@@ -74,51 +74,51 @@
                     </div>
                     <div class="form-group">
                       <input type="radio" name="amenities" value="groceries">
-                      <strong> 3 Groceries </strong>
-                      <div class="">
-                        First 3 groceries
+                      <strong> <span id="groceries-count">0</span> Groceries </strong>
+                      <div id="groceries-list">
+
                       </div>
                     </div>
                     <div class="form-group">
                       <input type="radio" name="amenities" value="nightlife">
-                      <strong> 3 Nightlife </strong>
-                      <div class="">
-                        First 3 nightclubs
+                      <strong> <span id="night-life-count">0</span> Nightlife </strong>
+                      <div id="night-life-list">
+
                       </div>
                     </div>
                     <div class="form-group">
                       <input type="radio" name="amenities" value="cafes">
-                      <strong> 3 Cafes </strong>
-                      <div class="">
-                        First 3 cafes
+                      <strong> <span id="cafes-count">0</span> Cafes </strong>
+                      <div id="cafes-list">
+
                       </div>
                     </div>
                     <div class="form-group">
                       <input type="radio" name="amenities" value="shopping">
-                      <strong> 3 Shopping </strong>
-                      <div class="">
-                        First 3 shops
+                      <strong> <span id="shops-count">0</span> Shopping </strong>
+                      <div id="shops-list">
+
                       </div>
                     </div>
                     <div class="form-group">
                       <input type="radio" name="amenities" value="shopping">
-                      <strong> 3 Arts &amp; Entertainment </strong>
-                      <div class="">
-                        First 3 art events
+                      <strong> <span id="arts-and-entertainment-count">0</span> Arts &amp; Entertainment </strong>
+                      <div id="arts-and-entertainment-list">
+
                       </div>
                     </div>
                     <div class="form-group">
                       <input type="radio" name="amenities" value="beauty">
-                      <strong> 3 Beauty &amp; Spas </strong>
-                      <div class="">
-                        First 3 Spas
+                      <strong> <span id="beauty-and-spas-count">0</span> Beauty &amp; Spas </strong>
+                      <div id="beauty-and-spas-list">
+
                       </div>
                     </div>
                     <div class="form-group">
                       <input type="radio" name="amenities" value="gyms">
-                      <strong> 3 Active Life </strong>
-                      <div class="">
-                        First 3 gyms
+                      <strong> <span id="active-life-count">0</span> Active Life </strong>
+                      <div id="active-life-list">
+
                       </div>
                     </div>
                   </form>
@@ -128,7 +128,7 @@
             <li class="list-group-item">
               <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                 <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                See 7 schools assigned to this home. Presec ...
+                See <span id="schools-count">0</span> schools assigned to this home.
                 <span class="caret pull-right"></span>
               </a>
               <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
@@ -139,12 +139,8 @@
                       <th>Assigned schools for this home</th>
                     </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                          <td> Presec </td>
-                          <td> 4.5 </td>
-                          <td> 1.2 km </td>
-                        </tr>
+                    <tbody id="schools-list">
+
                     </tbody>
                   </table>
                 </div>

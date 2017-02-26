@@ -20,6 +20,7 @@
 
 
 <body>
+
 <nav class="navbar sticky-top">
     <div class="paulette">
         <div class="container-fluid">
@@ -497,51 +498,51 @@
                                             </div>
                                             <div class="form-group">
                                                 <input type="radio" name="amenities" value="groceries">
-                                                <strong> 3 Groceries </strong>
-                                                <div class="">
-                                                    First 3 groceries
+                                                <strong> <span id="groceries-count">0</span> Groceries </strong>
+                                                <div id="groceries-list">
+
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <input type="radio" name="amenities" value="nightlife">
-                                                <strong> 3 Nightlife </strong>
-                                                <div class="">
-                                                    First 3 nightclubs
+                                                <strong> <span id="night-life-count">0</span> Nightlife </strong>
+                                                <div id="night-life-list">
+
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <input type="radio" name="amenities" value="cafes">
-                                                <strong> 3 Cafes </strong>
-                                                <div class="">
-                                                    First 3 cafes
+                                                <strong> <span id="cafes-count">0</span> Cafes </strong>
+                                                <div id="cafes-list">
+
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <input type="radio" name="amenities" value="shopping">
-                                                <strong> 3 Shopping </strong>
-                                                <div class="">
-                                                    First 3 shops
+                                                <strong> <span id="shops-count">0</span> Shopping </strong>
+                                                <div id="shops-list">
+
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <input type="radio" name="amenities" value="shopping">
-                                                <strong> 3 Arts &amp; Entertainment </strong>
-                                                <div class="">
-                                                    First 3 art events
+                                                <strong> <span id="arts-and-entertainment-count">0</span> Arts &amp; Entertainment </strong>
+                                                <div id="arts-and-entertainment-list">
+
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <input type="radio" name="amenities" value="beauty">
-                                                <strong> 3 Beauty &amp; Spas </strong>
-                                                <div class="">
-                                                    First 3 Spas
+                                                <strong> <span id="beauty-and-spas-count">0</span> Beauty &amp; Spas </strong>
+                                                <div id="beauty-and-spas-list">
+
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <input type="radio" name="amenities" value="gyms">
-                                                <strong> 3 Active Life </strong>
-                                                <div class="">
-                                                    First 3 gyms
+                                                <strong> <span id="active-life-count">0</span> Active Life </strong>
+                                                <div id="active-life-list">
+
                                                 </div>
                                             </div>
                                         </form>
@@ -551,7 +552,7 @@
                             <li class="list-group-item">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                     <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                                    See 7 schools assigned to this home. Presec ...
+                                    See <span id="schools-count">0</span> schools assigned to this home.
                                     <span class="caret pull-right"></span>
                                 </a>
                                 <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
@@ -562,12 +563,8 @@
                                                 <th>Assigned schools for this home</th>
                                             </tr>
                                             </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td> Presec </td>
-                                                <td> 4.5 </td>
-                                                <td> 1.2 km </td>
-                                            </tr>
+                                            <tbody id="schools-list">
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -801,7 +798,57 @@
             location: listingLocation,
             radius: 500,
             type: ['restaurant']
-        }, callback);
+        }, restuarantCallback);
+
+        service.nearbySearch({
+            location: listingLocation,
+            radius: 500,
+            type: ['bakery']
+        }, groceriesCallback);
+
+        service.nearbySearch({
+            location: listingLocation,
+            radius: 500,
+            type: ['night_club']
+        }, nightLifeCallback);
+
+        service.nearbySearch({
+            location: listingLocation,
+            radius: 500,
+            type: ['cafe']
+        }, cafesCallback);
+
+        service.nearbySearch({
+            location: listingLocation,
+            radius: 500,
+            type: ['store']
+        }, shopsCallback);
+
+        service.nearbySearch({
+            location: listingLocation,
+            radius: 500,
+            type: ['art_gallery']
+        }, artAndEntertainmentsCallback);
+
+        service.nearbySearch({
+            location: listingLocation,
+            radius: 500,
+            type: ['spa']
+        }, beautyAndSpasCallback);
+
+        service.nearbySearch({
+            location: listingLocation,
+            radius: 500,
+            type: ['gym']
+        }, activeLifeCallback);
+
+        service.nearbySearch({
+            location: listingLocation,
+            radius: 500,
+            type: ['school']
+        }, schoolsCallback);
+
+
     }
 
     function initStreetView() {
@@ -818,15 +865,102 @@
         });
     }
 
-    function callback(results, status) {
+    function restuarantCallback(results, status) {
         $("#restaurant-count").text(results.length);
         if (status === google.maps.places.PlacesServiceStatus.OK) {
             for (let i = 0; i < results.length; i++) {
                 //createMarker(results[i]);
-                $("#restaurant-list").append(place.name);
+                $("#restaurant-list").append(results[i].name + ", ");
             }
         }
     }
+
+    function groceriesCallback(results, status) {
+        $("#groceries-count").text(results.length);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                $("#groceries-list").append(results[i].name + ", ");
+            }
+        }
+    }
+
+    function nightLifeCallback(results, status) {
+        $("#night-life-count").text(results.length);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                $("#night-life-list").append(results[i].name + ", ");
+            }
+        }
+    }
+
+    function cafesCallback(results, status) {
+        $("#cafes-count").text(results.length);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                $("#cafes-list").append(results[i].name + ", ");
+            }
+        }
+    }
+
+    function shopsCallback(results, status) {
+        $("#shops-count").text(results.length);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                $("#shops-list").append(results[i].name + ", ");
+            }
+        }
+    }
+
+    function artAndEntertainmentsCallback(results, status) {
+        $("#arts-and-entertainment-count").text(results.length);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                $("#arts-and-entertainment-list").append(results[i].name + ", ");
+            }
+        }
+    }
+
+    function beautyAndSpasCallback(results, status) {
+        $("#beauty-and-spas-count").text(results.length);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                $("#beauty-and-spas-list").append(results[i].name + ", ");
+            }
+        }
+    }
+
+    function activeLifeCallback(results, status) {
+        $("#active-life-count").text(results.length);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                $("#active-life-list").append(results[i].name + ", ");
+            }
+        }
+    }
+
+    function schoolsCallback(results, status) {
+        $("#schools-count").text(results.length);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                $("#schools-list").append(`
+                        <tr>
+                          <td> ${results[i].name} </td>
+                          <td> ${results[i].rating} </td>
+                          <td> 1.2 km </td>
+                        </tr>
+                `);
+            }
+        }
+    }
+
+
 
     function createMarker(place) {
         let placeLoc = place.geometry.location;
@@ -867,6 +1001,17 @@
 
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-92347426-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
 
 </body>
 </html>
