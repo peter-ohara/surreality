@@ -55,10 +55,11 @@
                 </div>
               </div>
             </li>
+            <!--Stuff goes here-->
             <li class="list-group-item">
               <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 <i class="fa fa-cutlery" aria-hidden="true"></i>
-                <%= "#{@restaurants.first.name}, #{@groceries.first.name}, #{@night_life.first.name}..." %>
+                Amenities surrounding this area
                 <span class="caret pull-right"></span>
               </a>
               <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
@@ -66,58 +67,58 @@
                   <form class="form">
                     <div class="form-group">
                       <input type="radio" name="amenities" value="restaurants">
-                      <strong> <%= @restaurants.count %> Restaurants </strong>
-                      <div class="">
-                        <%= @restaurants.first(3).map {|obj| obj.name }.join(", ") %>
+                      <strong> <span id="restaurant-count">0</span> Restaurants </strong>
+                      <div id="restaurant-list">
+
                       </div>
                     </div>
                     <div class="form-group">
                       <input type="radio" name="amenities" value="groceries">
-                      <strong> <%= @groceries.count %> Groceries </strong>
+                      <strong> 3 Groceries </strong>
                       <div class="">
-                        <%= @groceries.first(3).map {|obj| obj.name }.join(", ") %>
+                        First 3 groceries
                       </div>
                     </div>
                     <div class="form-group">
                       <input type="radio" name="amenities" value="nightlife">
-                      <strong> <%= @night_life.count %> Nightlife </strong>
+                      <strong> 3 Nightlife </strong>
                       <div class="">
-                        <%= @night_life.first(3).map {|obj| obj.name }.join(", ") %>
+                        First 3 nightclubs
                       </div>
                     </div>
                     <div class="form-group">
                       <input type="radio" name="amenities" value="cafes">
-                      <strong> <%= @cafes.count %> Cafes </strong>
+                      <strong> 3 Cafes </strong>
                       <div class="">
-                        <%= @cafes.first(3).map {|obj| obj.name }.join(", ") %>
+                        First 3 cafes
                       </div>
                     </div>
                     <div class="form-group">
                       <input type="radio" name="amenities" value="shopping">
-                      <strong> <%= @shopping.count %> Shopping </strong>
+                      <strong> 3 Shopping </strong>
                       <div class="">
-                        <%= @shopping.first(3).map {|obj| obj.name }.join(", ") %>
+                        First 3 shops
                       </div>
                     </div>
                     <div class="form-group">
                       <input type="radio" name="amenities" value="shopping">
-                      <strong> <%= @arts_and_entertainment.count %> Arts &amp; Entertainment </strong>
+                      <strong> 3 Arts &amp; Entertainment </strong>
                       <div class="">
-                        <%= @arts_and_entertainment.first(3).map {|obj| obj.name }.join(", ") %>
+                        First 3 art events
                       </div>
                     </div>
                     <div class="form-group">
                       <input type="radio" name="amenities" value="beauty">
-                      <strong> <%= @beauty_and_spas.count %> Beauty &amp; Spas </strong>
+                      <strong> 3 Beauty &amp; Spas </strong>
                       <div class="">
-                        <%= @beauty_and_spas.first(3).map {|obj| obj.name }.join(", ") %>
+                        First 3 Spas
                       </div>
                     </div>
                     <div class="form-group">
                       <input type="radio" name="amenities" value="gyms">
-                      <strong> <%= @active_life.count %> Active Life </strong>
+                      <strong> 3 Active Life </strong>
                       <div class="">
-                        <%= @active_life.first(3).map {|obj| obj.name }.join(", ")  %>
+                        First 3 gyms
                       </div>
                     </div>
                   </form>
@@ -127,7 +128,7 @@
             <li class="list-group-item">
               <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                 <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                See <%= @schools.count %> schools assigned to this home. <%= @schools.first.name %>...
+                See 7 schools assigned to this home. Presec ...
                 <span class="caret pull-right"></span>
               </a>
               <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
@@ -139,13 +140,11 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <% @schools.each do |school| %>
                         <tr>
-                          <td><%= school.name %></td>
-                          <td><%= school.rating %></td>
-                          <td> 1.2 km</td>
+                          <td> Presec </td>
+                          <td> 4.5 </td>
+                          <td> 1.2 km </td>
                         </tr>
-                    <% end %>
                     </tbody>
                   </table>
                 </div>

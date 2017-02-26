@@ -27,23 +27,23 @@
     <div class="col-sm-7 search-results-list">
       <div class="row">
         <% @listings.reverse.each do |listing| %>
-          <div class="col-sm-4 col-md-4">
-            <div class="thumbnail">
+            <div class="col-sm-4 col-md-4">
+              <div class="thumbnail">
 
-              <%= link_to listing do %>
-                  <% unless listing.sale_photo_attachments.empty? %>
-                      <%= cl_image_tag(listing.sale_photo_attachments.first.photo.full_public_id,
-                                       :width=>250, :crop=>"limit", :secure=>true) %>
-                  <% end %>
-              <% end %>
+                <%= link_to listing do %>
+                    <% unless listing.sale_photo_attachments.empty? %>
+                        <%= cl_image_tag(listing.sale_photo_attachments.first.photo.full_public_id,
+                                         :width => 250, :crop => "limit", :secure => true) %>
+                    <% end %>
+                <% end %>
 
-              <div class="caption">
-                <p>
-                  <%= "GHC #{listing.price}, #{listing.address}" %>
-                </p>
+                <div class="caption">
+                  <p>
+                    <%= "GHC #{listing.price}, #{listing.address}" %>
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
         <% end %>
       </div>
 
@@ -80,50 +80,72 @@
   </div>
 </div>
 
-
-
-
 <script>
-  $(document).ready(function () {
+    var map;
+    var infoWindow;
+    var emptyResultsList = <%= @listings.empty? %>;
+    var listingLocation = {lat: <%= @map_center[0] %>, lng: <%=@map_center[1] %>};
+    var zoom = <%= @zoom %>;
+    var west_bounds = <%= @west_bounds %>;
+    var east_bounds = <%= @east_bounds %>;
+    var listings = <%= raw @listings.to_json %>;
 
-  <% if @listings.empty? %>
-    var searchMap = L.map('search-map').setView(<%= @map_center %>, <%= @zoom %>);
-  <% else %>
-    var searchMap = L.map('search-map')
-      .setView(<%= @map_center %>, getZoom(<%= @west_bounds %>, <%= @east_bounds %>, "#search-map"));
+    function initMap() {
+        if (emptyResultsList) {
+            map = new google.maps.Map(document.getElementById('search-map'), {
+                center: listingLocation,
+                zoom: zoom,
+                streetViewControl: false
+            });
+        } else {
+            map = new google.maps.Map(document.getElementById('search-map'), {
+                center: listingLocation,
+                zoom: getZoom(west_bounds, east_bounds, "#search-map"),
+                streetViewControl: false
+            });
 
-    <% @listings.each do |listing | %>
-      L.marker([<%= listing.latitude %>, <%= listing.longitude %>]).addTo(searchMap)
-        .bindPopup(`
-            <%= link_to listing do %>
-              <%= cl_image_tag(listing.sale_photo_attachments.first.photo.full_public_id, class: "img-responsive",
-                 :width=>300, :crop=>"limit", :secure=>true) %>
+            <% @listings.each do |listing| %>
+
+                var latLong = {lat: <%= listing.latitude %>, lng: <%= listing.longitude %>};
+
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: latLong
+                });
+
+                google.maps.event.addListener(marker, 'click', function () {
+                    infoWindow.setContent(
+                        `
+                        <%= link_to listing do %>
+                          <%= cl_image_tag(listing.sale_photo_attachments.first.photo.full_public_id, class: "img-responsive",
+                             :width=>250, :crop=>"limit", :secure=>true) %>
+                        <% end %>
+                        <div class="caption">
+                          <p><%= "GHC #{listing.price}" %></p>
+                          <p><%= truncate listing.listing_name %></p>
+                        </div>`
+                    );
+                    infoWindow.open(map, this);
+                });
+
             <% end %>
+        }
 
-            <div class="caption">
-              <%= "GHC #{listing.price}, #{listing.listing_name}" %>
-            </div>
-          `);
-    <% end %>
-  <% end %>
-
-  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(searchMap);
-
-  function getZoom(westBound, eastBound, mapId) {
-    var GLOBE_WIDTH = 256; // a constant in Google's map projection
-    var west = westBound;
-    var east = eastBound;
-    var angle = east - west;
-    if (angle < 0) {
-      angle += 360;
+        infoWindow = new google.maps.InfoWindow();
     }
-    var pixelWidth = $(mapId).width();
-    var zoom = Math.round(Math.log(pixelWidth * 360 / angle / GLOBE_WIDTH) / Math.LN2);
-    return zoom;
-  }
-    
-});
 
+    function getZoom(westBound, eastBound, mapId) {
+        const GLOBE_WIDTH = 256; // a constant in Google's map projection
+        var angle = eastBound - westBound;
+        if (angle < 0) {
+            angle += 360;
+        }
+        const pixelWidth = $(mapId).width();
+        const zoom = Math.round(Math.log(pixelWidth * 360 / angle / GLOBE_WIDTH) / Math.LN2);
+        return 17;
+    }
+</script>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrRvrsJS76i6RqSHHJif6wlq1cY93Ynm0&libraries=places&callback=initMap">
 </script>

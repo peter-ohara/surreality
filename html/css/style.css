@@ -38,6 +38,10 @@ body {
     height: 480px;
 }
 
+.surroundings-map-controls .list-group-item{
+    border-left: none;
+}
+
 .surroundings-map-controls .list-group-item:last-of-type{
     border-bottom: none;
 }

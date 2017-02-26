@@ -1,47 +1,57 @@
-<!--Leaflet Map-->
 <script>
-    $(document).ready(function () {
-        var detailMap = L.map('detail-map').setView([<%= @listing.latitude %>, <%= @listing.longitude %>], <%= @zoom_level %>);
+    var map;
+    var otherListingsMap;
+    var infowindow;
+    var panorama;
 
-        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(detailMap);
+    function initMap() {
+        initSurroundingsMap();
+        initOtherListingsMap();
+        initStreetView();
+    }
 
-        L.marker([<%= @listing.latitude %>, <%= @listing.longitude %>]).addTo(detailMap)
-            .bindPopup(`
+    function initOtherListingsMap() {
+        let listingLocation = {lat: <%= @listing.latitude %>, lng: <%= @listing.longitude %>};
 
-          <div class="caption">
-            <%= "GHC #{@listing.price}, #{@listing.listing_name}" %>
-          </div>
-        `);
-
-        $("body").on("shown.bs.tab", "#map-tab", function () {
-            detailMap.invalidateSize(false);
+        otherListingsMap = new google.maps.Map(document.getElementById('detail-map'), {
+            center: listingLocation,
+            zoom: 17,
+            streetViewControl: false
         });
 
-        var surroundingsMap = L.map('surroundings-map').setView([<%= @listing.latitude %>, <%= @listing.longitude %>], <%= @zoom_level %>);
+        infowindow = new google.maps.InfoWindow();
 
-        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(surroundingsMap);
+        createMarkerFromLatLong(otherListingsMap, listingLocation);
 
-        L.marker([<%= @listing.latitude %>, <%= @listing.longitude %>]).addTo(surroundingsMap)
-            .bindPopup(`
-          <a href="/listings/1">
-            <img class="img-responsive" src="images/kitchen.jpg" alt="Kitchen" />
-          </a>
-          <div class="caption">
-            GHC 300, Room 22 SandCity
-          </div>
-        `);
+        $("body").on("shown.bs.tab", "#map-tab", function () {
+            google.maps.event.trigger(otherListingsMap, 'resize');
+        });
+    }
 
-    });
-</script>
+    function initSurroundingsMap() {
+        let listingLocation = {lat: <%= @listing.latitude %>, lng: <%= @listing.longitude %>};
 
-<!--Google StreetView-->
-<script>
-    var panorama;
-    function initMap() {
+        map = new google.maps.Map(document.getElementById('surroundings-map'), {
+            center: listingLocation,
+            zoom: 17,
+            mapTypeControl: false,
+            streetViewControl: false
+        });
+
+        createMarkerFromLatLong(map, listingLocation);
+
+        infowindow = new google.maps.InfoWindow();
+
+
+        let service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+            location: listingLocation,
+            radius: 500,
+            type: ['restaurant']
+        }, callback);
+    }
+
+    function initStreetView() {
         panorama = new google.maps.StreetViewPanorama(
             document.getElementById('street-view-container'),
             {
@@ -54,7 +64,45 @@
             google.maps.event.trigger(panorama, 'resize');
         });
     }
+
+    function callback(results, status) {
+        $("#restaurant-count").text(results.length);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                $("#restaurant-list").append(place.name);
+            }
+        }
+    }
+
+    function createMarker(place) {
+        let placeLoc = place.geometry.location;
+        let marker = new google.maps.Marker({
+            map: map,
+            position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent(place.name);
+            infowindow.open(map, this);
+        });
+    }
+
+    function createMarkerFromLatLong(map, latLong) {
+        console.log(map);
+        console.log(latLong);
+        let marker = new google.maps.Marker({
+            map: map,
+            position: latLong
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent("<%= @listing.listing_name %>");
+            infowindow.open(map, this);
+        });
+    }
 </script>
+
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrRvrsJS76i6RqSHHJif6wlq1cY93Ynm0&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrRvrsJS76i6RqSHHJif6wlq1cY93Ynm0&libraries=places&callback=initMap">
 </script>

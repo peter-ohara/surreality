@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Surreal</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -15,12 +13,9 @@
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/palette.css">
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
     <script src="js/jquery-3.1.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
 </head>
 
 
@@ -237,10 +232,10 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox">
                             <div class="item active">
-                                <img src="https://surreal-0-bucket.s3.amazonaws.com/uploads/sale_photo_attachment/photo/1/pic9.jpg" alt="Pic9" />
+                                <img src="https://res.cloudinary.com/surreal/image/upload/c_limit,h_400/v1488050883/pic9" alt="Pic9" />
                             </div>
                             <div class="item ">
-                                <img src="https://surreal-0-bucket.s3.amazonaws.com/uploads/sale_photo_attachment/photo/2/home1.jpg" alt="Home1" />
+                                <img src="https://res.cloudinary.com/surreal/image/upload/c_limit,h_400/v1488050909/home1" alt="Home1" />
                             </div>
                         </div>
 
@@ -483,10 +478,11 @@
                                     </div>
                                 </div>
                             </li>
+                            <!--Stuff goes here-->
                             <li class="list-group-item">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                     <i class="fa fa-cutlery" aria-hidden="true"></i>
-                                    Mirage Royale Hotel, MaxMart Bakery, Uniforms 4 All...
+                                    Amenities surrounding this area
                                     <span class="caret pull-right"></span>
                                 </a>
                                 <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
@@ -494,58 +490,58 @@
                                         <form class="form">
                                             <div class="form-group">
                                                 <input type="radio" name="amenities" value="restaurants">
-                                                <strong> 18 Restaurants </strong>
-                                                <div class="">
-                                                    Mirage Royale Hotel, Best One Hotel, Jaria Hotel
+                                                <strong> <span id="restaurant-count">0</span> Restaurants </strong>
+                                                <div id="restaurant-list">
+
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <input type="radio" name="amenities" value="groceries">
-                                                <strong> 2 Groceries </strong>
+                                                <strong> 3 Groceries </strong>
                                                 <div class="">
-                                                    MaxMart Bakery, Pink Panda Bakery
+                                                    First 3 groceries
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <input type="radio" name="amenities" value="nightlife">
-                                                <strong> 20 Nightlife </strong>
+                                                <strong> 3 Nightlife </strong>
                                                 <div class="">
-                                                    Uniforms 4 All, Zeno&#39;s Yoghurt Bar, Sprog Store
+                                                    First 3 nightclubs
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <input type="radio" name="amenities" value="cafes">
-                                                <strong> 18 Cafes </strong>
+                                                <strong> 3 Cafes </strong>
                                                 <div class="">
-                                                    Mirage Royale Hotel, Best One Hotel, Jaria Hotel
+                                                    First 3 cafes
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <input type="radio" name="amenities" value="shopping">
-                                                <strong> 17 Shopping </strong>
+                                                <strong> 3 Shopping </strong>
                                                 <div class="">
-                                                    A&amp;C Shopping Centre, CIG Microfinance GH. Ltd., Barclay&#39;s Bank
+                                                    First 3 shops
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <input type="radio" name="amenities" value="shopping">
-                                                <strong> 18 Arts &amp; Entertainment </strong>
+                                                <strong> 3 Arts &amp; Entertainment </strong>
                                                 <div class="">
-                                                    Mirage Royale Hotel, Best One Hotel, Jaria Hotel
+                                                    First 3 art events
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <input type="radio" name="amenities" value="beauty">
-                                                <strong> 6 Beauty &amp; Spas </strong>
+                                                <strong> 3 Beauty &amp; Spas </strong>
                                                 <div class="">
-                                                    Hannah Danquah Beauty Salon, X-MEN GHANA, Jackie Dee Saloon
+                                                    First 3 Spas
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <input type="radio" name="amenities" value="gyms">
-                                                <strong> 12 Active Life </strong>
+                                                <strong> 3 Active Life </strong>
                                                 <div class="">
-                                                    Agapeland, Agape House Church Office, Victory Bible Church International, Higher Heights Sanctuary.
+                                                    First 3 gyms
                                                 </div>
                                             </div>
                                         </form>
@@ -555,7 +551,7 @@
                             <li class="list-group-item">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                     <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                                    See 13 schools assigned to this home. True Love School...
+                                    See 7 schools assigned to this home. Presec ...
                                     <span class="caret pull-right"></span>
                                 </a>
                                 <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
@@ -568,69 +564,9 @@
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                <td>True Love School</td>
-                                                <td>3</td>
-                                                <td> 1.2 km</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Kay Billie Klaer</td>
-                                                <td>4</td>
-                                                <td> 1.2 km</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Lotus Educational Centre.</td>
-                                                <td>4</td>
-                                                <td> 1.2 km</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Meltwater Entrepreneurial School Of Technology</td>
-                                                <td>4.4</td>
-                                                <td> 1.2 km</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Afex Prep Centre</td>
-                                                <td></td>
-                                                <td> 1.2 km</td>
-                                            </tr>
-                                            <tr>
-                                                <td>British International School</td>
-                                                <td>2.5</td>
-                                                <td> 1.2 km</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Princess Diana Memorial School</td>
-                                                <td></td>
-                                                <td> 1.2 km</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Mother&#39;s Pride</td>
-                                                <td></td>
-                                                <td> 1.2 km</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Young Heros Academy</td>
-                                                <td></td>
-                                                <td> 1.2 km</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Little Miracles International School</td>
-                                                <td></td>
-                                                <td> 1.2 km</td>
-                                            </tr>
-                                            <tr>
-                                                <td>East Legon Academy</td>
-                                                <td></td>
-                                                <td> 1.2 km</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Queens International School</td>
-                                                <td></td>
-                                                <td> 1.2 km</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Daddy Daycare Ghana</td>
-                                                <td>5</td>
-                                                <td> 1.2 km</td>
+                                                <td> Presec </td>
+                                                <td> 4.5 </td>
+                                                <td> 1.2 km </td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -815,50 +751,60 @@
     </div>
 </footer>
 
-<!--Leaflet Map-->
 <script>
-    $(document).ready(function () {
-        var detailMap = L.map('detail-map').setView([5.6442913, -0.1517274], 17);
+    var map;
+    var otherListingsMap;
+    var infowindow;
+    var panorama;
 
-        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(detailMap);
+    function initMap() {
+        initSurroundingsMap();
+        initOtherListingsMap();
+        initStreetView();
+    }
 
-        L.marker([5.6442913, -0.1517274]).addTo(detailMap)
-            .bindPopup(`
+    function initOtherListingsMap() {
+        let listingLocation = {lat: 5.6442913, lng: -0.1517274};
 
-          <div class="caption">
-            GHC 84000.00, No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon
-          </div>
-        `);
-
-        $("body").on("shown.bs.tab", "#map-tab", function () {
-            detailMap.invalidateSize(false);
+        otherListingsMap = new google.maps.Map(document.getElementById('detail-map'), {
+            center: listingLocation,
+            zoom: 17,
+            streetViewControl: false
         });
 
-        var surroundingsMap = L.map('surroundings-map').setView([5.6442913, -0.1517274], 17);
+        infowindow = new google.maps.InfoWindow();
 
-        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(surroundingsMap);
+        createMarkerFromLatLong(otherListingsMap, listingLocation);
 
-        L.marker([5.6442913, -0.1517274]).addTo(surroundingsMap)
-            .bindPopup(`
-          <a href="/listings/1">
-            <img class="img-responsive" src="images/kitchen.jpg" alt="Kitchen" />
-          </a>
-          <div class="caption">
-            GHC 300, Room 22 SandCity
-          </div>
-        `);
+        $("body").on("shown.bs.tab", "#map-tab", function () {
+            google.maps.event.trigger(otherListingsMap, 'resize');
+        });
+    }
 
-    });
-</script>
+    function initSurroundingsMap() {
+        let listingLocation = {lat: 5.6442913, lng: -0.1517274};
 
-<!--Google StreetView-->
-<script>
-    var panorama;
-    function initMap() {
+        map = new google.maps.Map(document.getElementById('surroundings-map'), {
+            center: listingLocation,
+            zoom: 17,
+            mapTypeControl: false,
+            streetViewControl: false
+        });
+
+        createMarkerFromLatLong(map, listingLocation);
+
+        infowindow = new google.maps.InfoWindow();
+
+
+        let service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+            location: listingLocation,
+            radius: 500,
+            type: ['restaurant']
+        }, callback);
+    }
+
+    function initStreetView() {
         panorama = new google.maps.StreetViewPanorama(
             document.getElementById('street-view-container'),
             {
@@ -871,9 +817,47 @@
             google.maps.event.trigger(panorama, 'resize');
         });
     }
+
+    function callback(results, status) {
+        $("#restaurant-count").text(results.length);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (let i = 0; i < results.length; i++) {
+                //createMarker(results[i]);
+                $("#restaurant-list").append(place.name);
+            }
+        }
+    }
+
+    function createMarker(place) {
+        let placeLoc = place.geometry.location;
+        let marker = new google.maps.Marker({
+            map: map,
+            position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent(place.name);
+            infowindow.open(map, this);
+        });
+    }
+
+    function createMarkerFromLatLong(map, latLong) {
+        console.log(map);
+        console.log(latLong);
+        let marker = new google.maps.Marker({
+            map: map,
+            position: latLong
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent("No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon");
+            infowindow.open(map, this);
+        });
+    }
 </script>
+
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrRvrsJS76i6RqSHHJif6wlq1cY93Ynm0&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrRvrsJS76i6RqSHHJif6wlq1cY93Ynm0&libraries=places&callback=initMap">
 </script>
 
 
@@ -881,18 +865,8 @@
     Please help us improve this product :)
 </a>
 
-<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-92347426-1', 'auto');
-    ga('send', 'pageview');
-
-</script>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
 </body>
 </html>
