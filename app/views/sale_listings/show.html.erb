@@ -37,7 +37,7 @@
             <div class="form-group">
               <textarea class="form-control" placeholder="">I am interested in <%= @listing.listing_name %></textarea>
             </div>
-            <button type="submit" class="btn x">Request More Information</button>
+            <button type="submit" class="btn btn-pink x">Request More Information</button>
           </form>
         </div>
 
@@ -91,11 +91,13 @@
 
   <%= render 'home_details' %>
 
-  <%= render 'neighbourhood_map' %>
-
   <br>
 
   <%= render 'visuals' %>
+
+  <%= render 'neighbourhood_map' %>
+
+  <br>
 
   <%= render 'other_listings' %>
 
