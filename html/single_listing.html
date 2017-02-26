@@ -19,6 +19,7 @@
 </head>
 
 
+
 <body>
 
 <nav class="navbar sticky-top">
@@ -212,7 +213,7 @@
                         <div class="form-group">
                             <textarea class="form-control" placeholder="">I am interested in No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon</textarea>
                         </div>
-                        <button type="submit" class="btn x">Request More Information</button>
+                        <button type="submit" class="btn btn-pink x">Request More Information</button>
                     </form>
                 </div>
 
@@ -320,7 +321,7 @@
                                 <h4 class="mb-1">Utilities</h4>
                             </div>
                             <div class="row">
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <div class="d-flex w-100 justify-content-between">
                                         <h5 class="mb-1"><strong>Water</strong></h5>
                                     </div>
@@ -338,7 +339,7 @@
                                     <br>
                                 </div>
 
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <div class="d-flex w-100 justify-content-between">
                                         <h5 class="mb-1"><strong>Electricity</strong></h5>
                                     </div>
@@ -354,7 +355,7 @@
                                     <br>
                                 </div>
 
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <div class="d-flex w-100 justify-content-between">
                                         <h5 class="mb-1"><strong>Internet</strong></h5>
                                     </div>
@@ -368,7 +369,7 @@
                                     <br>
                                 </div>
 
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <div class="d-flex w-100 justify-content-between">
                                         <h5 class="mb-1"><strong>Others</strong></h5>
                                     </div>
@@ -415,6 +416,65 @@
                                 Crime &nbsp;<span class="rating">Lowest</span>
                             </h4>
                             <a href="#" class="btn btn-link">More Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">Interior View</a>
+                </li>
+                <li role="presentation">
+                    <a href="#street_view" aria-controls="street_view" role="tab" data-toggle="tab" id="street_view_tab">Street
+                        View</a>
+                </li>
+                <li role="presentation">
+                    <a href="#maps" aria-controls="maps" role="tab" data-toggle="tab" id="map-tab">Map</a>
+                </li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="three_d_models">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <iframe width="480" height="480px" bgcolor="#000000"
+                                    src="https://sketchfab.com/models/331119460fed4869a32f42a204c39aa2/embed"
+                                    frameborder="0" allowvr allowfullscreen mozallowfullscreen="true"
+                                    webkitallowfullscreen="true" onmousewheel=""></iframe>
+                            <br/>
+                            <a title="No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon" href="#">
+                                No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="street_view">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="street-view-container"></div>
+                            <br/>
+                            <a title="No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon" href="#">
+                                No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="maps">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="detail-map"></div>
+                            <br/>
+                            <a title="No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon" href="#">
+                                No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -638,100 +698,6 @@
     </div>
 
     <br>
-
-    <div class="row">
-        <div class="col-md-12">
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs nav-justified" role="tablist">
-                <li role="presentation" class="active">
-                    <a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D Models</a>
-                </li>
-                <li role="presentation" class="">
-                    <a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab" data-toggle="tab">360
-                        Videos</a>
-                </li>
-                <li role="presentation" class="">
-                    <a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab" data-toggle="tab">360
-                        Photos</a>
-                </li>
-                <li role="presentation" class="">
-                    <a href="#maps" aria-controls="maps" role="tab" data-toggle="tab" id="map-tab">Map</a>
-                </li>
-                <li role="presentation">
-                    <a href="#street_view" aria-controls="street_view" role="tab" data-toggle="tab" id="street_view_tab">Street
-                        View</a>
-                </li>
-            </ul>
-
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="three_d_models">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <iframe width="480" height="480px" bgcolor="#000000"
-                                    src="https://sketchfab.com/models/331119460fed4869a32f42a204c39aa2/embed"
-                                    frameborder="0" allowvr allowfullscreen mozallowfullscreen="true"
-                                    webkitallowfullscreen="true" onmousewheel=""></iframe>
-                            <br/>
-                            <a title="No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon" href="#">
-                                No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div role="tabpanel" class="tab-pane " id="three_sixty_videos">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <iframe width="480" height="480px" bgcolor="#000000"
-                                    src="https://www.youtube.com/embed/G8dHyWxXwy8"
-                                    frameborder="0" allowvr allowfullscreen mozallowfullscreen="true"
-                                    webkitallowfullscreen="true" onmousewheel=""></iframe>
-                            <br/>
-                            <a title="No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon" href="#">
-                                No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div role="tabpanel" class="tab-pane " id="three_sixty_photos">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <iframe width="480" height="480px" bgcolor="#000000"
-                                    src="https://www.360cities.net/embed_iframe/black-angus-tauno-kangro-helsinki"
-                                    frameborder="0" allowvr allowfullscreen mozallowfullscreen="true"
-                                    webkitallowfullscreen="true" onmousewheel=""></iframe>
-                            <br/>
-                            <a title="No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon" href="#">
-                                No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div role="tabpanel" class="tab-pane " id="maps">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div id="detail-map"></div>
-                            <br/>
-                            <a title="No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon" href="#">
-                                No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div role="tabpanel" class="tab-pane" id="street_view">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div id="street-view-container"></div>
-                            <br/>
-                            <a title="No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon" href="#">
-                                No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
 
@@ -1002,16 +968,4 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-92347426-1', 'auto');
-    ga('send', 'pageview');
-
-</script>
-
-</body>
-</html>
+</body></html>

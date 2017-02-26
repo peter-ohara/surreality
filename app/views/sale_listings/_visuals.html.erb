@@ -2,86 +2,26 @@
   <div class="col-md-12">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs nav-justified" role="tablist">
-      <% unless @listing.three_d_model.empty? %>
-          <li role="presentation" class="active">
-            <a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">3D Models</a>
-          </li>
-      <% end %>
-      <% unless @listing.three_sixty_video.empty? %>
-          <li role="presentation" class="<%= 'active' if @listing.three_d_model.empty? %>">
-            <a href="#three_sixty_videos" aria-controls="three_sixty_videos" role="tab" data-toggle="tab">360
-              Videos</a>
-          </li>
-      <% end %>
-      <% unless @listing.three_sixty_photo.empty? %>
-          <li role="presentation" class="<%= 'active' if @listing.three_sixty_video.empty? %>">
-            <a href="#three_sixty_photos" aria-controls="three_sixty_photos" role="tab" data-toggle="tab">360
-              Photos</a>
-          </li>
-      <% end %>
-      <li role="presentation" class="<%= 'active' if @listing.three_sixty_photo.empty? %>">
-        <a href="#maps" aria-controls="maps" role="tab" data-toggle="tab" id="map-tab">Map</a>
+      <li role="presentation" class="active">
+        <a href="#three_d_models" aria-controls="three_d_models" role="tab" data-toggle="tab">Interior View</a>
       </li>
       <li role="presentation">
         <a href="#street_view" aria-controls="street_view" role="tab" data-toggle="tab" id="street_view_tab">Street
           View</a>
       </li>
+      <li role="presentation">
+        <a href="#maps" aria-controls="maps" role="tab" data-toggle="tab" id="map-tab">Map</a>
+      </li>
     </ul>
-
     <!-- Tab panes -->
     <div class="tab-content">
-      <% unless @listing.three_d_model.empty? %>
-          <div role="tabpanel" class="tab-pane active" id="three_d_models">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <iframe width="480" height="480px" bgcolor="#000000"
-                        src="<%= @listing.three_d_model %>"
-                        frameborder="0" allowvr allowfullscreen mozallowfullscreen="true"
-                        webkitallowfullscreen="true" onmousewheel=""></iframe>
-                <br/>
-                <a title="<%= @listing.listing_name %>" href="#">
-                  <%= @listing.listing_name %>
-                </a>
-              </div>
-            </div>
-          </div>
-      <% end %>
-      <% unless @listing.three_sixty_video.empty? %>
-          <div role="tabpanel" class="tab-pane <%= 'active' if @listing.three_d_model.empty? %>" id="three_sixty_videos">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <iframe width="480" height="480px" bgcolor="#000000"
-                        src="<%= @listing.three_sixty_video %>"
-                        frameborder="0" allowvr allowfullscreen mozallowfullscreen="true"
-                        webkitallowfullscreen="true" onmousewheel=""></iframe>
-                <br/>
-                <a title="<%= @listing.listing_name %>" href="#">
-                  <%= @listing.listing_name %>
-                </a>
-              </div>
-            </div>
-          </div>
-      <% end %>
-      <% unless @listing.three_sixty_photo.empty? %>
-          <div role="tabpanel" class="tab-pane <%= 'active' if @listing.three_sixty_video.empty? %>" id="three_sixty_photos">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <iframe width="480" height="480px" bgcolor="#000000"
-                        src="<%= @listing.three_sixty_photo %>"
-                        frameborder="0" allowvr allowfullscreen mozallowfullscreen="true"
-                        webkitallowfullscreen="true" onmousewheel=""></iframe>
-                <br/>
-                <a title="<%= @listing.listing_name %>" href="#">
-                  <%= @listing.listing_name %>
-                </a>
-              </div>
-            </div>
-          </div>
-      <% end %>
-      <div role="tabpanel" class="tab-pane <%= 'active' if @listing.three_sixty_photo.empty? %>" id="maps">
+      <div role="tabpanel" class="tab-pane active" id="three_d_models">
         <div class="panel panel-default">
           <div class="panel-body">
-            <div id="detail-map"></div>
+            <iframe width="480" height="480px" bgcolor="#000000"
+                    src="<%= @listing.three_d_model %>"
+                    frameborder="0" allowvr allowfullscreen mozallowfullscreen="true"
+                    webkitallowfullscreen="true" onmousewheel=""></iframe>
             <br/>
             <a title="<%= @listing.listing_name %>" href="#">
               <%= @listing.listing_name %>
@@ -93,6 +33,17 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div id="street-view-container"></div>
+            <br/>
+            <a title="<%= @listing.listing_name %>" href="#">
+              <%= @listing.listing_name %>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="maps">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div id="detail-map"></div>
             <br/>
             <a title="<%= @listing.listing_name %>" href="#">
               <%= @listing.listing_name %>
