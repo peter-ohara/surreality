@@ -2,346 +2,352 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Surreal</title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-  <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom css -->
-  <link href="css/style.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/palette.css"><link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Surreal</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom css -->
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/palette.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-  <script src="js/jquery-3.1.1.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
 
 
 </head>
 
+
 <body>
-    <nav class="navbar navbar-default">
+
+<nav class="navbar sticky-top">
     <div class="paulette">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">Surreal</a>
-        </div>
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Surreal</a>
+            </div>
 
-        <form action="/search" autocomplete="off" class="navbar-form navbar-left" method="get" name="search" accept-charset="utf-8">
-          <div class="form-group">
-            <label class="sr-only" for="location">Location</label>
-            <input type="text" class="form-control" name="location" id="location" placeholder="Location">
-          </div>
-          <div class="form-group">
-            <label class="sr-only" for="property-type">Property Type</label>
-            <select class="form-control" name="property_type" id="property-type">
-                <option value="">Property type</option>
-                <option value="apartment">Apartment</option>
-                <option value="semi_detached">Semi-Detached</option>
-                <option value="detached">Detached</option>
-                <option value="hostel">Hostel</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="sr-only" for="bedrooms">Bedrooms</label>
-            <select class="form-control" name="bedrooms" id="bedrooms">
-                <option value="">Bedrooms</option>
-                <option value="0">Any</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-            </select>
-          </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Buy</a></li>
+                    <li><a href="#">Rent</a></li>
+                    <li><a href="#">Mortgage</a></li>
+                    <li><a href="#">Sale</a></li>
+                </ul>
 
-          <div class="form-group">
-            <label class="sr-only" for="cost-min">Cost Min</label>
-            <input type="number" class="form-control" name="cost_min" id="cost-min" placeholder="Cost Min">
-            <label class="sr-only" for="cost-min">Cost Max</label>
-            <input type="number" class="form-control" name="cost_max" id="cost-max" placeholder="Cost Max">
-          </div>
 
-          <button type="submit" class="btn">Search</button>
-        </form>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Sign Up</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Saved Homes</a></li>
+                    <li><a href="#">Saved Searches</a></li>
+                    <li><a href="#">Sign in</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
     </div>
-  </nav>
+</nav>
 
-  <div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-7">
-      <div class="row">
-        <div class="col-sm-12">
-            <form action="" autocomplete="off" class="form-inline" method="post" accept-charset="utf-8">
-                <div class="form-group">
-                    <label class="sr-only" for="property-type">Property Type</label>
-                    <select class="form-control" id="property-type">
-                        <option value="">Property type</option>
-                        <option value="apartment">Apartment</option>
-                        <option value="semi_detached">Semi-Detached</option>
-                        <option value="detached">Detached</option>
-                        <option value="hostel">Hostel</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="sr-only" for="bedrooms">Bedrooms</label>
-                    <select class="form-control" id="bedrooms">
-                        <option value="">Bedrooms</option>
-                        <option value="0">Any</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </select>
-                </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="/sale_search" autocomplete="off" method="get" name="search" accept-charset="utf-8">
 
                 <div class="form-group">
-                    <label class="sr-only" for="cost-min">Cost Min</label>
-                    <input type="number" class="form-control" id="cost-min" placeholder="Cost Min">
-                    <label class="sr-only" for="cost-min">Cost Max</label>
-                    <input type="number" class="form-control" id="cost-max" placeholder="Cost Max">
+                    <label class="sr-only" for="location">Location</label>
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                For Sale <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">For Sale</a></li>
+                                <li><a href="#">For Rent</a></li>
+                            </ul>
+                        </div>
+                        <input type="text" class="form-control" name="location" id="location" placeholder="Location">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="button" id="dLabel" data-toggle="collapse"
+                                    href="#expandedForm" aria-expanded="false" aria-controls="expandedForm">
+                                More
+                                <span class="caret"></span>
+                            </button>
+
+                            <button type="submit" class="btn btn-danger">Search</button>
+                        </div>
+                    </div>
                 </div>
 
-                <button type="submit" class="btn btn-default">Filter</button>
+                <div class="collapse" id="expandedForm">
+                    <div class="row">
+                        <div class="form-group col-sm-2">
+                            <label class="sr-only" for="cost-min">Cost Min</label>
+                            <input type="number" min="0" class="form-control" name="cost_min" id="cost-min"
+                                   placeholder="Cost Min">
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <label class="sr-only" for="cost-min">Cost Max</label>
+                            <input type="number" min="0" class="form-control" name="cost_max" id="cost-max"
+                                   placeholder="Cost Max">
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <label class="sr-only" for="bedrooms">Bedrooms</label>
+                            <input type="number" min="0" class="form-control" name="bedrooms" id="bedrooms"
+                                   placeholder="Bedrooms">
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label class="sr-only" for="category">Category</label>
+                            <select class="form-control" name="category" id="category">
+                                <option value="">Category</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="semi_detached">Semi-Detached</option>
+                                <option value="hostel">Hostel</option>
+                                <option value="house">House</option>
+                                <option value="condo">Condo</option>
+                                <option value="townhome">Townhome</option>
+                                <option value="multi_family">Multi-Family</option>
+                                <option value="land">Land</option>
+                                <option value="mobile_or_manufactured">Mobile/Manufactured</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label class="sr-only" for="architecture">Architecture</label>
+                            <select class="form-control" name="architecture" id="architecture">
+                                <option value="">Architecture</option>
+                                <option value="colonial">Colonial</option>
+                                <option value="contemporary">Contemporary</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <label class="sr-only" for="keywords">Keywords</label>
+                            <input type="text" class="form-control" name="keywords" id="keywords"
+                                   placeholder="Keywords, eg. Pool, parking, cctv">
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label class="sr-only" for="lot-size-min">Min lot size</label>
+                            <input type="number" min="0" class="form-control" name="lot_size_min" id="lot-size-min"
+                                   placeholder="Min lot size">
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label class="sr-only" for="lot-size-min">Max lot size</label>
+                            <input type="number" min="0" class="form-control" name="lot_size_max" id="lot-size-max"
+                                   placeholder="Max lot size">
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label class="sr-only" for="min-yr-built">Min year built</label>
+                            <input type="number" min="0" class="form-control" name="min_yr_built" id="min-yr-built"
+                                   placeholder="Min year built">
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label class="sr-only" for="max-yr-built">Max year built</label>
+                            <input type="number" min="0" class="form-control" name="max_yr_built" id="max-yr-built"
+                                   placeholder="Max year built">
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+
             </form>
+
         </div>
-      </div>
-
-      <br>
-
-      <div class="row">
-        <div class="col-sm-12 col-md-12">
-            Showing
-            <span class="text-primary">6 results</span>
-            for
-            East Legon
-            <br>
-            <br>
-        </div>
-
-          <div class="col-sm-4 col-md-4">
-            <div class="thumbnail">
-
-              <a href="/listings/9">
-                <img src="images/kitchen.jpg" alt="Kitchen" />
-</a>
-                    <div class="caption">
-                      <p>
-                        GHC 300, Unnamed Road, Ghana
-                      </p>
-                    </div>
-            </div>
-          </div>
-          <div class="col-sm-4 col-md-4">
-            <div class="thumbnail">
-
-              <a href="/listings/7">
-                <img src="images/kitchen.jpg" alt="Kitchen" />
-</a>
-                    <div class="caption">
-                      <p>
-                        GHC 300, Deedaw Ln, Madina, Ghana
-                      </p>
-                    </div>
-            </div>
-          </div>
-          <div class="col-sm-4 col-md-4">
-            <div class="thumbnail">
-
-              <a href="/listings/5">
-                <img src="images/kitchen.jpg" alt="Kitchen" />
-</a>
-                    <div class="caption">
-                      <p>
-                        GHC 300, Paster Oko Close, Madina, Ghana
-                      </p>
-                    </div>
-            </div>
-          </div>
-          <div class="col-sm-4 col-md-4">
-            <div class="thumbnail">
-
-              <a href="/listings/4">
-                <img src="images/kitchen.jpg" alt="Kitchen" />
-</a>
-                    <div class="caption">
-                      <p>
-                        GHC 300, Unnamed Road, Accra, Ghana
-                      </p>
-                    </div>
-            </div>
-          </div>
-          <div class="col-sm-4 col-md-4">
-            <div class="thumbnail">
-
-              <a href="/listings/8">
-                <img src="images/kitchen.jpg" alt="Kitchen" />
-</a>
-                    <div class="caption">
-                      <p>
-                        GHC 300, Tankple St, Accra, Ghana
-                      </p>
-                    </div>
-            </div>
-          </div>
-          <div class="col-sm-4 col-md-4">
-            <div class="thumbnail">
-
-              <a href="/listings/1">
-                <img src="images/kitchen.jpg" alt="Kitchen" />
-</a>
-                    <div class="caption">
-                      <p>
-                        GHC 300, 3rd Asoyi Ln, Accra, Ghana
-                      </p>
-                    </div>
-            </div>
-          </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-12">
-          <nav aria-label="Page navigation">
-            <ul class="pagination">
-              <li>
-                <a href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li>
-                <a href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-
     </div>
-
-
-    <div class="col-sm-5">
-      <div id="search-map"></div>
-    </div>
-  </div>
 </div>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            Showing 1 resuls for East Legon
+            <button type="button" class="btn btn-link pull-right">
+          <span class="text-primary">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            Save this search
+          </span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-7 search-results-list">
+            <div class="row">
+                <div class="col-sm-4 col-md-4">
+                    <div class="thumbnail">
+
+                        <a href="/sale_listings/1">
+                            <img src="https://res.cloudinary.com/surreal/image/upload/c_limit,w_250/v1488147951/home1"
+                                 alt="Home1"/>
+                        </a>
+                        <div class="caption">
+                            <p>
+                                GHC 84000.00, Aluguntugui St, Accra, Ghana
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
 
 
+        <div class="col-sm-5 search-results-map">
+            <div id="search-map"></div>
+        </div>
+    </div>
+</div>
 
 <script>
-$(document).ready(function (){
-    var searchMap = L.map('search-map').setView([5.655893486604699, -0.1622184547449349], 13);
+    var map;
+    var infoWindow;
+    var emptyResultsList = false;
+    var listingLocation = {lat: 5.644291299999999, lng: -0.15172740000000004};
+    var zoom = 10;
+    var west_bounds = -0.1517274;
+    var east_bounds = -0.1517274;
+    var listings = [{
+        "id": 1,
+        "listing_name": "No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon",
+        "price_cents": 8400000,
+        "latitude": 5.6442913,
+        "longitude": -0.1517274,
+        "address": "Aluguntugui St, Accra, Ghana",
+        "city": "Accra",
+        "state": "Greater Accra Region",
+        "state_code": "Greater Accra Region",
+        "postal_code": null,
+        "country": "Ghana",
+        "country_code": "GH",
+        "category_id": 1,
+        "num_bedrooms": 8,
+        "num_bathrooms": 7,
+        "floor_area": 1656.0,
+        "lot_size": 2095.0,
+        "build_date": "2004-02-26T22:31:00.000Z",
+        "description": "This is a gorgeous mansion  with four individual apartments located along Aluguntuguntu Street in East Legon . Two apartments downstairs and two upstairs. Each apartment has 2 bedrooms, 3 bathrooms, a living room and a kitchen.\r\nThey are spacious and each has it's unique look. The bathrooms are equipped with bathtubs and mirrors. The two apartments upstairs have a great view from the balcony. It has ample parking space, a outdoor hangout area and a barbecue area. There is enough space to convert \r\nto a playground or a kitchen garden. The neighborhood is quiet with little disturbances from cars passing by.",
+        "architecture_id": 1,
+        "three_d_model": "https://sketchfab.com/models/331119460fed4869a32f42a204c39aa2/embed",
+        "three_sixty_video": "https://www.youtube.com/embed/G8dHyWxXwy8",
+        "three_sixty_photo": "https://www.360cities.net/embed_iframe/black-angus-tauno-kangro-helsinki",
+        "sold_cents": 0,
+        "created_at": "2017-02-25T13:00:50.604Z",
+        "updated_at": "2017-02-27T11:40:44.961Z",
+        "distance": 0.787600374541682,
+        "bearing": "55.943954517796"
+    }];
 
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(searchMap);
+    function initMap() {
+        if (emptyResultsList) {
+            map = new google.maps.Map(document.getElementById('search-map'), {
+                center: listingLocation,
+                zoom: zoom,
+                streetViewControl: false
+            });
+        } else {
+            map = new google.maps.Map(document.getElementById('search-map'), {
+                center: listingLocation,
+                zoom: getZoom(west_bounds, east_bounds, "#search-map"),
+                streetViewControl: false
+            });
 
-    console.log(searchMap.getBounds());
 
-    var GLOBE_WIDTH = 256; // a constant in Google's map projection
-    var west = searchMap.getBounds()._southWest.lng;
-    var east = searchMap.getBounds()._northEast.lng;
-    var angle = east - west;
-    if (angle < 0) {
-      angle += 360;
+            var latLong = {lat: 5.6442913, lng: -0.1517274};
+
+            var marker = new google.maps.Marker({
+                map: map,
+                position: latLong
+            });
+
+            google.maps.event.addListener(marker, 'click', function () {
+                infoWindow.setContent(
+                    `
+                        <a href="/sale_listings/1">
+                          <img class="img-responsive" src="https://res.cloudinary.com/surreal/image/upload/c_limit,w_250/v1488147951/home1" alt="Home1" />
+</a>                        <div class="caption">
+                          <p>GHC 84000.00</p>
+                          <p>No. 20 Aluguntuguntu Street...</p>
+                        </div>`
+                );
+                infoWindow.open(map, this);
+            });
+
+        }
+
+        infoWindow = new google.maps.InfoWindow();
     }
-    var pixelWidth = $("#search-map").width();
-    var zoom = Math.round(Math.log(pixelWidth * 360 / angle / GLOBE_WIDTH) / Math.LN2);
-    console.log("Zoom: ", zoom);
 
-
-    L.marker([5.6462718, -0.159063]).addTo(searchMap)
-        .bindPopup(`
-          <a href="/listings/1">
-            <img class="img-responsive" src="images/kitchen.jpg" alt="Kitchen" />
-</a>
-          <div class="caption">
-            GHC 300, Room 22 SandCity
-          </div>
-        `);
-
-
-    L.marker([5.6522718, -0.159063]).addTo(searchMap)
-        .bindPopup(`
-          <a href="/listings/8">
-            <img class="img-responsive" src="images/kitchen.jpg" alt="Kitchen" />
-</a>
-          <div class="caption">
-            GHC 300, Room 28 SandCity
-          </div>
-        `);
-
-
-    L.marker([5.6122718, -0.155063]).addTo(searchMap)
-        .bindPopup(`
-          <a href="/listings/4">
-            <img class="img-responsive" src="images/kitchen.jpg" alt="Kitchen" />
-</a>
-          <div class="caption">
-            GHC 300, Room 24 SandCity
-          </div>
-        `);
-
-
-    L.marker([5.6422718, -0.135063]).addTo(searchMap)
-        .bindPopup(`
-          <a href="/listings/5">
-            <img class="img-responsive" src="images/kitchen.jpg" alt="Kitchen" />
-</a>
-          <div class="caption">
-            GHC 300, Room 25 SandCity
-          </div>
-        `);
-
-
-    L.marker([5.6822718, -0.165063]).addTo(searchMap)
-        .bindPopup(`
-          <a href="/listings/7">
-            <img class="img-responsive" src="images/kitchen.jpg" alt="Kitchen" />
-</a>
-          <div class="caption">
-            GHC 300, Room 27 SandCity
-          </div>
-        `);
-
-
-    L.marker([5.7, -0.2]).addTo(searchMap)
-        .bindPopup(`
-          <a href="/listings/9">
-            <img class="img-responsive" src="images/kitchen.jpg" alt="Kitchen" />
-</a>
-          <div class="caption">
-            GHC 300, Room 29 SandCity
-          </div>
-        `);
-
-    
-});
+    function getZoom(westBound, eastBound, mapId) {
+        const GLOBE_WIDTH = 256; // a constant in Google's map projection
+        var angle = eastBound - westBound;
+        if (angle < 0) {
+            angle += 360;
+        }
+        const pixelWidth = $(mapId).width();
+        const zoom = Math.round(Math.log(pixelWidth * 360 / angle / GLOBE_WIDTH) / Math.LN2);
+        return 17;
+    }
 </script>
 
-  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrRvrsJS76i6RqSHHJif6wlq1cY93Ynm0&libraries=places&callback=initMap">
+</script>
+
+<a class="btn btn-info btn-pink" href="https://goo.gl/forms/WSx4QFj5qE9Uu2s92" target="_blank" role="button"
+   id="survey_button">
+    Please help us improve this product :)
+</a>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+
 </body>
 </html>

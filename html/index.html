@@ -18,12 +18,13 @@
     <script src="js/jquery-3.1.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"/>
 
 </head>
 
 <body>
-<nav class="navbar navbar-default">
+
+<nav class="navbar sticky-top">
     <div class="paulette">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -35,301 +36,210 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <h4><b><a class="navbar-brand" href="index.html">Surreal</a></b></h4>
+                <a class="navbar-brand" href="/">Surreal</a>
             </div>
-
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Buy</a></li>
+                    <li><a href="#">Rent</a></li>
+                    <li><a href="#">Mortgage</a></li>
+                    <li><a href="#">Sale</a></li>
+                </ul>
+
+
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Sign Up</a></li>
+                    <li><a href="#">Saved Homes</a></li>
+                    <li><a href="#">Saved Searches</a></li>
+                    <li><a href="#">Sign in</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </div>
 </nav>
+
 <br><br><br>
 
 <div class="container">
     <div class="col-sm-12" id="clone">
         <p class="tagline">
-            <span>
-
-                Great homes and neighbourhoods start with Surreal. <br>
-
-            <small style="color: #616161;">
-                Make informed decisions about which place to rent
-            </small>
-            </span>
+        <span>
+        <b>
+            Great homes and neighbourhoods start with Surreal. <br>
+        </b>
+        <small style="color: #616161;">
+            Make informed decisions about which place to rent
+        </small>
+        </span>
         </p>
     </div>
 </div>
+
 <br><br>
 
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-12 panel">
-            <form action="/search" autocomplete="off" class="form-inline panel-body" method="get" name="search"
-                  accept-charset="utf-8">
+        <div class="col-md-12">
+            <form action="/sale_search" autocomplete="off" method="get" name="search" accept-charset="utf-8">
+
                 <div class="form-group">
                     <label class="sr-only" for="location">Location</label>
-                    <input type="text" class="form-control" name="location" id="location" placeholder="Location">
-                </div>
-                <div class="form-group">
-                    <label class="sr-only" for="property-type">Property Type</label>
-                    <select class="form-control" name="property_type" id="property-type">
-                        <option value="">Property Type</option>
-                        <option value="0">Any</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="sr-only" for="bedrooms">Bedrooms</label>
-                    <select class="form-control" name="bedrooms" id="bedrooms">
-                        <option value="">Bedrooms</option>
-                        <option value="0">Any</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                    <div class="input-group input-group-lg">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                For Sale <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">For Sale</a></li>
+                                <li><a href="#">For Rent</a></li>
+                            </ul>
+                        </div>
+                        <input type="text" class="form-control" name="location" id="location" placeholder="Location">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="button" id="dLabel" data-toggle="collapse"
+                                    href="#expandedForm" aria-expanded="false" aria-controls="expandedForm">
+                                More
+                                <span class="caret"></span>
+                            </button>
+
+                            <button type="submit" class="btn btn-danger">Search</button>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="sr-only" for="cost-min">Cost Min</label>
-                    <input type="number" class="form-control" name="cost_min" id="cost-min" placeholder="Cost Min">
-                    <label class="sr-only" for="cost-min">Cost Max</label>
-                    <input type="number" class="form-control" name="cost_max" id="cost-max" placeholder="Cost Max">
+                <div class="collapse" id="expandedForm">
+                    <div class="row">
+                        <div class="form-group col-sm-2">
+                            <label class="sr-only" for="cost-min">Cost Min</label>
+                            <input type="number" min="0" class="form-control" name="cost_min" id="cost-min"
+                                   placeholder="Cost Min">
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <label class="sr-only" for="cost-min">Cost Max</label>
+                            <input type="number" min="0" class="form-control" name="cost_max" id="cost-max"
+                                   placeholder="Cost Max">
+                        </div>
+
+                        <div class="form-group col-sm-2">
+                            <label class="sr-only" for="bedrooms">Bedrooms</label>
+                            <input type="number" min="0" class="form-control" name="bedrooms" id="bedrooms"
+                                   placeholder="Bedrooms">
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label class="sr-only" for="category">Category</label>
+                            <select class="form-control" name="category" id="category">
+                                <option value="">Category</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="semi_detached">Semi-Detached</option>
+                                <option value="hostel">Hostel</option>
+                                <option value="house">House</option>
+                                <option value="condo">Condo</option>
+                                <option value="townhome">Townhome</option>
+                                <option value="multi_family">Multi-Family</option>
+                                <option value="land">Land</option>
+                                <option value="mobile_or_manufactured">Mobile/Manufactured</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label class="sr-only" for="architecture">Architecture</label>
+                            <select class="form-control" name="architecture" id="architecture">
+                                <option value="">Architecture</option>
+                                <option value="colonial">Colonial</option>
+                                <option value="contemporary">Contemporary</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <label class="sr-only" for="keywords">Keywords</label>
+                            <input type="text" class="form-control" name="keywords" id="keywords"
+                                   placeholder="Keywords, eg. Pool, parking, cctv">
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label class="sr-only" for="lot-size-min">Min lot size</label>
+                            <input type="number" min="0" class="form-control" name="lot_size_min" id="lot-size-min"
+                                   placeholder="Min lot size">
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label class="sr-only" for="lot-size-min">Max lot size</label>
+                            <input type="number" min="0" class="form-control" name="lot_size_max" id="lot-size-max"
+                                   placeholder="Max lot size">
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label class="sr-only" for="min-yr-built">Min year built</label>
+                            <input type="number" min="0" class="form-control" name="min_yr_built" id="min-yr-built"
+                                   placeholder="Min year built">
+                        </div>
+
+                        <div class="form-group col-sm-3">
+                            <label class="sr-only" for="max-yr-built">Max year built</label>
+                            <input type="number" min="0" class="form-control" name="max_yr_built" id="max-yr-built"
+                                   placeholder="Max year built">
+                        </div>
+                    </div>
+                    <hr>
                 </div>
 
-                <button class="btn "  type="submit" ><strong>Search</strong></button>
-                <br><br><br>
             </form>
+
         </div>
     </div>
-
-
-    <div class="row">
-        <div class="col-md-12">
-            <h4>Safe neighbourhoods</h4><br>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-4 col-md-4">
-            <div class="thumbnail noborder">
-
-                <a href="/listings/1">
-                    <img src="images/house7.jpg" alt="Kitchen"/>
-                </a>
-                <div class="caption">
-                    <p>
-                        <strong>GHC 300,000 - 3bd
-                            <span class="pull-right">
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                             </span><br>
-                        </strong>3rd Asoyi Ln, Accra, Ghana
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 col-md-4">
-            <div class="thumbnail noborder">
-
-                <a href="/listings/1">
-                    <img src="images/house1.jpg" alt="Kitchen"/>
-                </a>
-                <div class="caption">
-                    <p>
-                        <strong>GHC 300,000 - 3bd
-                            <span class="pull-right">
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                             </span><br>
-                        </strong>3rd Asoyi Ln, Accra, Ghana
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 col-md-4">
-            <div class="thumbnail noborder">
-
-                <a href="/listings/4">
-                    <img src="images/house2.jpg" alt="Kitchen"/>
-                </a>
-                <div class="caption">
-                    <p>
-                        <strong>GHC 300,000 - 3bd
-                            <span class="pull-right">
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                             </span><br>
-                        </strong>3rd Asoyi Ln, Accra, Ghana
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col-md-12">
-            <h4>Featured Homes</h4><br>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-4 col-md-4">
-            <div class="thumbnail noborder">
-
-                <a href="/listings/1">
-                    <img src="images/house2.jpg" alt="Kitchen"/>
-                </a>
-                <div class="caption">
-                    <p>
-                        <strong>GHC 300,000 - 3bd
-                            <span class="pull-right">
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                             </span><br>
-                        </strong>3rd Asoyi Ln, Accra, Ghana
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 col-md-4">
-            <div class="thumbnail noborder">
-
-                <a href="/listings/1">
-                    <img src="images/house4.jpg" alt="Kitchen"/>
-                </a>
-                <div class="caption">
-                    <p>
-                        <strong>GHC 300,000 - 3bd
-                            <span class="pull-right">
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                             </span><br>
-                        </strong>3rd Asoyi Ln, Accra, Ghana
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 col-md-4">
-            <div class="thumbnail noborder">
-
-                <a href="/listings/4">
-                    <img src="images/kitchen.jpg" alt="Kitchen"/>
-                </a>
-                <div class="caption">
-                    <p>
-                        <strong>GHC 300,000 - 3bd
-                            <span class="pull-right">
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                             </span><br>
-                        </strong>3rd Asoyi Ln, Accra, Ghana
-                    </p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <h4>Best neighbourhoods</h4><br>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-4 col-md-4">
-            <div class="thumbnail noborder">
-
-                <a href="/listings/1">
-                    <img src="images/house5.jpg" alt="Kitchen"/>
-                </a>
-                <div class="caption">
-                    <p>
-                        <strong>GHC 300,000 - 3bd
-                            <span class="pull-right">
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                             </span><br>
-                        </strong>3rd Asoyi Ln, Accra, Ghana
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 col-md-4">
-            <div class="thumbnail noborder">
-
-                <a href="/listings/1">
-                    <img src="images/house6.jpg" alt="Kitchen"/>
-                </a>
-                <div class="caption">
-                    <p>
-                        <strong>GHC 300,000 - 3bd
-                            <span class="pull-right">
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                             </span><br>
-                        </strong>3rd Asoyi Ln, Accra, Ghana
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 col-md-4">
-            <div class="thumbnail noborder">
-
-                <a href="/listings/4">
-                    <img src="images/house8.jpg" alt="Kitchen"/>
-                </a>
-                <div class="caption">
-                    <p>
-                        <strong>GHC 300,000 - 3bd
-                            <span class="pull-right">
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                                <i class="glyphicon glyphicon-star"></i>
-                             </span><br>
-                        </strong>3rd Asoyi Ln, Accra, Ghana
-                    </p>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-
 </div>
 
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Popular neighbourhoods</h4><br>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+
+                <a href="/sale_listings/1">
+                    <img src="https://res.cloudinary.com/surreal/image/upload/c_limit,w_400/v1488147951/home1"
+                         alt="Home1"/>
+                </a>
+                <div class="caption">
+                    <p>
+                        <strong>GHC 84000.00 - 3bd
+                            <span class="pull-right">
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                             </span><br>
+                        </strong>Aluguntugui St, Accra, Ghana
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+<a class="btn btn-info btn-pink" href="https://goo.gl/forms/WSx4QFj5qE9Uu2s92" target="_blank" role="button"
+   id="survey_button">
+    Please help us improve this product :)
+</a>
 
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
 </body>
+</html>
+
 
 </html>
