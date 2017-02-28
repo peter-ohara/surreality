@@ -110,7 +110,7 @@ body {
 
 .btn-primary {
     color: #fff;
-    background-color: #428bca;
+    background-color: #009688;
 }
 
 .x {
@@ -118,6 +118,8 @@ body {
     width: 100%;
     margin-bottom: 15px;
     background: #009688;
+    color: #FFFFFF;
+
 }
 
 .list-group {
@@ -144,6 +146,9 @@ body {
 .rating {
     color: #26A69A;
 }
+.crime{
+    color: #F44336;
+}
 
 .carousel-inner {
     background-position: center;
@@ -161,6 +166,7 @@ body {
     bottom: 0;
     z-index: 9999;
     width: 100%;
+    visibility: hidden;
 }
 
 .noborder {
@@ -180,6 +186,7 @@ body {
 
 .navbar-form {
     width: auto;
+
 }
 
 .shadows {
@@ -253,4 +260,25 @@ body {
     width:100%;
     z-index: 9999;
 }
+
+.navbar .nav > li > a {
+    float: none;
+    text-decoration: none;
+    color:dimgrey;
+}
+.navbar .nav > li > a:hover, .navbar .nav > li > a:focus {
+    background-color: #FFFFFF;
+    color: #F44336;
+}
+.btn-danger{
+    background: #F44336;
+}
+.fa-heart, .glyphicon-share{
+    color: #F44336;
+}
+.input-group-btn{
+    background: #FFFFFF;
+}
+
+
 

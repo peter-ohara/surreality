@@ -24,9 +24,10 @@
 
 <body>
 
-<nav class="navbar sticky-top">
-    <div class="paulette">
+<nav class="navbar ">
+
         <div class="container-fluid">
+
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -36,7 +37,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Surreal</a>
+
+                <a class="navbar-brand" href="#">
+                    <img src="images/surreal_logo.png" width="70" height="65" alt="">
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -56,7 +60,6 @@
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
-    </div>
 </nav>
 
 <br><br><br>
@@ -90,20 +93,27 @@
                         <div class="input-group-btn">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
-                                For Sale <span class="caret"></span>
+                                Buy<span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="#">For Sale</a></li>
-                                <li><a href="#">For Rent</a></li>
+                                <li><a href="#">Buy</a></li>
+                                <li><a href="#">Rent</a></li>
                             </ul>
                         </div>
                         <input type="text" class="form-control" name="location" id="location" placeholder="Location">
                         <div class="input-group-btn">
-                            <button class="btn btn-default" type="button" id="dLabel" data-toggle="collapse"
-                                    href="#expandedForm" aria-expanded="false" aria-controls="expandedForm">
-                                More
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                               <!-- <span class="glyphicon glyphicon-bed" aria-hidden="true"></span>-->Bedrooms
                                 <span class="caret"></span>
                             </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">1 Bd</a></li>
+                                <li><a href="#">2 Bd</a></li>
+                                <li><a href="#">3 Bd</a></li>
+                                <li><a href="#">4 Bd</a></li>
+                                <li><a href="#">5 Bd</a></li>
+                            </ul>
 
                             <button type="submit" class="btn btn-danger">Search</button>
                         </div>

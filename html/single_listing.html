@@ -16,6 +16,7 @@
     <script src="js/jquery-3.1.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
+
 </head>
 
 
@@ -34,7 +35,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Surreal</a>
+
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/surreal_logo.png" width="70" height="65" alt="">
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -55,25 +59,31 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </div>
-</nav>
+</nav><br>
 
 <nav class="navbar navbar-toolbar" data-spy="affix" data-offset-top="81">
     <div class="container">
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-toolbar-nav">
-                <li><a href="#" class="btn btn-danger">Request more info</a></li>
+                <span><span></span><a href="#" class="btn btn-danger">Request more info</a></span></li>
             </ul>
             <ul class="nav navbar-nav navbar-toolbar-nav navbar-right">
                 <li><a href="#" class="btn btn-default">Calculate Mortgage</a></li>
                 <li>
                     <a href="#" class="btn btn-default">
-            <span class="text-primary">
-              <i class="fa fa-heart" aria-hidden="true"></i>
-              Save
-          </span>
+                    <span class="text-primary">
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                     <span>Save</span>
+                    </span>
                     </a>
                 </li>
-                <li><a href="#" class="btn btn-default">Share</a></li>
+
+                <li> <a href="#" class="btn btn-default">
+                    <span class="text-primary">
+                      <i class="glyphicon glyphicon-share" aria-hidden="true"></i>
+                     <span>Share</span>
+                    </span>
+                </a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -89,11 +99,11 @@
                     <div class="input-group input-group-lg">
                         <div class="input-group-btn">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                For Sale <span class="caret"></span>
+                                Buy<span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="#">For Sale</a></li>
-                                <li><a href="#">For Rent</a></li>
+                                <li><a href="#">Buy</a></li>
+                                <li><a href="#">Rent</a><sale/li>
                             </ul>
                         </div>
                         <input type="text" class="form-control" name="location" id="location" placeholder="Location">
@@ -157,25 +167,7 @@
                             <input type="text" class="form-control" name="keywords" id="keywords" placeholder="Keywords, eg. Pool, parking, cctv">
                         </div>
 
-                        <div class="form-group col-sm-3">
-                            <label class="sr-only" for="lot-size-min">Min lot size</label>
-                            <input type="number" min="0" class="form-control" name="lot_size_min" id="lot-size-min" placeholder="Min lot size">
-                        </div>
 
-                        <div class="form-group col-sm-3">
-                            <label class="sr-only" for="lot-size-min">Max lot size</label>
-                            <input type="number" min="0" class="form-control" name="lot_size_max" id="lot-size-max" placeholder="Max lot size">
-                        </div>
-
-                        <div class="form-group col-sm-3">
-                            <label class="sr-only" for="min-yr-built">Min year built</label>
-                            <input type="number" min="0" class="form-control" name="min_yr_built" id="min-yr-built" placeholder="Min year built">
-                        </div>
-
-                        <div class="form-group col-sm-3">
-                            <label class="sr-only" for="max-yr-built">Max year built</label>
-                            <input type="number" min="0" class="form-control" name="max_yr_built" id="max-yr-built" placeholder="Max year built">
-                        </div>
                     </div>
                     <hr>
                 </div>
@@ -208,12 +200,12 @@
                         </div>
                         <div class="form-group">
 
-                            <input type="text" class="form-control" id="email" placeholder="email">
+                            <input type="text" class="form-control" id="email" placeholder="Email">
                         </div>
                         <div class="form-group">
                             <textarea class="form-control" placeholder="">I am interested in No. 20 Aluguntuguntu Street, Ambassadorial Enclave, East Legon</textarea>
                         </div>
-                        <button type="submit" class="btn btn-pink x">Request More Information</button>
+                        <button type="submit" class="btn btn-danger">Request More Information</button>
                     </form>
                 </div>
 
@@ -413,7 +405,7 @@
                         <div href="#" class="list-group-item">
                             <h4 class="list-group-item-heading">
                                 <i class="fa fa-shield" aria-hidden="true"></i>
-                                Crime &nbsp;<span class="rating">Lowest</span>
+                                Crime &nbsp;<span class="crime">Lowest</span>
                             </h4>
                             <a href="#" class="btn btn-link">More Details</a>
                         </div>
@@ -510,30 +502,7 @@
                                                 <input type="text" class="form-control" id="destination" name="destination"
                                                        placeholder="Enter your commute destination">
                                             </div>
-                                            <div class="form-group">
-                                                <div class="input-group">
-                        <span class="input-group-btn">
-                          <button class="btn btn-default" type="button">
-                              <i class="fa fa-car" aria-hidden="true"></i>
-                          </button>
-                        </span>
-                                                    <span class="input-group-btn">
-                          <button class="btn btn-default" type="button">
-                            <i class="fa fa-bus" aria-hidden="true"></i>
-                          </button>
-                        </span>
-                                                    <span class="input-group-btn">
-                          <button class="btn btn-default" type="button">
-                            <i class="fa fa-male" aria-hidden="true"></i>
-                          </button>
-                        </span>
-                                                    <span class="input-group-btn">
-                          <button class="btn btn-default" type="button">
-                            <i class="fa fa-bicycle" aria-hidden="true"></i>
-                          </button>
-                        </span>
-                                                </div>
-                                            </div>
+
                                             <button type="submit" class="btn btn-default">Calculate</button>
                                         </form>
                                     </div>
@@ -704,7 +673,7 @@
 
 </div>
 
-<footer class="footer">
+<footer class="footer navbar-fixed-bottom">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 text-center">
@@ -954,12 +923,13 @@
             infowindow.open(map, this);
         });
     }
+
 </script>
 
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrRvrsJS76i6RqSHHJif6wlq1cY93Ynm0&libraries=places&callback=initMap">
 </script>
-
+<script src="js/increament.js"></script>
 
 <a class="btn btn-info btn-pink" href="https://goo.gl/forms/WSx4QFj5qE9Uu2s92" target="_blank" role="button" id="survey_button">
     Please help us improve this product :)
