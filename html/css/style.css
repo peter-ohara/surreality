@@ -266,10 +266,21 @@ body {
     text-decoration: none;
     color:dimgrey;
 }
+
+.navbar-brand {
+    color:dimgrey;
+}
+
 .navbar .nav > li > a:hover, .navbar .nav > li > a:focus {
     background-color: #FFFFFF;
     color: #F44336;
 }
+
+.navbar-brand:hover, .navbar-brand:focus {
+    background-color: #FFFFFF;
+    color: #F44336;
+}
+
 .btn-danger{
     background: #F44336;
 }

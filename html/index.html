@@ -22,54 +22,51 @@
 
 </head>
 
+
 <body>
 
-<nav class="navbar ">
+<nav class="navbar">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Surreal</a>
+        </div>
 
-        <div class="container-fluid">
-
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <a class="navbar-brand" href="#">
-                    <img src="images/surreal_logo.png" width="70" height="65" alt="">
-                </a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Buy</a></li>
-                    <li><a href="#">Rent</a></li>
-                    <li><a href="#">Mortgage</a></li>
-                    <li><a href="#">Sale</a></li>
-                </ul>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Buy</a></li>
+                <li><a href="#">Rent</a></li>
+                <li><a href="#">Mortgage</a></li>
+                <li><a href="#">Sale</a></li>
+            </ul>
 
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Saved Homes</a></li>
-                    <li><a href="#">Saved Searches</a></li>
-                    <li><a href="#">Sign in</a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Saved Homes</a></li>
+                <li><a href="#">Saved Searches</a></li>
+                <li><a href="#">Sign in</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+    </div>
 </nav>
 
 <br><br><br>
 
 <div class="container">
     <div class="col-sm-12" id="clone">
-        <p class="tagline">
+        <p class="tagline text-center">
         <span>
         <b>
-            Great homes and neighbourhoods start with Surreal. <br>
+            Homes that fit you <br>
         </b>
         <small style="color: #616161;">
             Make informed decisions about which place to rent
@@ -104,15 +101,15 @@
                         <div class="input-group-btn">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
-                               <!-- <span class="glyphicon glyphicon-bed" aria-hidden="true"></span>-->Bedrooms
+                                <!-- <span class="glyphicon glyphicon-bed" aria-hidden="true"></span>-->Bedrooms
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="#">1 Bd</a></li>
-                                <li><a href="#">2 Bd</a></li>
-                                <li><a href="#">3 Bd</a></li>
-                                <li><a href="#">4 Bd</a></li>
-                                <li><a href="#">5 Bd</a></li>
+                                <li><a>1 Bd</a></li>
+                                <li><a>2 Bd</a></li>
+                                <li><a>3 Bd</a></li>
+                                <li><a>4 Bd</a></li>
+                                <li><a>5 Bd</a></li>
                             </ul>
 
                             <button type="submit" class="btn btn-danger">Search</button>
@@ -201,7 +198,6 @@
                 </div>
 
             </form>
-
         </div>
     </div>
 </div>
@@ -216,23 +212,85 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-4 col-md-4">
+        <div class="col-sm-3 col-md-3">
             <div class="thumbnail">
 
-                <a href="/sale_listings/1">
-                    <img src="https://res.cloudinary.com/surreal/image/upload/c_limit,w_400/v1488147951/home1"
-                         alt="Home1"/>
-                </a>
+                <img src="https://res.cloudinary.com/surreal/image/upload/c_scale,h_269/v1488395972/maxresdefault_rbya1f.jpg"
+                     alt="Home1"/>
+
                 <div class="caption">
                     <p>
-                        <strong>GHC 84000.00 - 3bd
+                        <strong>East Legon
                             <span class="pull-right">
                                 <i class="glyphicon glyphicon-star"></i>
                                 <i class="glyphicon glyphicon-star"></i>
                                 <i class="glyphicon glyphicon-star"></i>
                                 <i class="glyphicon glyphicon-star"></i>
-                             </span><br>
-                        </strong>Aluguntugui St, Accra, Ghana
+                             </span>
+                        </strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3 col-md-3">
+            <div class="thumbnail">
+
+                <img src="https://res.cloudinary.com/surreal/image/upload/c_scale,h_415/v1488395178/MG_9774_m624hl.jpg"
+                     alt="Home1"/>
+
+                <div class="caption">
+                    <p>
+                        <strong>Spintex
+                            <span class="pull-right">
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                             </span>
+                        </strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3 col-md-3">
+            <div class="thumbnail">
+
+                <img src="https://res.cloudinary.com/surreal/image/upload/c_scale,h_296/v1488395160/66994138.PQXwZhJW.imagesDSC_9803_tl9oiz.jpg"
+                     alt="Home1"/>
+
+                <div class="caption">
+                    <p>
+                        <strong>Cantoments
+                            <span class="pull-right">
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                             </span>
+                        </strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3 col-md-3">
+            <div class="thumbnail">
+
+                <img src="https://res.cloudinary.com/surreal/image/upload/c_crop,h_350,w_480/v1488395247/11326289_370522853138785_1513760646_n_lzjhbb.jpg"
+                     alt="Home1"/>
+
+                <div class="caption">
+                    <p>
+                        <strong>Dzorwulu
+                            <span class="pull-right">
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                                <i class="glyphicon glyphicon-star"></i>
+                             </span>
+                        </strong>
                     </p>
                 </div>
             </div>
@@ -240,15 +298,15 @@
     </div>
 </div>
 
-<a class="btn btn-info btn-pink" href="https://goo.gl/forms/WSx4QFj5qE9Uu2s92" target="_blank" role="button"
-   id="survey_button">
-    Please help us improve this product :)
-</a>
+<!--<a class="btn btn-info btn-pink" href="https://goo.gl/forms/WSx4QFj5qE9Uu2s92" target="_blank" role="button" id="survey_button">-->
+<!--Please help us improve this product :)-->
+<!--</a>-->
 
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 
 </body>
+
 </html>
 
 
