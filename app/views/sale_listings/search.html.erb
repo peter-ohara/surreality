@@ -142,7 +142,8 @@
         }
         const pixelWidth = $(mapId).width();
         const zoom = Math.round(Math.log(pixelWidth * 360 / angle / GLOBE_WIDTH) / Math.LN2);
-        return 17;
+//        return 10;
+        return zoom;
     }
 </script>
 
