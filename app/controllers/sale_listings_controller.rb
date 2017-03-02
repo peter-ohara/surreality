@@ -15,10 +15,12 @@ class SaleListingsController < ApplicationController
 
     if @listings.empty?
       @map_center = Geocoder.coordinates(address)
+      @listings = @listings.sort_by { |a| a.id }
     else
       @map_center = Geocoder::Calculations.geographic_center(@listings)
       @west_bounds = @listings.minimum(:longitude)
       @east_bounds = @listings.maximum(:longitude)
+      @listings = @listings.sort_by { |a| a.id }
     end
   end
 
