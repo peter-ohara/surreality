@@ -31,9 +31,10 @@
               <div class="thumbnail">
 
                 <%= link_to listing do %>
+                    <% listing.sale_photo_attachments.inspect %>
                     <% unless listing.sale_photo_attachments.empty? %>
-                        <%= cl_image_tag(listing.sale_photo_attachments.first.photo.full_public_id,
-                                         :width => 250, :crop => "limit", :secure => true) %>
+                        <%= cl_image_tag(listing.sale_photo_attachments.first.photo.full_public_id, class: 'img-responsive',
+                                         :height => 150, :width => 250, :crop => 'fill', :secure=>true) %>
                     <% end %>
                 <% end %>
 
@@ -117,8 +118,8 @@
                     infoWindow.setContent(
                         `
                         <%= link_to listing do %>
-                          <%= cl_image_tag(listing.sale_photo_attachments.first.photo.full_public_id, class: "img-responsive",
-                             :width=>250, :crop=>"limit", :secure=>true) %>
+                          <%= cl_image_tag(listing.sale_photo_attachments.first.photo.full_public_id, class: 'img-responsive',
+                             :height => 150, :width => 250, :crop => 'fill', :secure=>true) %>
                         <% end %>
                         <div class="caption">
                           <p><%= "GHC #{listing.price}" %></p>

@@ -7,11 +7,12 @@
 
     <div class="row">
       <% @listings.each do |listing| %>
-          <div class="col-sm-4 col-md-4">
+          <div class="col-sm-3 col-md-3">
             <li class="thumbnail">
 
               <%= link_to listing do %>
-                  <%= image_tag listing.sale_photo_attachments.first.photo.url if !listing.sale_photo_attachments.empty? %>
+                  <%= cl_image_tag(listing.sale_photo_attachments.first.photo.full_public_id, class: 'img-responsive',
+                                   :height => 150, :width => 250, :crop => 'fill', :secure=>true) %>
               <% end %>
 
               <div class="caption">
