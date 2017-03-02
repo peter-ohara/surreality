@@ -291,10 +291,13 @@ body {
   background: #FFFFFF;
 }
 
-
 .truncate {
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.red {
+  color: #F44336;
 }

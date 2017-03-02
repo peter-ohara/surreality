@@ -11,7 +11,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
-      Showing <%= @listings.count(:all) %> resuls for <%= params[:location] %>
+      Showing <%= @listings.count %> results for <%= params[:location] %>
       <button type="button" class="btn btn-link pull-right">
           <span class="text-primary">
             <i class="fa fa-heart" aria-hidden="true"></i>
@@ -27,7 +27,7 @@
     <div class="col-sm-7 search-results-list">
       <div class="row">
         <% @listings.reverse.each do |listing| %>
-            <div class="col-sm-4 col-md-4">
+            <div class="col-sm-6 col-md-6">
               <div class="thumbnail">
 
                 <%= link_to listing do %>
@@ -40,12 +40,19 @@
 
                 <div class="caption">
                   <p>
-                    <%= "GHC #{listing.price}" %>
+                    <strong><%= "GHC #{money_without_cents_and_with_symbol listing.price}" %></strong>
+                    <span class="pull-right small">
+                      <i class="glyphicon glyphicon-star"></i>
+                      <i class="glyphicon glyphicon-star"></i>
+                      <i class="glyphicon glyphicon-star"></i>
+                      <i class="glyphicon glyphicon-star"></i>
+                    </span>
                   </p>
                   <p class="truncate">
-                    <%= listing.address %>
+                    <%= listing.listing_name %>
                   </p>
                 </div>
+
               </div>
             </div>
         <% end %>
