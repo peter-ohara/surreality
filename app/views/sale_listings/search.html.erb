@@ -34,13 +34,16 @@
                     <% listing.sale_photo_attachments.inspect %>
                     <% unless listing.sale_photo_attachments.empty? %>
                         <%= cl_image_tag(listing.sale_photo_attachments.first.photo.full_public_id, class: 'img-responsive',
-                                         :height => 150, :width => 250, :crop => 'fill', :secure=>true) %>
+                                         :height => 270, :width => 450, :crop => 'fill', :secure=>true) %>
                     <% end %>
                 <% end %>
 
                 <div class="caption">
                   <p>
-                    <%= "GHC #{listing.price}, #{listing.address}" %>
+                    <%= "GHC #{listing.price}" %>
+                  </p>
+                  <p class="truncate">
+                    <%= listing.address %>
                   </p>
                 </div>
               </div>
