@@ -6,9 +6,13 @@
 
     function initMap() {
         initSurroundingsMap();
-        initOtherListingsMap();
         initStreetView();
     }
+
+    $("body").on("shown.bs.tab", "#map-tab", function () {
+        initOtherListingsMap();
+        //google.maps.event.trigger(otherListingsMap, 'resize');
+    });
 
     function initOtherListingsMap() {
         let listingLocation = {lat: <%= @listing.latitude %>, lng: <%= @listing.longitude %>};
@@ -23,10 +27,6 @@
         infowindow = new google.maps.InfoWindow();
 
         createMarkerFromLatLong(otherListingsMap, listingLocation);
-
-        $("body").on("shown.bs.tab", "#map-tab", function () {
-            google.maps.event.trigger(otherListingsMap, 'resize');
-        });
     }
 
     function initSurroundingsMap() {
